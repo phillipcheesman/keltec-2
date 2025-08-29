@@ -1,0 +1,189 @@
+table mcschd
+	lineageTag: 60ad50ff-fcf4-41d3-b65e-b764fdf5822c
+
+	column pk_mcschd
+		dataType: int64
+		formatString: 0
+		lineageTag: aa6f0aea-fe94-4292-a915-c99250dfdfc7
+		summarizeBy: sum
+		sourceColumn: pk_mcschd
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: 98db9c67-7ca2-4819-85cc-80102b4c5cfa
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: 648fe268-bc68-4fdb-8553-e48ae2eb0c0b
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode1
+		dataType: string
+		lineageTag: 7486807f-5357-4b38-b30d-c92b137d67b7
+		summarizeBy: none
+		sourceColumn: cspeccode1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode2
+		dataType: string
+		lineageTag: 3d421202-e94f-435b-a82a-d5acd078a429
+		summarizeBy: none
+		sourceColumn: cspeccode2
+
+		annotation SummarizationSetBy = Automatic
+
+	column irtcode
+		dataType: int64
+		formatString: 0
+		lineageTag: 88f025ec-1879-41fb-8486-7dd0c9135717
+		summarizeBy: sum
+		sourceColumn: irtcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column nordqty
+		dataType: double
+		formatString: #,0
+		lineageTag: edb487f0-6336-4598-89e6-3e7bcd5e0c8c
+		summarizeBy: sum
+		sourceColumn: nordqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column dRequest
+		dataType: dateTime
+		formatString: m/d/yy
+		lineageTag: 033b5dda-d698-479f-9944-80610833fc84
+		summarizeBy: none
+		sourceColumn: dRequest
+
+		variation Variation
+			isDefault
+			relationship: 661ec09e-42de-4ad5-8588-d98f00af2785
+			defaultHierarchy: LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column cwono
+		dataType: string
+		lineageTag: ff0c4c40-8c2a-4030-a2d3-10b44a5f1260
+		summarizeBy: none
+		sourceColumn: cwono
+
+		annotation SummarizationSetBy = Automatic
+
+	column caduser
+		dataType: string
+		lineageTag: 0c5a9387-0aca-422f-98f9-0a4fa4dd5394
+		summarizeBy: none
+		sourceColumn: caduser
+
+		annotation SummarizationSetBy = Automatic
+
+	column ceduser
+		dataType: string
+		lineageTag: 85bf7b70-5e98-49fa-afe5-8d25c0499725
+		summarizeBy: none
+		sourceColumn: ceduser
+
+		annotation SummarizationSetBy = Automatic
+
+	column tadtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 054c3aab-af1a-4baa-bf20-8f0b0e3db062
+		summarizeBy: none
+		sourceColumn: tadtime
+
+		variation Variation
+			isDefault
+			relationship: c90d1170-2bbb-4818-9620-3e2fb27b4dc4
+			defaultHierarchy: LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column tedtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1cde45d9-cd4e-4d34-aa3c-f2baae2b9647
+		summarizeBy: none
+		sourceColumn: tedtime
+
+		variation Variation
+			isDefault
+			relationship: 3f5bc660-5247-4735-814e-98ce48629c24
+			defaultHierarchy: LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column cstation
+		dataType: string
+		lineageTag: 21fe15c8-d4c9-4372-9fea-51767864496f
+		summarizeBy: none
+		sourceColumn: cstation
+
+		annotation SummarizationSetBy = Automatic
+
+	column nseq
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c1fc29f-3853-43d2-80e3-62a733e3163d
+		summarizeBy: sum
+		sourceColumn: nseq
+
+		annotation SummarizationSetBy = Automatic
+
+	column MakePriority = RELATED(InventorySummary[MakePriority_v3])
+		formatString: #,0
+		lineageTag: ce6b5461-3c90-44ae-882d-1b448291a161
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column IsNeeded = ```
+			
+			IF (
+			    SUMX ( RELATEDTABLE ( InventorySummary ), InventorySummary[Avail] ) < 0,
+			    1,
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 83021904-3cc9-4361-8869-34bd137200b0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mcschd = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="SELECT * FROM dbo.mcschd WHERE dRequest > '2025-08-01'"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

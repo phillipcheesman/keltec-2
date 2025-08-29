@@ -1,0 +1,71 @@
+table WO
+	lineageTag: 7ff2cfa3-f013-4f12-a9ae-3bd4def03755
+
+	column cserno
+		dataType: string
+		lineageTag: 64066dc3-b91c-4b38-b8cb-c697fbe8c21f
+		summarizeBy: none
+		sourceColumn: cserno
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: 5833661a-412c-485e-80ad-e99c0ca2eb8e
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Time at Station' = DATEDIFF(WO[tlogin],now(),HOUR)
+		dataType: double
+		formatString: 0
+		lineageTag: 6400cfbf-1255-4494-b1af-b6a0aaa33a23
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column csono
+		dataType: string
+		lineageTag: cb41827b-4912-4319-9eb1-69c5a7057f15
+		summarizeBy: none
+		sourceColumn: csono
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_description
+		dataType: string
+		lineageTag: 1b8eea22-5725-46d6-8474-e4679e4c1340
+		summarizeBy: none
+		sourceColumn: item_description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition WO = m
+		mode: import
+		source = ```
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="
+				        SELECT DISTINCT 
+				    s.citemno,
+				    s.cserno,
+				    s.csono,
+				    i.cdescript as item_description
+				FROM mcship s
+				    LEFT JOIN mcmitm i ON s.citemno = i.citemno
+				WHERE s.lvoid = 0
+				    AND s.cserno IS NOT NULL 
+				    AND s.cserno != ''
+				    "])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

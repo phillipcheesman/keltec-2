@@ -1,0 +1,204 @@
+table mcwlog_trimmed
+	lineageTag: 44c84bec-e8e5-4472-8d0b-ce11fad102d5
+
+	column cserno
+		dataType: string
+		lineageTag: 7671c966-27f5-4077-911f-1b0ab76698d0
+		summarizeBy: none
+		sourceColumn: cserno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuserid
+		dataType: string
+		lineageTag: 0e793b67-81a9-41c3-898a-b7c6a6542569
+		summarizeBy: none
+		sourceColumn: cuserid
+
+		annotation SummarizationSetBy = Automatic
+
+	column cstation
+		dataType: string
+		lineageTag: fa27bb0f-225a-4a2a-8fb2-f30627cd7a1b
+		summarizeBy: none
+		sourceColumn: cstation
+
+		annotation SummarizationSetBy = Automatic
+
+	column irtstep
+		dataType: int64
+		formatString: 0
+		lineageTag: dfb820da-c65c-4637-a056-b3ccafb5af31
+		summarizeBy: sum
+		sourceColumn: irtstep
+
+		annotation SummarizationSetBy = Automatic
+
+	column nqty
+		dataType: double
+		formatString: #,0
+		lineageTag: fb864f85-7ed6-41f1-b876-a79e7f9d5147
+		summarizeBy: sum
+		sourceColumn: nqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column clogintime
+		dataType: string
+		lineageTag: 016677f2-c15c-492a-ba27-a507530db4e4
+		summarizeBy: none
+		sourceColumn: clogintime
+
+		annotation SummarizationSetBy = Automatic
+
+	column tlogin
+		dataType: dateTime
+		formatString: m/d/yy h:nn:ss
+		lineageTag: 8d22c891-84d0-4b71-943c-8d5f9804772a
+		summarizeBy: none
+		sourceColumn: tlogin
+
+		variation Variation
+			isDefault
+			relationship: 949040c1-f5e3-47e9-96b4-b8a5585ed9b9
+			defaultHierarchy: LocalDateTable_0cb8e560-565e-4c03-b5f4-e6ab152c5938.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column tlogout
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e7566295-9765-4c25-a10e-c41c622944ee
+		summarizeBy: none
+		sourceColumn: tlogout
+
+		variation Variation
+			isDefault
+			relationship: 17520c0f-2b3e-4d0e-adf1-42aee9ae06f3
+			defaultHierarchy: LocalDateTable_47c08c42-88f5-4d6d-8a3a-211352304c17.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column lsetup
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 118d6e9b-3d52-4a28-b0d0-3e5d6c90d6df
+		summarizeBy: none
+		sourceColumn: lsetup
+
+		annotation SummarizationSetBy = Automatic
+
+	column lvoid
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 55125ab4-1d93-4a54-ab5f-b7e148594118
+		summarizeBy: none
+		sourceColumn: lvoid
+
+		annotation SummarizationSetBy = Automatic
+
+	column caduser
+		dataType: string
+		lineageTag: 0a7df711-3ae3-46f8-b619-240c77ac8f09
+		summarizeBy: none
+		sourceColumn: caduser
+
+		annotation SummarizationSetBy = Automatic
+
+	column tadtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 667fe685-1e24-4e77-8d19-d685f2289220
+		summarizeBy: none
+		sourceColumn: tadtime
+
+		variation Variation
+			isDefault
+			relationship: 8eefd9c0-af1d-4fae-9658-a866fc3ef98d
+			defaultHierarchy: LocalDateTable_2123105c-a9d5-4d88-919c-089f45fbb91c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ceduser
+		dataType: string
+		lineageTag: 82c2b6ea-079b-49b4-9e03-8680f83f6211
+		summarizeBy: none
+		sourceColumn: ceduser
+
+		annotation SummarizationSetBy = Automatic
+
+	column tedtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9d83f348-e321-4085-b1d5-6767e5c4411f
+		summarizeBy: none
+		sourceColumn: tedtime
+
+		variation Variation
+			isDefault
+			relationship: d423e45e-0992-4929-8bc6-a26ac8d0ff31
+			defaultHierarchy: LocalDateTable_14ac421a-af61-4440-9358-059698e6c8f5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column nlogqty
+		dataType: double
+		lineageTag: 345ca6f1-1561-4629-926e-8ba9379489ca
+		summarizeBy: sum
+		sourceColumn: nlogqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pk_mcwlog
+		dataType: int64
+		formatString: 0
+		lineageTag: d90c0ead-8e20-44f5-8974-64d5123eae39
+		summarizeBy: sum
+		sourceColumn: pk_mcwlog
+
+		annotation SummarizationSetBy = Automatic
+
+	column nCompQty
+		dataType: double
+		lineageTag: 55b38e69-8368-451d-b5c1-83ed7053a480
+		summarizeBy: sum
+		sourceColumn: nCompQty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column crev
+		dataType: string
+		lineageTag: 67aa6ddf-f067-40ea-9b63-3e569bfffeb8
+		summarizeBy: none
+		sourceColumn: crev
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwhoappr
+		dataType: string
+		lineageTag: 9a2fa0e1-a5c9-487d-abe0-5770e0ebd301
+		summarizeBy: none
+		sourceColumn: cwhoappr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mcwlog_trimmed = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="SELECT * FROM dbo.mcwlog WHERE tlogin > '2025-06-01'"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

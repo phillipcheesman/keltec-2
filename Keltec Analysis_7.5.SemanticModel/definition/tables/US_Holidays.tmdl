@@ -1,0 +1,130 @@
+table US_Holidays
+	lineageTag: b3b304a6-f33d-4c73-be10-159f12884cb7
+
+	column Date
+		formatString: General Date
+		lineageTag: ede5f32c-dbb2-4ea7-baa0-949345ae5621
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 6aa52659-e014-4805-8697-2f6d8780ea25
+			defaultHierarchy: LocalDateTable_b39b6784-4ac6-4eb8-8acd-85a6a15ad6c6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Holiday
+		lineageTag: d7cd1b8d-8b58-473b-a00b-66005d589211
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Holiday]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition US_Holidays = calculated
+		mode: import
+		source = ```
+				
+				VAR Years = GENERATESERIES(2020, 2026, 1)
+				RETURN
+				UNION(
+				    // New Year's Day (observed)
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y = [Value]
+				        VAR d = DATE(Y,1,1)
+				        RETURN d + SWITCH(WEEKDAY(d,2), 6,-1, 7,1, 0),
+				        "Holiday","New Year's Day"
+				    ),
+				    // MLK Day = 3rd Monday in Jan
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR first = DATE(Y,1,1)
+				        VAR firstMon = first + MOD(1 - WEEKDAY(first,2) + 7, 7)
+				        RETURN firstMon + 7*2,
+				        "Holiday","MLK Day"
+				    ),
+				    // Presidents Day = 3rd Monday in Feb
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR first = DATE(Y,2,1)
+				        VAR firstMon = first + MOD(1 - WEEKDAY(first,2) + 7, 7)
+				        RETURN firstMon + 7*2,
+				        "Holiday","Presidents Day"
+				    ),
+				    // Memorial Day = last Monday in May
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR eom = EOMONTH(DATE(Y,5,1),0)
+				        RETURN eom - MOD( WEEKDAY(eom,2) - 1, 7 ),
+				        "Holiday","Memorial Day"
+				    ),
+				    // Juneteenth (observed)
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR d = DATE(Y,6,19)
+				        RETURN d + SWITCH(WEEKDAY(d,2), 6,-1, 7,1, 0),
+				        "Holiday","Juneteenth"
+				    ),
+				    // Independence Day (observed)
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR d = DATE(Y,7,4)
+				        RETURN d + SWITCH(WEEKDAY(d,2), 6,-1, 7,1, 0),
+				        "Holiday","Independence Day"
+				    ),
+				    // Labor Day = 1st Monday in Sep
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR first = DATE(Y,9,1)
+				        RETURN first + MOD(1 - WEEKDAY(first,2) + 7, 7),
+				        "Holiday","Labor Day"
+				    ),
+				    // Columbus Day = 2nd Monday in Oct
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR first = DATE(Y,10,1)
+				        VAR firstMon = first + MOD(1 - WEEKDAY(first,2) + 7, 7)
+				        RETURN firstMon + 7*1,
+				        "Holiday","Columbus Day"
+				    ),
+				    // Veterans Day (observed)
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR d = DATE(Y,11,11)
+				        RETURN d + SWITCH(WEEKDAY(d,2), 6,-1, 7,1, 0),
+				        "Holiday","Veterans Day"
+				    ),
+				    // Thanksgiving = 4th Thursday in Nov
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR first = DATE(Y,11,1)
+				        VAR firstThu = first + MOD(4 - WEEKDAY(first,2) + 7, 7)
+				        RETURN firstThu + 7*3,
+				        "Holiday","Thanksgiving"
+				    ),
+				    // Christmas (observed)
+				    SELECTCOLUMNS(
+				        Years, "Date",
+				        VAR Y=[Value]
+				        VAR d = DATE(Y,12,25)
+				        RETURN d + SWITCH(WEEKDAY(d,2), 6,-1, 7,1, 0),
+				        "Holiday","Christmas Day"
+				    )
+				)
+				
+				```
+
+	annotation PBI_Id = 263a8be5ed7f4fb5ae21442c87e5e95d
+

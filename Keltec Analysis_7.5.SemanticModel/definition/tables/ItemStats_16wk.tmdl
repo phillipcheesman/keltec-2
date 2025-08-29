@@ -1,0 +1,94 @@
+table ItemStats_16wk
+	lineageTag: 412de9f3-80ae-4afa-a861-9d2000e2ec27
+
+	column citemno
+		lineageTag: 8c639cad-70cd-4855-b0e2-7f7c33e17f01
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: SalesByItemWeek_16wk[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_sales
+		lineageTag: f29ce03b-7ce1-4134-985b-911962108274
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [total_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_sales
+		lineageTag: 90a93845-370f-4c2d-b902-6302eb9880a4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [avg_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column stddev
+		lineageTag: 67377f1f-eacc-4178-91b1-dbfa40e1eae4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [stddev]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_sales
+		lineageTag: f1d3803f-a243-4bfd-8291-f41e3f9233f1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [min_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_sales
+		lineageTag: 6391071a-8cfb-4fca-9baf-32994ba82390
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [max_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Class = LOOKUPVALUE(icitem[cstatus], icitem[citemno], ItemStats_16wk[citemno])
+		lineageTag: f210378e-42d8-4545-ae2d-9536acf6ad00
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_salesCount0s = IFERROR(ItemStats_16wk[total_sales] / 16, 0)
+		lineageTag: 3c0f8d9d-b9ae-4811-a016-92248e703a1d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition ItemStats_16wk = calculated
+		mode: import
+		source = ```
+				
+				SUMMARIZE (
+				    SalesByItemWeek_16wk,
+				    SalesByItemWeek_16wk[citemno],
+				    "total_sales", SUM ( SalesByItemWeek_16wk[nordqty] ),
+				    "avg_sales",   AVERAGE ( SalesByItemWeek_16wk[nordqty] ),
+				    "stddev",      STDEV.S ( SalesByItemWeek_16wk[nordqty] ),
+				    "min_sales",   MIN ( SalesByItemWeek_16wk[nordqty] ),
+				    "max_sales",   MAX ( SalesByItemWeek_16wk[nordqty] )
+				)
+				
+				
+				```
+
+	annotation PBI_Id = f03536b43f8147fea0f5f869e6e14eda
+

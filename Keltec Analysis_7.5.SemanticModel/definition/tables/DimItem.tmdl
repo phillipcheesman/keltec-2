@@ -1,0 +1,20 @@
+table DimItem
+	lineageTag: b61bdd1d-8c68-4b16-8746-abe12dc7b0d4
+
+	column citemno
+		lineageTag: 00a48891-81a8-44e5-9b4a-1a3c51ea5941
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: InventorySummary[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimItem = calculated
+		mode: import
+		source = ```
+				DISTINCT(InventorySummary[citemno])
+				
+				```
+
+	annotation PBI_Id = 5bdfe16211cd4385bd5ee69e0771c50e
+

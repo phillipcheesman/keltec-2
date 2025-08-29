@@ -1,0 +1,26 @@
+table SL_A
+	lineageTag: 6e659a49-e1dc-4972-aa00-0eaffba01044
+
+	measure 'SL_A Value' = SELECTEDVALUE('SL_A'[SL_A], 90)
+		formatString: 0
+		lineageTag: 7a423ea1-0d28-420d-a9e7-50a21fe30caa
+
+	column SL_A
+		formatString: 0
+		lineageTag: 5cecc1d7-206f-46ba-b425-1f68cde7b225
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition SL_A = calculated
+		mode: import
+		source = GENERATESERIES(50, 99, 1)
+
+	annotation PBI_Id = 256a8e8b034b4950bcfd54ac359c990a
+

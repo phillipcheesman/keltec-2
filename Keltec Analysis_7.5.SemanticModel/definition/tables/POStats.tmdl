@@ -1,0 +1,81 @@
+table POStats
+	lineageTag: a828723d-b923-4c78-8766-77b946442181
+
+	column citemno
+		lineageTag: 690c914a-6df6-4cdd-9bb9-63ab5229d7e6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvgLT
+		formatString: #,0
+		lineageTag: abf85a59-773b-4f43-befa-88a3f104d2b9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [AvgLT]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column MinLT
+		formatString: 0
+		lineageTag: 20e0eb77-5561-4f89-93f8-cf61d20cc635
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MinLT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxLT
+		formatString: 0
+		lineageTag: 3ac6e501-cc71-4f08-94d7-d3bfff2ab204
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MaxLT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StdDevLT
+		formatString: #,0
+		lineageTag: 1e587cd1-07ec-433b-955f-776492626013
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [StdDevLT]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'PO Count'
+		formatString: 0
+		lineageTag: 6473335b-e79f-4917-b14d-64336abdbb25
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [PO Count]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition POStats = calculated
+		mode: import
+		source = ```
+				
+				VAR G =
+				    SUMMARIZE ( poptrs, poptrs[citemno] )
+				RETURN
+				ADDCOLUMNS (
+				    G,
+				    "AvgLT",     CALCULATE ( AVERAGE ( poptrs[OrderToRec] ) ),
+				    "MinLT",     CALCULATE ( MIN ( poptrs[OrderToRec] ) ),
+				    "MaxLT",     CALCULATE ( MAX ( poptrs[OrderToRec] ) ),
+				    "StdDevLT",  CALCULATE ( STDEV.P ( poptrs[OrderToRec] ) ),
+				    "PO Count",  CALCULATE ( DISTINCTCOUNT ( poptrs[cpono] ) )
+				)
+				
+				
+				```
+
+	annotation PBI_Id = 00300039b4ea4dc6a019e48fd8afb92b
+

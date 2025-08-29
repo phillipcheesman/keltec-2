@@ -1,0 +1,515 @@
+relationship df2c4f61-a6b0-4181-bf8b-585af1030dd4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sosord.dcreate
+	toColumn: LocalDateTable_c989d75e-f4f7-4195-a057-09642b6a3e08.Date
+
+relationship afbcfc78-da0d-410d-8ffc-a28af32f7b7d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sosord.dorder
+	toColumn: LocalDateTable_0f48c02a-c304-4319-afbf-47278d8af4d3.Date
+
+relationship 6f3ad216-1f2d-49d8-a875-3b91ced61f88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sosord.dquote
+	toColumn: LocalDateTable_179b2012-4e82-4023-bc47-b8fb234bc197.Date
+
+relationship df5970b3-0e45-4437-b88a-72dc200f018b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sosord.dquoteaprv
+	toColumn: LocalDateTable_d4fc33ba-9f74-4b73-b8b1-33dde2c1ce8a.Date
+
+relationship 855de000-4dde-45f1-8432-142f8a64109c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sostrs.drequest
+	toColumn: LocalDateTable_58f9c8e4-e272-415b-8705-e7bcc3d96423.Date
+
+relationship f47d9e50-4892-4dda-a637-779aa53bf9d1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sostrs.idestship
+	toColumn: LocalDateTable_77b9f11f-ed39-4bfd-8bf3-a327089e339a.Date
+
+relationship AutoDetected_4c250506-3d6e-4001-9f02-c0378f598eb8
+	fromColumn: sostrs.csono
+	toColumn: sosord.csono
+
+relationship 06bd4ffa-b08a-456f-a358-dc9890cb378d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vsp_rpt_soopen.dcreate
+	toColumn: LocalDateTable_7c899eab-c9e7-4789-b011-6f3f53ef34d3.Date
+
+relationship 0616a9de-ec20-4b67-89bf-94aac55dde93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vsp_rpt_soopen.drequest
+	toColumn: LocalDateTable_8f97712b-2546-4d2d-82a5-683b78f8d7dc.Date
+
+relationship 710092f5-fd0c-44d6-ae4b-bc5271182e15
+	joinOnDateBehavior: datePartOnly
+	fromColumn: icitem.dcreate
+	toColumn: LocalDateTable_2c80f837-8fa4-42c8-a14c-0934b979db04.Date
+
+relationship 95d980fa-182f-4dc7-aa4f-24a22235c5ec
+	joinOnDateBehavior: datePartOnly
+	fromColumn: icitem.dlastsale
+	toColumn: LocalDateTable_b4dde502-1c26-4679-8547-7236d2322415.Date
+
+relationship 34e328a2-a4c5-411c-9a44-f5fab00d18a1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: icitem.dlastfnh
+	toColumn: LocalDateTable_10b0a3ea-c655-456d-b8f0-5f256255773b.Date
+
+relationship 49ad526c-18ec-43ba-81f9-36c3e264bece
+	joinOnDateBehavior: datePartOnly
+	fromColumn: icitem.dspstart
+	toColumn: LocalDateTable_059a93b9-7012-44b7-a409-be7713662335.Date
+
+relationship 19b3976c-10dc-4410-b95e-7f7b2b05bdca
+	joinOnDateBehavior: datePartOnly
+	fromColumn: icitem.dspend
+	toColumn: LocalDateTable_728966ae-9f4f-4b1c-aff3-9c97ecb617f7.Date
+
+relationship e2b0cc7e-e784-41c5-8bb6-3714d8ae37b0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: icitem.tmodified
+	toColumn: LocalDateTable_36b058b2-d613-4b41-abba-60dbf63ba995.Date
+
+relationship AutoDetected_f97674bc-56e6-48ec-acbe-30131d79a710
+	fromColumn: sostrs.citemno
+	toColumn: icitem.citemno
+
+relationship AutoDetected_2ebc0051-fb78-4f0e-b463-6cdc352a73b2
+	fromColumn: vsp_rpt_soopen.citemno
+	toColumn: icitem.citemno
+
+relationship 18c6958f-0e64-2047-180a-21ba5e841ea5
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: icibin.citemno
+	toColumn: vsp_rpt_soopen.citemno
+
+relationship 6c34675d-f3b8-40d0-8750-7cb8b3f1528b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: popord.dcreate
+	toColumn: LocalDateTable_2533e4b4-53c6-4ebe-ba3e-245bc60aca27.Date
+
+relationship c574576c-1355-4437-b659-e4d895b7368b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: popord.dorder
+	toColumn: LocalDateTable_306ec365-ee5c-48b0-817a-bb55fab1f7dd.Date
+
+relationship ed95c96d-f792-484e-ab0f-45b70ad42371
+	joinOnDateBehavior: datePartOnly
+	fromColumn: popord.drequest
+	toColumn: LocalDateTable_bf5a6c24-ce3c-4867-b232-647bc0bb9704.Date
+
+relationship 620228df-d27b-4a1d-9c5c-d17375175e18
+	joinOnDateBehavior: datePartOnly
+	fromColumn: popord.dquoteaprv
+	toColumn: LocalDateTable_fdbd95d7-e6b3-4db0-90a0-0d081deb126d.Date
+
+relationship a9ef5466-43b5-4662-ae98-db772a30037c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: portrs.drequest
+	toColumn: LocalDateTable_a6ba691e-6a12-4891-974e-d039390c6e2f.Date
+
+relationship 97e5df9a-2aa1-4c5e-a82c-3f7dfcddadc2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: portrs.dreceive
+	toColumn: LocalDateTable_fdf4e832-198b-4819-8461-58c173daf297.Date
+
+relationship 12c4e2b1-da75-425d-ac15-e9eb16337a20
+	joinOnDateBehavior: datePartOnly
+	fromColumn: portrs.dcreate
+	toColumn: LocalDateTable_db98402b-f911-403f-9535-de59710e5373.Date
+
+relationship c6db144e-3cfd-443b-a486-cd653cde3be9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: poptrs.drequest
+	toColumn: LocalDateTable_e625c4bb-ecb1-495f-92aa-dfa55fafbfc6.Date
+
+relationship AutoDetected_5b47db28-bbf5-47a7-a070-4c8ae1697393
+	fromColumn: poptrs.cpono
+	toColumn: popord.cpono
+
+relationship 2ef6ddbc-5277-602f-911b-abf070bf6dcb
+	fromColumn: portrs.PO&Item
+	toColumn: poptrs.PO&Item
+
+relationship 34861ea1-fb7c-4a93-a2a2-c5f50c8f4ca2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: popord.LastRecDate
+	toColumn: LocalDateTable_d108f310-c1a4-49a2-ac29-b5aaf7d84cf7.Date
+
+relationship 49d165e4-b69a-446e-aae9-5031cf8e674c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: poptrs.LastRecDate
+	toColumn: LocalDateTable_4164b0f1-60a3-4351-b5fb-aded1c8ecc66.Date
+
+relationship b62ad7d6-064f-4062-bd11-aa3e3b27dfa8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: poptrs.DateOrderedPO
+	toColumn: LocalDateTable_da69c7cf-9ec5-4e2c-b9e8-be9a638fbd8f.Date
+
+relationship e9005381-162d-b746-142e-c3922c9dc43c
+	fromColumn: vsp_rpt_soopen.csono
+	toColumn: vsp_rpt_soopen_SO.csono
+
+relationship b36c0dd8-3f07-943a-e7e6-590a728403c1
+	fromColumn: vsp_rpt_soopen.citemno
+	toColumn: vsp_rpt_soopen_Item.citemno
+
+relationship ea2dd3c6-1253-3817-d5f8-c4ab4bd2fc03
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: tblMakeBuy.ITEM
+	toColumn: icitem.citemno
+
+relationship 6dd9e72e-d79a-4e82-a7a5-db4b4f305006
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vsp_rpt_soopen2.dcreate
+	toColumn: LocalDateTable_c75e5b22-99a1-4e17-9379-34b867135069.Date
+
+relationship 5b1ceb65-4504-4b15-99da-a10fec3c3165
+	joinOnDateBehavior: datePartOnly
+	fromColumn: vsp_rpt_soopen2.drequest
+	toColumn: LocalDateTable_35fee8fe-e636-4e47-9d6a-44c5a1ea8a35.Date
+
+relationship f6c9d06b-1006-d9e0-876b-4973f66e0eff
+	fromColumn: SalesByItemWeek_16wk.citemno
+	toColumn: icitem.citemno
+
+relationship de8d8832-ce03-cf9c-2a3e-10cac2f547c7
+	fromColumn: SalesByItemWeek_16wk.SortKey
+	toColumn: DimFW_16wk.SortKey
+
+relationship fefc6e29-4ef1-4edc-8503-93bb9e4e4e0f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ictrsn.dcreate
+	toColumn: LocalDateTable_69eb6019-6f39-49c5-8ca5-ce9fd023ad4a.Date
+
+relationship 76de0c7a-09bc-43ce-8061-cd94cf1ad40d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ictrsn.dtrs
+	toColumn: LocalDateTable_30fe5743-df96-4a67-a8a8-7a1038e2258d.Date
+
+relationship AutoDetected_2ec23e44-b176-4f26-80e5-3515d09dd885
+	fromColumn: WO.citemno
+	toColumn: icitem.citemno
+
+relationship bedbd3a5-8f47-4f14-8689-b875e833b020
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mciwhs.dlastfnh
+	toColumn: LocalDateTable_e53d46b7-d077-4afd-a12c-66f378736c9a.Date
+
+relationship 87529ea2-5711-4883-a502-5e73711b5658
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mciwhs.tbuildtime
+	toColumn: LocalDateTable_e9a21917-e4a1-4685-99b0-09d6ede64071.Date
+
+relationship AutoDetected_11d7064f-51f8-4e50-bb22-adb0f894b6cd
+	fromColumn: mciwhs.citemno
+	toColumn: mcitem.citemno
+
+relationship 384e2225-22ba-432d-b58b-4cd30dfaba9e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcflog_trimmed.tlogin
+	toColumn: LocalDateTable_f06bc36e-74de-4dd9-a4b8-f83a4b150286.Date
+
+relationship 717a7382-2faa-466b-9e9f-e0d5ed91d703
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcflog_trimmed.tlogout
+	toColumn: LocalDateTable_c4f51588-c20a-4944-ae57-1fc36be47298.Date
+
+relationship 9e71d358-be1c-4f8f-b809-d81255f592b3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcflog_trimmed.tadtime
+	toColumn: LocalDateTable_fd1d9df0-a89e-475c-ad9b-56614f1519cb.Date
+
+relationship 53a26e63-69b2-4cda-a431-2947418a5a40
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcflog_trimmed.tedtime
+	toColumn: LocalDateTable_06061a71-eae7-427a-8007-217337787a3a.Date
+
+relationship d5e85359-db3f-40e0-a134-bcf2473e350b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.tendtime
+	toColumn: LocalDateTable_3f4f1d00-b5c4-499c-af34-85238dff8bb3.Date
+
+relationship 38986308-c0f8-4f20-bc09-530995eb4447
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.tusetime
+	toColumn: LocalDateTable_a1ad94d8-deb4-48f5-80c8-b43e054c9b60.Date
+
+relationship 04e6efb5-f4c1-4113-aacb-c30bf3107c91
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.tadtime
+	toColumn: LocalDateTable_afbdc9d1-d1ff-485d-aa8b-206a43ba3413.Date
+
+relationship c4b36e6c-b1d5-428d-aa24-fb868d53e9c5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.tedtime
+	toColumn: LocalDateTable_e6b59413-f36f-49c1-a349-46297731d5e7.Date
+
+relationship 2b75d38c-dd52-4609-9754-a7c998bc6f13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.tendlast
+	toColumn: LocalDateTable_93a993d6-ba3b-4323-9559-420e7671be16.Date
+
+relationship 20f119d7-bd49-4635-b350-223eee35b3df
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.tstrtime
+	toColumn: LocalDateTable_c431523e-1619-43ee-8f0d-674cea1ecb69.Date
+
+relationship fb808c0b-1a3f-4c62-9b3a-3d5def90de58
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfwip_trimmed.drequest
+	toColumn: LocalDateTable_fd4cb576-d206-4a28-ad38-c2b57ef14524.Date
+
+relationship AutoDetected_09d675c8-50d8-479c-9f12-205f9b562e48
+	crossFilteringBehavior: bothDirections
+	fromColumn: mcflog_trimmed.cserno
+	toColumn: mcfwip_trimmed.cserno
+
+relationship 949040c1-f5e3-47e9-96b4-b8a5585ed9b9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwlog_trimmed.tlogin
+	toColumn: LocalDateTable_0cb8e560-565e-4c03-b5f4-e6ab152c5938.Date
+
+relationship 17520c0f-2b3e-4d0e-adf1-42aee9ae06f3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwlog_trimmed.tlogout
+	toColumn: LocalDateTable_47c08c42-88f5-4d6d-8a3a-211352304c17.Date
+
+relationship 8eefd9c0-af1d-4fae-9658-a866fc3ef98d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwlog_trimmed.tadtime
+	toColumn: LocalDateTable_2123105c-a9d5-4d88-919c-089f45fbb91c.Date
+
+relationship d423e45e-0992-4929-8bc6-a26ac8d0ff31
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwlog_trimmed.tedtime
+	toColumn: LocalDateTable_14ac421a-af61-4440-9358-059698e6c8f5.Date
+
+relationship 43f0437b-25de-230e-2d95-1e69ccf6c69b
+	fromColumn: mcwlog_trimmed.cserno
+	toColumn: mcfwip_trimmed.cserno
+
+relationship 661ec09e-42de-4ad5-8588-d98f00af2785
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcschd.dRequest
+	toColumn: LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce.Date
+
+relationship c90d1170-2bbb-4818-9620-3e2fb27b4dc4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcschd.tadtime
+	toColumn: LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6.Date
+
+relationship 3f5bc660-5247-4735-814e-98ce48629c24
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcschd.tedtime
+	toColumn: LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba.Date
+
+relationship 995e9c37-639d-4d8b-8120-c69145346ff5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: miboml.dcreate
+	toColumn: LocalDateTable_644d37a0-8df5-4c3f-98f7-f49f0ec79cc3.Date
+
+relationship ef1efb7c-e447-4da0-aaa0-666824bca829
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfbom.tadtime
+	toColumn: LocalDateTable_1549da9f-861e-4c3a-a972-8e415829fead.Date
+
+relationship bb9be826-abdc-45c5-88f2-f0c7cb0d4312
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcfbom.tedtime
+	toColumn: LocalDateTable_a585d130-c23a-4286-abd1-493363d25be0.Date
+
+relationship AutoDetected_85c5d210-4eb4-4396-9c0d-347703d71a7d
+	fromColumn: mcfbom.cserno
+	toColumn: mcfwip_trimmed.cserno
+
+relationship 329918ba-ebd0-4a3b-bd75-63805d89f13a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: InventorySummary.EarliestDueDate
+	toColumn: LocalDateTable_2a8ab9ae-ea08-4643-bc44-cae75608a1ec.Date
+
+relationship 7b2ede0e-78dc-4286-8ae7-6955a9c6f13c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: iciwhs.dlastrecv
+	toColumn: LocalDateTable_0d71edc5-aeab-422e-a100-b88b80d820b6.Date
+
+relationship 791b5cdb-46a6-4796-af86-b5e55e784ae4
+	joinOnDateBehavior: datePartOnly
+	fromColumn: iciwhs.dlastrepd
+	toColumn: LocalDateTable_46c93c08-d632-4bfd-8d2a-2fe16ac32c74.Date
+
+relationship 12578074-9340-4ecc-a1a7-ebfbfe2f3b4f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: iciwhs.idmodified
+	toColumn: LocalDateTable_0dd38450-c8d8-4e3c-b716-07d0a56c576d.Date
+
+relationship b854831c-52a5-4d34-a3ad-2d387a38b516
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwwip.tstrtime
+	toColumn: LocalDateTable_f0880116-3bc0-407b-9645-398f2700c1f7.Date
+
+relationship 0bfb38f8-45ef-49b9-8bf1-fe5b542b8b86
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwwip.tendtime
+	toColumn: LocalDateTable_4283d93c-e93f-4b7c-bf80-068b7b9ae43a.Date
+
+relationship 600e689d-5bfa-4828-b23a-5dad207f2ce7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwwip.tadtime
+	toColumn: LocalDateTable_8a215c3e-7fdc-47fe-819c-fa13e5f79609.Date
+
+relationship 71437de8-b091-44b4-ad6e-fa857d8a9b15
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcwwip.tedtime
+	toColumn: LocalDateTable_dd6ac072-5ce8-4408-8601-30d9ac352c33.Date
+
+relationship 6a6cb04d-660e-487b-af3b-45cc1c28830d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: miboml.Due
+	toColumn: LocalDateTable_38eb52ab-8749-42c0-b297-78cc8583f2cb.Date
+
+relationship 46abc468-5680-9574-e431-540ed6ca8171
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: mcwwip.cserno
+	toColumn: ItemBatchBridge.cserno
+
+relationship 1479fb6d-e6ba-6a71-da48-e57cc4ccecf6
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: icibin_2.citemno
+	toColumn: BomExplode.component
+
+relationship 6aa52659-e014-4805-8697-2f6d8780ea25
+	joinOnDateBehavior: datePartOnly
+	fromColumn: US_Holidays.Date
+	toColumn: LocalDateTable_b39b6784-4ac6-4eb8-8acd-85a6a15ad6c6.Date
+
+relationship b0d6b0a9-e285-4966-91ae-bc46895954e3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.Date
+	toColumn: LocalDateTable_df898c1e-301b-42c3-a4ed-93440960be94.Date
+
+relationship 34637fb2-e705-45f5-a15a-6dbfaa5fc8dd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.WeekStart
+	toColumn: LocalDateTable_c919e0d9-bfb0-4757-9633-586024b9ee40.Date
+
+relationship 0e226837-a6e2-4d10-9389-8275820aaebf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimDate.WeekEnd
+	toColumn: LocalDateTable_0891935f-c2bf-495f-9605-9286f5cbe33c.Date
+
+relationship 99edf7da-b0b3-499c-a96c-70dd8edb177c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BomExplode.ReqDate
+	toColumn: LocalDateTable_aef413d6-4b5d-46fc-9c4e-f249b1681289.Date
+
+relationship a4a87050-70bb-4ff0-81ff-c234ccad989f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: poptrs.DateReqPO
+	toColumn: LocalDateTable_22638ce3-7f7f-4692-88df-f170aa7303be.Date
+
+relationship c0443db3-aa3e-1f0e-3caf-93b0a229ae3d
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: OpenPO.poptrs_citemno
+	toColumn: BomExplode.component
+
+relationship fe83e805-202a-4e81-b6d3-371401ab3d16
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OpenPO.poptrs_LastRecDate
+	toColumn: LocalDateTable_28c20cac-888b-4538-a823-25137df9cd49.Date
+
+relationship c6dbc33a-641b-4a32-9971-bb406cfa4d0b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OpenPO.poptrs_DateOrderedPO
+	toColumn: LocalDateTable_45a22884-c4ea-4882-914f-fc0461507cee.Date
+
+relationship fb509808-563d-4f39-ac05-2e9df1124086
+	joinOnDateBehavior: datePartOnly
+	fromColumn: OpenPO.poptrs_drequest
+	toColumn: LocalDateTable_00699843-ef89-4eaf-b2be-039989e4af83.Date
+
+relationship 476036fe-ace4-e957-5ca4-6a8be584e878
+	fromColumn: icibin.citemno
+	toColumn: InventorySummary.citemno
+
+relationship 7e72de3e-d36a-9ff1-065c-1b51a1f959d1
+	fromColumn: vsp_rpt_soopen2.citemno
+	toColumn: InventorySummary.citemno
+
+relationship d3a8fa16-d6da-0369-1f6c-9470833b067f
+	fromColumn: SalesByItemWeek_16wk.citemno
+	toColumn: InventorySummary.citemno
+
+relationship ba92b7ed-1a30-c886-fc33-1731f1eb09a9
+	fromColumn: poptrs.citemno
+	toColumn: InventorySummary.citemno
+
+relationship 0e7cb662-7af9-ccb0-ac29-20c3da4978c1
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: mcitem.citemno
+	toColumn: InventorySummary.citemno
+
+relationship a25d5a3a-a28c-32ba-1341-5e00fc5c24b9
+	fromColumn: ictrsn.citemno
+	toColumn: InventorySummary.citemno
+
+relationship b69abf96-dd42-443d-dcb8-5481080f73bc
+	crossFilteringBehavior: bothDirections
+	fromColumn: mcfwip_trimmed.cfgitem
+	toColumn: InventorySummary.citemno
+
+relationship f0538ae7-6e5a-ab7b-55a0-3e2b07ddd495
+	crossFilteringBehavior: bothDirections
+	fromColumn: mcschd.citemno
+	toColumn: InventorySummary.citemno
+
+relationship 7eae875b-eef1-ed0e-39a7-fedda37947c7
+	fromColumn: iciwhs.citemno
+	toColumn: InventorySummary.citemno
+
+relationship 6b36ae1f-0f12-005a-724a-093a3430ac75
+	fromColumn: ItemBatchBridge.citemno
+	toColumn: InventorySummary.citemno
+
+relationship 742f3f9a-9452-8018-9ea1-32fb96fa2c77
+	fromColumn: BomExplode.top_parent
+	toColumn: InventorySummary.citemno
+
+relationship 186015d9-2a86-9a52-1e0a-ded0164ea12e
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: DimItem.citemno
+	toColumn: InventorySummary.citemno
+
+relationship 7fe077ff-bc14-3fdd-088b-7c62064a43f0
+	crossFilteringBehavior: bothDirections
+	fromColumn: InvEvents.citemno
+	toColumn: DimItem.citemno
+
+relationship a4edebf6-cd05-4452-aa4a-a1664bdd5d81
+	joinOnDateBehavior: datePartOnly
+	fromColumn: InvEvents.EventDate
+	toColumn: LocalDateTable_e750f25a-c20b-400a-84c8-d1c79e6ac444.Date
+
+relationship d31aa8b4-0c0b-4f83-b01d-7d4ffeb52f8d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: InvEvents_Base.EventDate
+	toColumn: LocalDateTable_5b8b7190-71d2-45b3-90d7-4dd5689690b7.Date
+
+relationship 2a0d304e-c936-49ff-99fe-012f5a008a0f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: InvEvents_Daily.EventDate
+	toColumn: LocalDateTable_52e14533-06c8-448a-a8d3-376dcca2819e.Date
+
+relationship 9723c132-cf55-08f4-49c1-6adc9d2d2fd4
+	fromColumn: SPSCItems.citemno
+	toColumn: InventorySummary.citemno
+

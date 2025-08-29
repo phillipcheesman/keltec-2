@@ -1,0 +1,232 @@
+table mcfbom
+	lineageTag: 5c16b35d-1505-400a-8a71-ceda23b14eb0
+
+	column cserno
+		dataType: string
+		lineageTag: 2c9ed146-4f5a-4e3c-8097-581b0e309489
+		summarizeBy: none
+		sourceColumn: cserno
+
+		annotation SummarizationSetBy = Automatic
+
+	column crmitem
+		dataType: string
+		lineageTag: a962987b-5ffa-4929-92fd-7b3193f8414b
+		summarizeBy: none
+		sourceColumn: crmitem
+
+		annotation SummarizationSetBy = Automatic
+
+	column crmserno
+		dataType: string
+		lineageTag: 039e59a6-5f11-43d8-ad4a-8611fe74aa95
+		summarizeBy: none
+		sourceColumn: crmserno
+
+		annotation SummarizationSetBy = Automatic
+
+	column nrmqty
+		dataType: double
+		lineageTag: ea91a162-9ac9-4ebe-9f31-475a708552d2
+		summarizeBy: sum
+		sourceColumn: nrmqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nhardness
+		dataType: double
+		lineageTag: 62f8441d-4e04-4fba-89dd-c73442bd7e5f
+		summarizeBy: sum
+		sourceColumn: nhardness
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ncost
+		dataType: double
+		lineageTag: ad3c80f3-7bae-4599-acb2-83e88a65d0eb
+		summarizeBy: sum
+		sourceColumn: ncost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lscrap
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 155619f8-ab12-4e75-9cf6-02a283078d16
+		summarizeBy: none
+		sourceColumn: lscrap
+
+		annotation SummarizationSetBy = Automatic
+
+	column lupdate
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ed040d26-bf70-414c-b612-b2dfecbccee0
+		summarizeBy: none
+		sourceColumn: lupdate
+
+		annotation SummarizationSetBy = Automatic
+
+	column caduser
+		dataType: string
+		lineageTag: 64463d9e-c133-492c-ad52-b86cd9473d49
+		summarizeBy: none
+		sourceColumn: caduser
+
+		annotation SummarizationSetBy = Automatic
+
+	column tadtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d4f74e30-09ec-446c-9a27-983924762c3f
+		summarizeBy: none
+		sourceColumn: tadtime
+
+		variation Variation
+			isDefault
+			relationship: ef1efb7c-e447-4da0-aaa0-666824bca829
+			defaultHierarchy: LocalDateTable_1549da9f-861e-4c3a-a972-8e415829fead.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ceduser
+		dataType: string
+		lineageTag: 5fde089e-eb53-4925-9ef8-dab9198f965b
+		summarizeBy: none
+		sourceColumn: ceduser
+
+		annotation SummarizationSetBy = Automatic
+
+	column tedtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4cbef137-9e16-480d-8072-9bc52e6b2e4c
+		summarizeBy: none
+		sourceColumn: tedtime
+
+		variation Variation
+			isDefault
+			relationship: bb9be826-abdc-45c5-88f2-f0c7cb0d4312
+			defaultHierarchy: LocalDateTable_a585d130-c23a-4286-abd1-493363d25be0.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column nstepno
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ef2e520-c65c-4f02-9322-298e422ba207
+		summarizeBy: sum
+		sourceColumn: nstepno
+
+		annotation SummarizationSetBy = Automatic
+
+	column lallocate
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 791322d4-76f9-4547-a03e-3535a0dfa840
+		summarizeBy: none
+		sourceColumn: lallocate
+
+		annotation SummarizationSetBy = Automatic
+
+	column pk_mcfbom
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f4fef17-b686-4d92-8eed-0c302c3dcd95
+		summarizeBy: sum
+		sourceColumn: pk_mcfbom
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbin
+		dataType: string
+		lineageTag: 0e31acc5-ac30-4b17-a215-46767490d518
+		summarizeBy: none
+		sourceColumn: cbin
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: aa53de48-08cd-45d2-9b47-49c4cb136292
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctrac
+		dataType: string
+		lineageTag: 4f8d422e-945f-45f8-b66f-255b02406d92
+		summarizeBy: none
+		sourceColumn: ctrac
+
+		annotation SummarizationSetBy = Automatic
+
+	column nqty2
+		dataType: double
+		lineageTag: 91286a0e-9a28-424f-8534-51d388b01ee0
+		summarizeBy: sum
+		sourceColumn: nqty2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cspeccode1
+		dataType: string
+		lineageTag: 7aa59ff4-3181-4d3b-813c-a79b66ac9d13
+		summarizeBy: none
+		sourceColumn: cspeccode1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode2
+		dataType: string
+		lineageTag: 131e753d-a5f9-429e-9304-42408722d575
+		summarizeBy: none
+		sourceColumn: cspeccode2
+
+		annotation SummarizationSetBy = Automatic
+
+	column creason
+		dataType: string
+		lineageTag: 1f44609b-35ce-4550-a9cd-0e611c0a186c
+		summarizeBy: none
+		sourceColumn: creason
+
+		annotation SummarizationSetBy = Automatic
+
+	column cshiftid
+		dataType: string
+		lineageTag: 95a6c104-37dc-4276-923a-f6f28a80fd9a
+		summarizeBy: none
+		sourceColumn: cshiftid
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwhoappr
+		dataType: string
+		lineageTag: c897d2bb-88f9-422f-8f88-4edd16d206b7
+		summarizeBy: none
+		sourceColumn: cwhoappr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mcfbom = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="SELECT * FROM dbo.mcfbom WHERE tadtime > '2022-01-01'"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,31 @@
+table tblMakeBuy
+	lineageTag: df83f523-e64a-447f-9b24-3884161c402c
+
+	column ITEM
+		dataType: string
+		lineageTag: 83695c8a-1ae6-4447-9386-b0c92ef9992b
+		summarizeBy: none
+		sourceColumn: ITEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'M vs B'
+		dataType: string
+		lineageTag: 91b23626-4da0-4d55-a5e5-583ab4f7da32
+		summarizeBy: none
+		sourceColumn: M vs B
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tblMakeBuy = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("F:\21 - Supply Chain\Brandon M 2025\Phil Cheesman\Excel\MakeBuy.xlsx"), null, true),
+				    tblMakeBuy_Table = Source{[Item="tblMakeBuy",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(tblMakeBuy_Table,{{"ITEM", type text}, {"M vs B", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

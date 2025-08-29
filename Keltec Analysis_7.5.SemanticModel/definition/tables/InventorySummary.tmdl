@@ -1,0 +1,1190 @@
+table InventorySummary
+	lineageTag: 6b6bffb7-ea92-4cf3-adc4-9193c2812936
+
+	measure Measure
+		lineageTag: 6e34b633-1fa1-4d65-b5ea-daa22b67d725
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure EarliestStockoutDate = ```
+			
+			VAR ItemKey =
+			    COALESCE( SELECTEDVALUE(DimItem[citemno]), SELECTEDVALUE(InventorySummary[citemno]) )
+			VAR baseOH =
+			    CALCULATE( MAX(InventorySummary[OH]), TREATAS({ItemKey}, InventorySummary[citemno]) )
+			VAR today   = TODAY()
+			VAR endDate = MAXX( ALLSELECTED(DimDate[Date]), DimDate[Date] )
+			VAR futureDates =
+			    FILTER( ALLSELECTED(DimDate[Date]), DimDate[Date] > today && DimDate[Date] <= endDate )
+			VAR scan =
+			    FILTER(
+			        ADDCOLUMNS(
+			            futureDates,
+			            "OHatD",
+			                VAR Cutoff = DimDate[Date]
+			                RETURN baseOH +
+			                    CALCULATE(
+			                        SUM(InvEvents[QtySigned]),
+			                        REMOVEFILTERS(InvEvents),
+			                        TREATAS({ItemKey}, InvEvents[citemno]),
+			                        InvEvents[EventDate] > today,
+			                        InvEvents[EventDate] <= Cutoff        // column vs scalar
+			                    )
+			        ),
+			        [OHatD] < 0
+			    )
+			RETURN IF( ISBLANK(ItemKey) || ISBLANK(baseOH), BLANK(), MINX(scan, DimDate[Date]) )
+			
+			```
+		formatString: m/d/yy
+		lineageTag: adc704a1-752b-4b41-94be-c7344b3b3002
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure RunningOH2
+		lineageTag: 72511bc4-9a9c-45e3-9cf4-f42613896a87
+
+	measure 'SO.h' =
+			
+			VAR k = SELECTEDVALUE(DimItem[citemno])
+			VAR cutoff = TODAY() + [HznDays]
+			RETURN
+			CALCULATE(
+			  SUM(vsp_rpt_soopen[OpenQty]),
+			  vsp_rpt_soopen[lquote] = 0,
+			  vsp_rpt_soopen[lhold]  = 0,
+			  vsp_rpt_soopen[drequest] <= cutoff,
+			  TREATAS({k}, vsp_rpt_soopen[citemno])
+			)
+		formatString: 0
+		lineageTag: 3b3e4936-22f0-48dd-9497-61f22dc0834a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'WO.rel.h' = ```
+			
+			VAR k =
+			    COALESCE( SELECTEDVALUE(DimItem[citemno]),
+			              SELECTEDVALUE(InventorySummary[citemno]) )
+			VAR cutoff = TODAY() + [HznDays]
+			VAR SernosForItem =
+			    CALCULATETABLE(
+			        VALUES( ItemBatchBridge[cserno] ),
+			        TREATAS( { k }, ItemBatchBridge[citemno] )
+			    )
+			RETURN
+			IF(
+			    ISBLANK(k), BLANK(),
+			    CALCULATE(
+			        SUM( mcwwip[nfgqty] ),
+			        TREATAS( SernosForItem, mcwwip[cserno] ),
+			        FILTER( ALL( mcwwip ), DATEVALUE( mcwwip[tendtime] ) <= cutoff )
+			        /* , mcwwip[ReleasedFlag] = 1  // if you have a status column */
+			    )
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 1cde4538-5f8b-45fd-ba9d-2a993040c74e
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Avail.h' = ```
+			
+			[OH.m] + COALESCE([WO.rel.h],0) - COALESCE([SO.h],0)
+			
+			```
+		formatString: #,0
+		lineageTag: 5ebcf3d5-e504-49dd-a9e1-95123c28c537
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'WO_NeedMTO.h' = MAX(0, -[Avail.h])
+		formatString: #,0
+		lineageTag: 861bb82a-9021-4b61-91ea-72885cc4b646
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Avail.h/RP' =
+			
+			DIVIDE(
+			    [Avail.h],
+			    [RP.m],
+			    0
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: bc2c6398-fcce-4c90-a170-a30ffa8adb44
+
+	measure 'RP.m' =
+			
+			VAR k = SELECTEDVALUE(DimItem[citemno], SELECTEDVALUE(InventorySummary[citemno]))
+			RETURN CALCULATE( MAX(InventorySummary[RP]), TREATAS({k}, InventorySummary[citemno]) )
+		lineageTag: 99357134-ee63-4d95-80e8-4940254f5456
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'OH.m' =
+			
+			VAR k = SELECTEDVALUE(DimItem[citemno], SELECTEDVALUE(InventorySummary[citemno]))
+			RETURN IF(
+			  ISBLANK(k), BLANK(),
+			  CALCULATE( MAX(InventorySummary[OH]), TREATAS({k}, InventorySummary[citemno]) )
+			)
+		lineageTag: f08e9718-a78d-4831-aee8-e8cc319f723a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AvailIncSS = [Avail.h] - COALESCE([RP.m],0)
+		lineageTag: 08f852fa-0b0b-4194-9813-af8e564af521
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'WO_Need.h' = MAX(0, -[AvailIncSS])
+		formatString: #,0
+		lineageTag: 30fc2e36-fb37-463e-a1f8-bcdd7beae0cc
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column citemno
+		lineageTag: 9cedd021-d745-468b-ba58-e2609b997b2b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cdescript
+		lineageTag: 188d3d16-8caa-47e0-aeaa-67d203f1588f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[cdescript]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctype
+		lineageTag: a5491813-8ad6-47c5-8dc0-80fa25366f7d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[ctype]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbuyer
+		lineageTag: 9e4bf301-4f76-40d5-bdb7-1ff2ef18d85a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[cbuyer]
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_sales
+		formatString: #,0
+		lineageTag: 4556251b-bb90-48a1-aae4-1bb82fa56e9e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[total_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column avg_sales
+		formatString: 0.0
+		lineageTag: 1ba256cc-f0a0-46fc-8770-b28de595ce08
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[avg_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+	column stddev
+		formatString: #,0.0
+		lineageTag: a24d4a9e-3e5c-4d23-930d-d40c5052b5d6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[stddev]
+
+		annotation SummarizationSetBy = Automatic
+
+	column min_sales
+		lineageTag: d2579fa9-983f-440c-a423-f24e663ae4b1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[min_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_sales
+		lineageTag: a49c6e6e-8c5c-4114-bf44-b983d2d26925
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[max_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'M vs B'
+		lineageTag: c1ea9833-7397-4a55-b710-12276b5c2174
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ItemStats_16wk_AllActive[M vs B]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvgLT
+		formatString: #,0.0
+		lineageTag: 3011f0f9-acc9-4f60-98ed-897f7fd749cb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [AvgLT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MinLT
+		formatString: 0
+		lineageTag: 487f1b5a-b8d5-4d6c-91e3-0a03f04b81c8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MinLT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxLT
+		formatString: 0
+		lineageTag: 03051984-76b3-4e59-9c6c-5c2ddcd7a59f
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MaxLT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StdDevLT
+		formatString: #,0.0
+		lineageTag: fdff12ba-9a12-4ed9-b156-f6a96faf49a7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [StdDevLT]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Count'
+		formatString: 0
+		lineageTag: c54e6b88-5e77-4fef-8070-9ca464f605c7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [PO Count]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SSz = ```
+			
+			VAR Z = 
+			    SWITCH (
+			        TRUE(),
+			        InventorySummary[cbuyer] = "A", 1.28,   -- 90%
+			        InventorySummary[cbuyer] = "B", 1.44,   -- 85%
+			        InventorySummary[cbuyer] = "C1", 1.96,  -- 75%
+			        InventorySummary[cbuyer] = "C2", 1.96,  -- 75%
+			        1.645  -- Default Z value if none match
+			    )
+			-- Scale down values if they're too large
+			VAR SigmaD = COALESCE ( InventorySummary[stddev], 0 ) / 1000
+			VAR Dbar   = COALESCE ( InventorySummary[avg_sales], 0 ) / 1000
+			VAR SigmaL = COALESCE ( InventorySummary[StdDevLT], 0 )
+			VAR Lbar   = COALESCE ( InventorySummary[AvgLT], 0 )
+			VAR Term1  = SigmaL * Dbar
+			VAR Term2  = SigmaD * Lbar  
+			VAR SumOfSquares = (Term1 * Term1) + (Term2 * Term2)
+			-- Scale result back up
+			RETURN 
+			    IF( SumOfSquares >= 0, Z * SQRT( SumOfSquares ) * 1000, 0 )
+			
+			```
+		formatString: #,0
+		lineageTag: 1ba17f37-28f2-4c1e-876b-31b8d6de5bb1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'SSz.wks' = InventorySummary[SSz] / InventorySummary[avg_sales]
+		formatString: 0.0
+		lineageTag: 6757e52e-5dc1-4674-b68a-2d087da73452
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column RP = ```
+			
+			SUMX(FILTER(RELATEDTABLE(iciwhs), iciwhs[cwarehouse] = "MAIN"), iciwhs[nreordpt])
+			
+			```
+		formatString: #,0
+		lineageTag: f5efe87e-2acd-4d07-91b7-630f64acd11e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column OH/RP = IF(IFERROR(SUMX(RELATEDTABLE(icibin), icibin[nonhand]) / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(SUMX(RELATEDTABLE(icibin), icibin[nonhand]) / InventorySummary[RP], 0))
+		formatString: 0%;-0%;0%
+		lineageTag: 1096d006-0d65-410b-9494-ed54967701b7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column OH_SSd_Bin = ```
+			
+			SWITCH(
+			    TRUE(),
+			    InventorySummary[OH/RP] <= 66.67, "0-66%",
+			    InventorySummary[OH/RP] <= 133.33, "67-133%",
+			    InventorySummary[OH/RP] <= 200.00, "134-200%",
+			    InventorySummary[OH/RP] <= 266.67, "201-266%",
+			    InventorySummary[OH/RP] <= 333.33, "267-333%",
+			    InventorySummary[OH/RP] <= 400.00, "334-400%",
+			    InventorySummary[OH/RP] <= 466.67, "401-466%",
+			    InventorySummary[OH/RP] <= 533.33, "467-533%",
+			    InventorySummary[OH/RP] <= 600.00, "534-600%",
+			    InventorySummary[OH/RP] <= 666.67, "601-666%",
+			    InventorySummary[OH/RP] <= 733.33, "667-733%",
+			    InventorySummary[OH/RP] <= 800.00, "734-800%",
+			    InventorySummary[OH/RP] <= 866.67, "801-866%",
+			    InventorySummary[OH/RP] <= 933.33, "867-933%",
+			    InventorySummary[OH/RP] <= 1000.00, "934-1000%",
+			    "1000%+"
+			)
+			
+			```
+		lineageTag: 9e2c26af-1018-4955-b9f0-9a3eba6eed7a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column WksOH = IFERROR(SUMX(RELATEDTABLE(icibin), icibin[nonhand]) / InventorySummary[avg_sales], 0)
+		formatString: #,0
+		lineageTag: 89fdd008-2008-43ba-b6e2-c949b6cced6a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column WoS_Bin = ```
+			
+			SWITCH(
+			    TRUE(),
+			    InventorySummary[WksOH] = 0, "0",
+			    InventorySummary[WksOH] <= 12, "1–12",
+			    InventorySummary[WksOH] <= 24, "13–24",
+			    InventorySummary[WksOH] <= 36, "25–36",
+			    InventorySummary[WksOH] <= 48, "37–48",
+			    InventorySummary[WksOH] <= 60, "49–60",
+			    InventorySummary[WksOH] <= 72, "61–72",
+			    InventorySummary[WksOH] <= 84, "73–84",
+			    InventorySummary[WksOH] <= 96, "85–96",
+			    InventorySummary[WksOH] <= 108, "97–108",
+			    InventorySummary[WksOH] <= 120, "109–120",
+			    "120+"
+			)
+			
+			```
+		lineageTag: 08bfe7ac-aecf-45a6-bb30-6ab1e68b7beb
+		summarizeBy: none
+		sortByColumn: WoS_Bin_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column WoS_Bin_Sort = ```
+			
+			SWITCH(
+			    TRUE(),
+			    InventorySummary[WksOH] = 0, 0,
+			    InventorySummary[WksOH] <= 12, 1,
+			    InventorySummary[WksOH] <= 24, 2,
+			    InventorySummary[WksOH] <= 36, 3,
+			    InventorySummary[WksOH] <= 48, 4,
+			    InventorySummary[WksOH] <= 60, 5,
+			    InventorySummary[WksOH] <= 72, 6,
+			    InventorySummary[WksOH] <= 84, 7,
+			    InventorySummary[WksOH] <= 96, 8,
+			    InventorySummary[WksOH] <= 108, 9,
+			    InventorySummary[WksOH] <= 120, 10,
+			    11
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 8530e12a-333f-442b-acc7-3bcf5a09d2b9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column WoS_Bin2 = ```
+			
+			SWITCH(
+			    TRUE(),
+			    InventorySummary[WksOH] = 0, "0",
+			    InventorySummary[WksOH] <= 1, "1",
+			    InventorySummary[WksOH] <= 2, "2",
+			    InventorySummary[WksOH] <= 3, "3",
+			    InventorySummary[WksOH] <= 4, "4",
+			    InventorySummary[WksOH] <= 5, "5",
+			    InventorySummary[WksOH] <= 6, "6",
+			    InventorySummary[WksOH] <= 7, "7",
+			    InventorySummary[WksOH] <= 8, "8",
+			    InventorySummary[WksOH] <= 9, "9",
+			    InventorySummary[WksOH] <= 10, "10",
+			    InventorySummary[WksOH] <= 11, "11",
+			    InventorySummary[WksOH] <= 12, "12",
+			    "12+"
+			)
+			
+			```
+		lineageTag: 83e11d7c-5b7b-4c6b-bee7-56616f0be07d
+		summarizeBy: none
+		sortByColumn: WoS_Bin2_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column WoS_Bin2_Sort = ```
+			
+			SWITCH(
+			    TRUE(),
+			    InventorySummary[WksOH] = 0, 0,
+			    InventorySummary[WksOH] <= 1, 1,
+			    InventorySummary[WksOH] <= 2, 2,
+			    InventorySummary[WksOH] <= 3, 3,
+			    InventorySummary[WksOH] <= 4, 4,
+			    InventorySummary[WksOH] <= 5, 5,
+			    InventorySummary[WksOH] <= 6, 6,
+			    InventorySummary[WksOH] <= 7, 7,
+			    InventorySummary[WksOH] <= 8, 8,
+			    InventorySummary[WksOH] <= 9, 9,
+			    InventorySummary[WksOH] <= 10, 10,
+			    InventorySummary[WksOH] <= 11, 11,
+			    InventorySummary[WksOH] <= 12, 12,
+			    13
+			)
+			
+			```
+		formatString: 0
+		lineageTag: e7664931-10a5-46e0-9533-9d6d7a16bc1f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SO = ```
+			
+			SUMX(
+			    
+			FILTER(
+			    RELATEDTABLE(vsp_rpt_soopen2),
+			    vsp_rpt_soopen2[lhold] = 0 &&
+			    vsp_rpt_soopen2[lquote] = 0
+			    ), 
+			    vsp_rpt_soopen2[nordqty]
+			)
+			
+			
+			```
+		formatString: #,0
+		lineageTag: 72ee1028-4836-45bc-9d88-bc27ee4ba9c5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column OH =
+			
+			SUMX(
+			    RELATEDTABLE(icibin),
+			    icibin[nonhand]
+			)
+		formatString: #,0
+		lineageTag: 0c55586e-1d68-4fbc-b032-513237d668b6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column OpenPOQty = ```
+			
+			SUMX(
+			    FILTER(RELATEDTABLE(poptrs), ISBLANK(poptrs[LastRecDate]) && poptrs[OpenQty] > 0), 
+			    poptrs[OpenQty]
+			)
+			```
+		formatString: #,0
+		lineageTag: 980e26da-3ddd-42b5-b654-f12e7e767320
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column WoS_Bin3 = ```
+			
+			VAR OnHand = SUMX(RELATEDTABLE(icibin), icibin[nonhand])
+			VAR Sales = InventorySummary[avg_sales]
+			VAR WoSValue = DIVIDE(OnHand, Sales)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    OnHand = 0, "No Inventory",
+			    Sales = 0, "No Sales",
+			    WoSValue <= 4, "1–4",
+			    WoSValue <= 8, "5–8",
+			    WoSValue <= 12, "9–12",
+			    WoSValue <= 16, "13–16",
+			    WoSValue <= 20, "17–20",
+			    WoSValue <= 24, "21–24",
+			    WoSValue <= 28, "25–28",
+			    WoSValue <= 32, "29–32",
+			    WoSValue <= 36, "33–36",
+			    WoSValue <= 40, "37–40",
+			    WoSValue <= 44, "41–44",
+			    WoSValue <= 48, "45–48",
+			    WoSValue <= 52, "49–52",
+			    "53+"
+			)
+			
+			
+			```
+		lineageTag: fb7371e3-4640-46f3-9d6d-571600916bca
+		summarizeBy: none
+		sortByColumn: WoS_Bin3_Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column WoS_Bin3_Sort = ```
+			
+			VAR OnHand = SUMX(RELATEDTABLE(icibin), icibin[nonhand])
+			VAR Sales = InventorySummary[avg_sales]
+			VAR WoSValue = DIVIDE(OnHand, Sales)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    OnHand = 0, 0,           -- "No Inventory"
+			    Sales = 0, 15,           -- "No Sales"
+			    WoSValue <= 4, 1,
+			    WoSValue <= 8, 2,
+			    WoSValue <= 12, 3,
+			    WoSValue <= 16, 4,
+			    WoSValue <= 20, 5,
+			    WoSValue <= 24, 6,
+			    WoSValue <= 28, 7,
+			    WoSValue <= 32, 8,
+			    WoSValue <= 36, 9,
+			    WoSValue <= 40, 10,
+			    WoSValue <= 44, 11,
+			    WoSValue <= 48, 12,
+			    WoSValue <= 52, 13,
+			    14                    -- "53+"
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 1a1d7227-e3c7-4cc8-9ac9-93292421445e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price = LOOKUPVALUE(icitem[nprice], icitem[citemno], InventorySummary[citemno])
+		lineageTag: dbd42d66-d0bb-472d-aa58-cc67485f5265
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Value = InventorySummary[Price] * InventorySummary[OH]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 54c6d4c4-9b7a-4556-8275-dbd0d9a336b5
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenWO = ```
+			
+			SUMX(
+			    FILTER(
+			        RELATEDTABLE(mcwlog_trimmed), 
+			        ISBLANK(mcwlog_trimmed[tlogout])
+			    ),
+			    mcwlog_trimmed[nqty]
+			)
+			        
+			```
+		formatString: #,0
+		lineageTag: f665bfe0-291c-4bc5-8965-64a3ba1e9b6d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Avail = InventorySummary[OH] + InventorySummary[WO.rel] + InventorySummary[OpenPOQty] - InventorySummary[SO]
+		formatString: #,0
+		lineageTag: 477cc30d-8f4c-43d1-a42f-0def9660c10b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Avail/SSd = IF(IFERROR(InventorySummary[Avail] / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(InventorySummary[Avail] / InventorySummary[RP], 0))
+		formatString: 0%;-0%;0%
+		lineageTag: 46675f1b-511b-4376-8683-0e2a2c227175
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column WksAvail = IFERROR(InventorySummary[Avail] / InventorySummary[avg_sales], 0)
+		formatString: #,0
+		lineageTag: dab54f9b-800c-46af-aec2-212a7d63be66
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'WO.sch' = ```
+			
+			SUMX(
+			    //FILTER(
+			        RELATEDTABLE(mcschd), 
+			        //ISBLANK(mcwlog_trimmed[tlogout])
+			    //),
+			    mcschd[nordqty]
+			)
+			```
+		formatString: #,0
+		lineageTag: 05200508-ead8-4628-a3a7-f19a200a075b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column MakePriority = ```
+			
+			VAR TodayDate = TODAY()
+			
+			VAR OnHand = InventorySummary[OH]
+			VAR ReorderPoint = InventorySummary[RP]
+			
+			// Demand and receipts due up to today
+			VAR SoDue_Qty =
+			    CALCULATE(
+			        SUM ( vsp_rpt_soopen[OpenQty] ),
+			        FILTER ( RELATEDTABLE ( vsp_rpt_soopen ), vsp_rpt_soopen[drequest] <= TodayDate && vsp_rpt_soopen[lquote] = 0 && vsp_rpt_soopen[lhold] = 0)
+			    )
+			VAR WoDue_Qty =
+			    CALCULATE(
+			        SUM ( mcschd[nordqty] ),
+			        FILTER ( RELATEDTABLE ( mcschd ), mcschd[dRequest] <= TodayDate )
+			    )
+			
+			// Net position as of today
+			VAR ProjectedOnHand = COALESCE ( OnHand, 0 ) + COALESCE ( WoDue_Qty, 0 ) - COALESCE ( SoDue_Qty, 0 )
+			VAR BelowSS = MAX ( 0, COALESCE ( ReorderPoint, 0 ) - ProjectedOnHand )
+			
+			// How late is the earliest open SO (if any)
+			VAR EarliestPastDue =
+			    CALCULATE (
+			        MIN ( vsp_rpt_soopen[drequest] ),
+			        FILTER ( RELATEDTABLE ( vsp_rpt_soopen ), vsp_rpt_soopen[drequest] < TodayDate && vsp_rpt_soopen[lquote] = 0 && vsp_rpt_soopen[lhold] = 0)
+			    )
+			VAR DaysOverdue = MAX ( 0, INT ( TodayDate - COALESCE ( EarliestPastDue, TodayDate ) ) )
+			
+			VAR InStockFlag = IF ( COALESCE ( OnHand, 0 ) > 0, 1, 0 )
+			
+			// Weights: tweak as needed
+			VAR Priority =
+			      1000 * IF ( DaysOverdue > 0, 1, 0 )       // bucket: any overdue first
+			    + 5 * DaysOverdue                           // older lateness ranks higher
+			    + 1 * BelowSS                               // how far below reorder point
+			    - 0.1 * InStockFlag                         // slight nudge down if already stocked
+			RETURN Priority
+			
+			```
+		formatString: #,0
+		lineageTag: 13ff9b19-f3bc-4dc7-9719-bd60e5998c20
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column WO_Need = ```
+			
+			VAR TodayDate = TODAY()
+			VAR HorizonDays = 14
+			VAR OnHand = COALESCE ( InventorySummary[OH], 0 )
+			VAR RP = COALESCE ( InventorySummary[RP], 0 )
+			
+			VAR So_Hzn_Qty =
+			    CALCULATE (
+			        SUM ( vsp_rpt_soopen[OpenQty] ),
+			        FILTER (
+			            RELATEDTABLE ( vsp_rpt_soopen ),
+			            vsp_rpt_soopen[lquote] = 0
+			                && vsp_rpt_soopen[lhold] = 0
+			                && vsp_rpt_soopen[drequest] <= TodayDate + HorizonDays
+			        )
+			    )
+			
+			VAR WoSched_Hzn_Qty =
+			    CALCULATE (
+			        SUM ( mcschd[nordqty] ),
+			        //FILTER ( 
+			            RELATEDTABLE ( mcschd ) //, 
+			            //mcschd[dRequest] <= TodayDate + HorizonDays 
+			            //)
+			    )
+			
+			VAR WoWip_Hzn_Qty =
+			    CALCULATE (
+			        SUM ( mcwwip[nfgqty] ),              // ← replace with your remaining qty column
+			        //FILTER (
+			            RELATEDTABLE ( mcwwip )
+			        //    mcwwip[DueDate] <= TodayDate + HorizonDays   // ← replace with your due/completion date
+			            /* && mcwwip[Released] = 1 */                // optional status filter
+			        //)
+			    )
+			
+			VAR NetAvailIncSS =
+			    OnHand
+			    + COALESCE ( WoSched_Hzn_Qty, 0 )
+			    + COALESCE ( WoWip_Hzn_Qty, 0 )
+			    - COALESCE ( So_Hzn_Qty, 0 )
+			    - RP
+			
+			RETURN MAX ( 0, -NetAvailIncSS )
+			
+			```
+		formatString: #,0
+		lineageTag: 54f3c96d-f4ff-453a-9a17-71795130e534
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column Earliest_Days_Overdue =
+			
+			VAR TodayDate = TODAY()
+			VAR EarliestPastDue =
+			    CALCULATE (
+			        MIN ( vsp_rpt_soopen[drequest] ),
+			        FILTER (
+			            RELATEDTABLE ( vsp_rpt_soopen ),
+			            vsp_rpt_soopen[lquote] = 0
+			                && vsp_rpt_soopen[lhold] = 0
+			                && vsp_rpt_soopen[drequest] < TodayDate
+			        )
+			    )
+			RETURN MAX ( 0, INT ( TodayDate - COALESCE ( EarliestPastDue, TodayDate ) ) )
+		formatString: 0
+		lineageTag: 2d81911a-8d81-4d9e-bb5b-f28c303ce505
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MakePriority_v2 =
+			
+			VAR Shortage = InventorySummary[WO_Need]
+			VAR DaysLate = InventorySummary[Earliest_Days_Overdue]
+			RETURN
+			      1000 * IF ( Shortage > 0, 1, 0 )   // only shortage gets into the top bucket
+			    + 1 * Shortage                       // more shortage → higher priority
+			    + 2 * DaysLate                       // mild boost for older lateness
+		formatString: #,0
+		lineageTag: 0cefdacc-86a3-4009-9453-c1d27202d5f9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column MaxDaysLate =
+			
+			COALESCE(
+			    LOOKUPVALUE( LateSummary[MaxDaysLate], LateSummary[citemno], InventorySummary[citemno] ),
+			    0
+			)
+		formatString: 0
+		lineageTag: c2d011ee-ecdc-49ff-9638-7b8b5d3a3f9f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevDense = ```
+			
+			COALESCE(
+			    LOOKUPVALUE( LateSummary[RevDense], LateSummary[citemno], InventorySummary[citemno] ),
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 02507ce8-6b08-4851-8dcb-4e1e99e134b1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column EarliestDueDate =
+			
+			VAR TodayDate = TODAY()
+			RETURN
+			CALCULATE (
+			    MIN ( vsp_rpt_soopen[drequest] ),
+			    FILTER (
+			        RELATEDTABLE ( vsp_rpt_soopen ),
+			        vsp_rpt_soopen[lquote] = 0
+			            && vsp_rpt_soopen[lhold] = 0
+			            && vsp_rpt_soopen[drequest] >= TodayDate
+			    )
+			)
+		formatString: General Date
+		lineageTag: 53798b59-cd19-4943-80c4-8f419fcf5465
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 329918ba-ebd0-4a3b-bd75-63805d89f13a
+			defaultHierarchy: LocalDateTable_2a8ab9ae-ea08-4643-bc44-cae75608a1ec.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysUntilEarliest =
+			
+			VAR TodayDate = TODAY()
+			RETURN IF ( NOT ISBLANK ( InventorySummary[EarliestDueDate] ),
+			            INT ( InventorySummary[EarliestDueDate] - TodayDate )
+			)
+		formatString: 0
+		lineageTag: 8cd4129a-0d87-41cb-98bd-9d4b0df9c268
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoByEarliest =
+			
+			VAR Cutoff = COALESCE ( InventorySummary[EarliestDueDate], TODAY() )
+			RETURN
+			CALCULATE (
+			    SUM ( vsp_rpt_soopen[OpenQty] ),
+			    FILTER (
+			        RELATEDTABLE ( vsp_rpt_soopen ),
+			        vsp_rpt_soopen[lquote] = 0
+			            && vsp_rpt_soopen[lhold] = 0
+			            && vsp_rpt_soopen[drequest] <= Cutoff
+			    )
+			)
+		lineageTag: e50ca4a0-7897-46a3-aa94-949645f25c2a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column WoByEarliest =
+			
+			VAR Cutoff = COALESCE ( InventorySummary[EarliestDueDate], TODAY() )
+			RETURN
+			CALCULATE (
+			    SUM ( mcschd[nordqty] ),
+			    FILTER ( RELATEDTABLE ( mcschd ), mcschd[dRequest] <= Cutoff )
+			)
+		lineageTag: c4879432-bdfb-4c2c-bc10-cde87c7a5344
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AvailAtEarliest =
+			
+			COALESCE ( InventorySummary[OH], 0 )
+			+ COALESCE ( InventorySummary[WoByEarliest], 0 )
+			- COALESCE ( InventorySummary[SoByEarliest], 0 )
+		lineageTag: d9535a81-7df5-478e-bb7d-96016e15ab59
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SoonShortageFlag =
+			
+			IF (
+			    NOT ISBLANK ( InventorySummary[DaysUntilEarliest] )
+			        && InventorySummary[DaysUntilEarliest] < 14
+			        && InventorySummary[AvailAtEarliest] < 0,
+			    1, 0
+			)
+		formatString: 0
+		lineageTag: d31bdb38-8b2e-48c6-9e78-bc733d6806a4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SoonGradient =
+			
+			VAR d = InventorySummary[DaysUntilEarliest]
+			RETURN IF ( NOT ISBLANK ( d ) && d <= 14, MIN ( 14, 15 - d ), 0 )
+		formatString: 0
+		lineageTag: cb702ada-566b-43b5-891a-bfe655317f50
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column StockRatioTerm =
+			
+			10 * ( 1 - DIVIDE ( COALESCE ( InventorySummary[OH], 0 ),
+			                    COALESCE ( InventorySummary[RP], 0 ), 0 ) )
+		lineageTag: 20aab591-eacc-4ecc-8751-6f28970c6204
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LateFlag = IF ( InventorySummary[MaxDaysLate] > 0, 1, 0 )
+		formatString: 0
+		lineageTag: a1934b71-df34-4014-bba9-ebff970977a9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MakePriority_v3 = ```
+			
+			1000 * InventorySummary[LateFlag]
+			+ 100 * InventorySummary[RevDense]
+			+ 100 * InventorySummary[SoonShortageFlag]
+			+ 10  * InventorySummary[SoonGradient]
+			+      InventorySummary[StockRatioTerm]
+			
+			```
+		formatString: #,0
+		lineageTag: c97f27c9-06be-4b15-9121-1eef836e6916
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'WO.rel' = ```
+			
+			SUMX(
+			
+			        RELATEDTABLE(mcwwip), 
+			
+			    mcwwip[nfgqty]
+			)
+			```
+		formatString: #,0
+		lineageTag: 43fd6469-f36e-4eab-ab89-c88d5c8f1e6b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column HW? = ```
+			
+			VAR PlanQty =
+			    COALESCE(InventorySummary[WO_NeedMTO],0)
+			  + COALESCE(InventorySummary[WO.rel],0)    // replace with WO.rel if different
+			  + COALESCE(InventorySummary[WO.sch],0)  // replace with WO.sched if different
+			VAR Lines =
+			    FILTER( RELATEDTABLE(BomExplode), BomExplode[IsTarget] = TRUE() )
+			RETURN
+			IF(
+			    PlanQty <= 0 || ISEMPTY(Lines),
+			    1,
+			    VAR Shortages =
+			        COUNTROWS(
+			            FILTER(
+			                ADDCOLUMNS(
+			                    Lines,
+			                    "Req", BomExplode[extended_qty] * PlanQty,
+			                    "CompOH",
+			                        COALESCE(
+			                            LOOKUPVALUE(
+			                                InventorySummary[OH],
+			                                InventorySummary[citemno], BomExplode[component]
+			                            ),
+			                            0
+			                        )
+			                ),
+			                [CompOH] < [Req]
+			            )
+			        )
+			    RETURN IF( Shortages = 0, 1, 0 )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: db086bd5-5288-49f5-96cf-15106403fb55
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column HWShort = ```
+			
+			VAR PlanQty =
+			    COALESCE ( InventorySummary[WO_Need], 0 )
+			  + COALESCE ( InventorySummary[WO.rel], 0 )     // use [WO_rel] if that's your name
+			  + COALESCE ( InventorySummary[WO.sch], 0 )   // use [WO_Sched_Hzn] if needed
+			VAR Lines =
+			    FILTER ( RELATEDTABLE ( miboml ), miboml[IsTarget] = TRUE () )
+			RETURN
+			IF (
+			    PlanQty <= 0 || ISEMPTY ( Lines ),
+			    BLANK (),
+			    VAR CompEval =
+			        ADDCOLUMNS (
+			            Lines,
+			            "Req", miboml[nqty] * PlanQty,
+			            "CompOH",
+			                COALESCE (
+			                    LOOKUPVALUE (
+			                        InventorySummary[OH],
+			                        InventorySummary[citemno], miboml[ccompno]
+			                    ),
+			                    0
+			                ),
+			            "Shortage", MAX ( 0, [Req] - [CompOH] )
+			        )
+			    VAR MaxShort = MAXX ( CompEval, [Shortage] )
+			    VAR WorstRow =
+			        TOPN (
+			            1,
+			            FILTER ( CompEval, [Shortage] = MaxShort && [Shortage] > 0 ),
+			            [Shortage], DESC,
+			            miboml[ccompno], ASC
+			        )
+			    RETURN IF ( MaxShort > 0, CONCATENATEX ( WorstRow, miboml[ccompno], "" ), BLANK () )
+			)
+			
+			```
+		lineageTag: 7f9289ff-7ab4-4e05-84f0-0c346d0c9c47
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column WO_NeedMTO = ```
+			
+			VAR TodayDate = TODAY()
+			VAR HorizonDays = 14
+			VAR OnHand = COALESCE ( InventorySummary[OH], 0 )
+			
+			VAR So_Hzn_Qty =
+			    CALCULATE (
+			        SUM ( vsp_rpt_soopen[OpenQty] ),
+			        FILTER (
+			            RELATEDTABLE ( vsp_rpt_soopen ),
+			            vsp_rpt_soopen[lquote] = 0
+			                && vsp_rpt_soopen[lhold] = 0
+			                && vsp_rpt_soopen[drequest] <= TodayDate + HorizonDays
+			        )
+			    )
+			
+			VAR WoSched_Hzn_Qty =
+			    CALCULATE ( SUM ( mcschd[nordqty] ), RELATEDTABLE ( mcschd ) )
+			
+			VAR WoWip_Hzn_Qty =
+			    CALCULATE ( SUM ( mcwwip[nfgqty] ), RELATEDTABLE ( mcwwip ) )
+			
+			VAR NetAvail_NoSS =
+			    OnHand
+			    + COALESCE ( WoSched_Hzn_Qty, 0 )
+			    + COALESCE ( WoWip_Hzn_Qty, 0 )
+			    - COALESCE ( So_Hzn_Qty, 0 )
+			
+			RETURN MAX ( 0, -NetAvail_NoSS )
+			
+			```
+		formatString: #,0
+		lineageTag: d3a0cc89-4382-4c9a-bdb4-b91d17660ee9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column M/B = IF(ISBLANK(LOOKUPVALUE(portrs[citemno], portrs[citemno], InventorySummary[citemno])), "Make", "Buy")
+		lineageTag: 3d6f9a47-27a4-4874-92e3-5fb405eec7fc
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column WoSTarget =
+			
+			SWITCH (
+			    TRUE(),
+			    InventorySummary[cbuyer] = "A", InventorySummary[avg_sales] * 6,
+			    InventorySummary[cbuyer] = "B", InventorySummary[avg_sales] * 10,
+			    InventorySummary[cbuyer] = "C1", InventorySummary[avg_sales] * 15,
+			    InventorySummary[cbuyer] = "C2", InventorySummary[avg_sales] * 15,
+			    BLANK()  -- default if none match
+			)
+		lineageTag: 344d5201-7a29-4811-b0f8-23aeebbfd55f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BuyerGroup =
+			
+			SWITCH (
+			    TRUE (),
+			    InventorySummary[cbuyer] IN { "A", "B" }, "A/B",
+			    InventorySummary[cbuyer] IN { "C1", "C2" }, "C",
+			    InventorySummary[cbuyer] = "OEM", "OEM",
+			    "MTO"
+			)
+		lineageTag: 7f2862ea-6785-4187-9b2a-74a1a5a6f5fd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPSC? =
+			
+			IF(InventorySummary[citemno] IN VALUES(SPSCItems[citemno]), 1, 0)
+		formatString: 0
+		lineageTag: 4b9c907c-14b1-4ab0-9528-58cf8b4fc8ca
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InventorySummary = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS (
+				    ItemStats_16wk_AllActive,
+				    "AvgLT",     LOOKUPVALUE ( POStats[AvgLT],    POStats[citemno], ItemStats_16wk_AllActive[citemno] ),
+				    "MinLT",     LOOKUPVALUE ( POStats[MinLT],    POStats[citemno], ItemStats_16wk_AllActive[citemno] ),
+				    "MaxLT",     LOOKUPVALUE ( POStats[MaxLT],    POStats[citemno], ItemStats_16wk_AllActive[citemno] ),
+				    "StdDevLT",  LOOKUPVALUE ( POStats[StdDevLT], POStats[citemno], ItemStats_16wk_AllActive[citemno] ),
+				    "PO Count",  COALESCE ( LOOKUPVALUE ( POStats[PO Count], POStats[citemno], ItemStats_16wk_AllActive[citemno] ), 0 )
+				)
+				
+				```
+
+	annotation PBI_Id = 3d6f9631e8914631b1dfba84b8bca37b
+

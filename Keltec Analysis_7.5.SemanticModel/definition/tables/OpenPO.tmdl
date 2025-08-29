@@ -1,0 +1,135 @@
+table OpenPO
+	lineageTag: eee209fc-268c-40b3-8fd2-6370da15084c
+
+	column poptrs_citemno
+		lineageTag: fa467534-14ee-4269-9d8d-99e911cadafc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column poptrs_cdescript
+		lineageTag: 3149db53-f0ca-4937-ab93-e13fcc2f68f6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[cdescript]
+
+		annotation SummarizationSetBy = Automatic
+
+	column poptrs_nordqty
+		lineageTag: 626758df-3144-4013-b4a5-745c37fea21c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: poptrs[nordqty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column poptrs_nrecqty
+		lineageTag: 4142f839-7428-407b-9126-db00ba2f97e6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: poptrs[nrecqty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column poptrs_OpenQty
+		lineageTag: 45b845b2-3ca2-4661-baec-3663a2e3024b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: poptrs[OpenQty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column poptrs_LastRecDate
+		formatString: General Date
+		lineageTag: 020d08ca-b9a0-45fb-bbb0-fe663aec0153
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[LastRecDate]
+
+		variation Variation
+			isDefault
+			relationship: fe83e805-202a-4e81-b6d3-371401ab3d16
+			defaultHierarchy: LocalDateTable_28c20cac-888b-4538-a823-25137df9cd49.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column poptrs_DateOrderedPO
+		formatString: General Date
+		lineageTag: ae0bb3ba-3ef6-4517-a1dc-c57c68a95905
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[DateOrderedPO]
+
+		variation Variation
+			isDefault
+			relationship: c6dbc33a-641b-4a32-9971-bb406cfa4d0b
+			defaultHierarchy: LocalDateTable_45a22884-c4ea-4882-914f-fc0461507cee.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column poptrs_OrderToRec
+		formatString: 0
+		lineageTag: 6d32c138-fe07-41ca-a671-bcfc5384c6c5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: poptrs[OrderToRec]
+
+		annotation SummarizationSetBy = Automatic
+
+	column %Rec = OpenPO[poptrs_nrecqty]/OpenPO[poptrs_nordqty]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 71dc6f8f-cb75-4b66-a132-5f8ceb954652
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column poptrs_drequest
+		formatString: General Date
+		lineageTag: 5948a0fb-73c8-49a1-b9e7-abc41de1b7f3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[drequest]
+
+		variation Variation
+			isDefault
+			relationship: fb509808-563d-4f39-ac05-2e9df1124086
+			defaultHierarchy: LocalDateTable_00699843-ef89-4eaf-b2be-039989e4af83.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column poptrs_cpono
+		lineageTag: 05a5004f-202b-43d4-82cd-660b86b5f655
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: poptrs[cpono]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition OpenPO = calculated
+		mode: import
+		source =
+				
+				FILTER(SELECTCOLUMNS(
+				    poptrs,
+				    poptrs[citemno],
+				    poptrs[cdescript],
+				    poptrs[nordqty],
+				    poptrs[nrecqty],
+				    poptrs[OpenQty],
+				    poptrs[LastRecDate],
+				    poptrs[DateOrderedPO],
+				    poptrs[OrderToRec],
+				    poptrs[drequest],
+				    poptrs[cpono]
+				), poptrs[OpenQty] > 0 && poptrs[DateOrderedPO] > DATE(2025, 1,1))
+
+	annotation PBI_Id = f139ac9b666e440eb2e197ea7d1e519c
+

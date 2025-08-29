@@ -1,0 +1,101 @@
+table InvEvents_Base
+	lineageTag: a6749be7-626d-4433-9f3f-661c1a59aeca
+
+	column citemno
+		lineageTag: d3c486ef-a307-4316-b330-ee14c7000825
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventDate
+		formatString: General Date
+		lineageTag: 2ff60b24-fd69-47f4-9b63-fb516e9d70cf
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventDate]
+
+		variation Variation
+			isDefault
+			relationship: d31aa8b4-0c0b-4f83-b01d-7d4ffeb52f8d
+			defaultHierarchy: LocalDateTable_5b8b7190-71d2-45b3-90d7-4dd5689690b7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column QtySigned
+		lineageTag: 7b6e2772-c94d-4441-88d3-25a300267dda
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [QtySigned]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EventType
+		lineageTag: 3218e925-8ac5-4271-a158-fb189ff2c5a8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventType]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InvEvents_Base = calculated
+		mode: import
+		source = ```
+				
+				VAR TodayDate = TODAY()
+				VAR Horizon   = TodayDate + 180
+				RETURN
+				UNION(
+				    // History: ictrsn (signed)
+				    SELECTCOLUMNS(
+				        ictrsn,
+				        "citemno",   ictrsn[citemno],
+				        "EventDate", ictrsn[dtrs],
+				        "QtySigned",
+				            SWITCH(
+				                TRUE(),
+				                ictrsn[ctrstype] IN {"MCFG","ADJ_IN","+ADJ"},  ictrsn[nqty],   // receipts/adj in
+				                ictrsn[ctrstype] IN {"SHIP","ADJ_OUT","-ADJ"}, -ictrsn[nqty],  // shipments/adj out
+				                ictrsn[ctrstype] = "WO_ISSUE",                 -ictrsn[nqty],  // issues
+				                0
+				            ),
+				        "EventType", ictrsn[ctrstype]
+				    ),
+				    // Open SO (future only)
+				    SELECTCOLUMNS(
+				        FILTER(
+				            vsp_rpt_soopen,
+				            vsp_rpt_soopen[lquote] = 0 &&
+				            vsp_rpt_soopen[lhold]  = 0 &&
+				            vsp_rpt_soopen[drequest] <= Horizon
+				        ),
+				        "citemno",   vsp_rpt_soopen[citemno],
+				        "EventDate", vsp_rpt_soopen[drequest],
+				        "QtySigned", -vsp_rpt_soopen[OpenQty],
+				        "EventType", "SO_OPEN"
+				    ),
+				    // Released/WIP WO (expected completion; trim future)
+				    SELECTCOLUMNS(
+				        FILTER(mcwwip, mcwwip[tendtime] <= Horizon),
+				        "citemno",   mcwwip[cserno],          // item key as per your schema
+				        "EventDate", mcwwip[tendtime],
+				        "QtySigned", mcwwip[nfgqty],
+				        "EventType", "WO_WIP"
+				    ),
+				    // Scheduled (not released; future only)
+				    SELECTCOLUMNS(
+				        FILTER(mcschd, mcschd[dRequest] <= Horizon),
+				        "citemno",   mcschd[citemno],
+				        "EventDate", mcschd[dRequest],
+				        "QtySigned", mcschd[nordqty],
+				        "EventType", "WO_SCHED"
+				    )
+				)
+				
+				```
+
+	annotation PBI_Id = 76786b25f8604b68b55c3ee8cc2683af
+

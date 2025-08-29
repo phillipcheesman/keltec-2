@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Keltec Analysis_7.5"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "c2bd66b6-1540-4254-9b27-e0d29f3e7a97"
+  }
+}

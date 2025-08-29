@@ -1,0 +1,77 @@
+table SalesByItemWeek_16wk
+	lineageTag: d42f102d-c5b0-424e-b94d-97ddb3e725c2
+
+	column citemno
+		lineageTag: d2451e1c-1592-43f1-9143-82d538506b73
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: sostrs[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column nordqty
+		formatString: #,0
+		lineageTag: e7d8167e-8d21-4730-99e7-92d477b60a7a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [nordqty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column FW
+		formatString: 0
+		lineageTag: c1166b4e-8382-42b8-a1be-345ea1285e11
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [FW]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FY
+		formatString: 0
+		lineageTag: a10ce163-ca0f-4766-bfde-02f2b089e1b5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [FY]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortKey
+		formatString: 0
+		lineageTag: 2fbe567e-065c-439d-a9de-8687f267857c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SortKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SalesByItemWeek_16wk = calculated
+		mode: import
+		source = ```
+				
+				VAR EndDate   = TODAY() - WEEKDAY ( TODAY(), 1 )
+				VAR StartDate = EndDate - 7 * 16 + 1
+				VAR Base =
+				    FILTER ( 'sostrs', 'sostrs'[drequest] >= StartDate && 'sostrs'[drequest] <= EndDate )
+				VAR WithWeek =
+				    ADDCOLUMNS (
+				        Base,
+				        "WeekStart", INT ( 'sostrs'[drequest] ) - WEEKDAY ( 'sostrs'[drequest], 1 ) + 1,
+				        "FY", YEAR ( INT ( 'sostrs'[drequest] ) - WEEKDAY ( 'sostrs'[drequest], 1 ) + 1 ),
+				        "FW", WEEKNUM ( INT ( 'sostrs'[drequest] ) - WEEKDAY ( 'sostrs'[drequest], 1 ) + 1, 1 ),
+				        "SortKey", YEAR ( INT ( 'sostrs'[drequest] ) - WEEKDAY ( 'sostrs'[drequest], 1 ) + 1 ) * 100
+				                  + WEEKNUM ( INT ( 'sostrs'[drequest] ) - WEEKDAY ( 'sostrs'[drequest], 1 ) + 1, 1 )
+				    )
+				RETURN
+				SUMMARIZE (
+				    WithWeek,
+				    'sostrs'[citemno], [FY], [FW], [SortKey],
+				    "nordqty", SUM ( 'sostrs'[nordqty] )
+				)
+				
+				```
+
+	annotation PBI_Id = fde19a6e459f4092a83ac9d159bef560
+

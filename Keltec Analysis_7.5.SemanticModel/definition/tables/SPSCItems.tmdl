@@ -1,0 +1,106 @@
+table SPSCItems
+	lineageTag: aa005dfa-f88b-4139-a824-ff1cea2fb3d6
+
+	column citemno
+		dataType: string
+		lineageTag: 8d5249fb-1eaf-4ea4-a981-dd5db9a74897
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column caltcode
+		dataType: string
+		lineageTag: 5b0822df-eda1-40d2-a792-072842a41439
+		summarizeBy: none
+		sourceColumn: caltcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column crev
+		dataType: string
+		lineageTag: 8a327866-e09e-460f-b71b-07eb53962faf
+		summarizeBy: none
+		sourceColumn: crev
+
+		annotation SummarizationSetBy = Automatic
+
+	column irtcode
+		dataType: int64
+		formatString: 0
+		lineageTag: 430a1494-ad23-428f-a835-3e3805aa637d
+		summarizeBy: sum
+		sourceColumn: irtcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column nstepno
+		dataType: int64
+		formatString: 0
+		lineageTag: dfbf26e1-4a65-4b66-97df-cce8fe086eaa
+		summarizeBy: sum
+		sourceColumn: nstepno
+
+		annotation SummarizationSetBy = Automatic
+
+	column irtstep
+		dataType: int64
+		formatString: 0
+		lineageTag: bc228513-2333-4992-9b29-ca888ae1a1e4
+		summarizeBy: sum
+		sourceColumn: irtstep
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwccode
+		dataType: string
+		lineageTag: 55d4b8db-ff2f-48e2-9dbb-0205e675345a
+		summarizeBy: none
+		sourceColumn: cwccode
+
+		annotation SummarizationSetBy = Automatic
+
+	column step_desc
+		dataType: string
+		lineageTag: e6c07ab7-8008-4bcb-b479-4eada64b7af9
+		summarizeBy: none
+		sourceColumn: step_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SPSCItems = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query=";WITH latest AS (
+				  SELECT r.*,
+				         ROW_NUMBER() OVER (
+				           PARTITION BY RTRIM(r.citemno), RTRIM(ISNULL(r.caltcode,''))
+				           ORDER BY COALESCE(r.tedtime, r.trvtime, r.tadtime) DESC,
+				                    NULLIF(RTRIM(r.crev),'') DESC,
+				                    r.pk_mcrouth DESC
+				         ) rn
+				  FROM mckeltec.dbo.mcrouth r
+				)
+				SELECT  l.citemno,
+				        l.caltcode,
+				        l.crev,
+				        l.irtcode,
+				        s.nstepno,
+				        s.irtstep,
+				        s.cwccode,
+				        s.cdesc AS step_desc
+				FROM latest l
+				JOIN mckeltec.dbo.mcrstp s
+				  ON s.irtcode = l.irtcode
+				WHERE l.rn = 1
+				  AND s.cwccode = 'SPSC'
+				ORDER BY l.citemno, s.nstepno;
+				"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

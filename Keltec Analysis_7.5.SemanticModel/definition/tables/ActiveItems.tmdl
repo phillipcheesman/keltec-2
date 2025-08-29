@@ -1,0 +1,61 @@
+table ActiveItems
+	lineageTag: 75c8904c-c3e7-4650-a664-4988717623ae
+
+	column citemno
+		lineageTag: 27d25155-b72c-467d-9410-8000d39555eb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: icitem[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cdescript
+		lineageTag: 7420341f-770e-40be-b878-d030719d018f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: icitem[cdescript]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctype
+		lineageTag: 1ae6475d-9ae1-45a7-9af4-eaa23a2006dc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: icitem[ctype]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbuyer
+		lineageTag: 22f33ff6-0758-49d9-8a48-e7be6e6ca5b7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: icitem[cbuyer]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'M vs B'
+		lineageTag: bdee5d97-d1ae-4f08-86e0-1d1bd4634b03
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: tblMakeBuy[M vs B]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ActiveItems = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    FILTER(
+				        icitem,
+				        icitem[cstatus] = "A"
+				    ),
+				    icitem[citemno],
+				    icitem[cdescript],
+				    icitem[ctype],
+				    icitem[cbuyer],
+				    tblMakeBuy[M vs B]
+				    )
+
+	annotation PBI_Id = 2ac5cdc49527410dab3a406343638084
+

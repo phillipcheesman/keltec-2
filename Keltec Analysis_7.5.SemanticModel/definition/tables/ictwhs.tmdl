@@ -1,0 +1,94 @@
+table ictwhs
+	lineageTag: 660c750e-2360-46e0-98fe-23084ced5e1f
+
+	column ctype
+		dataType: string
+		lineageTag: e4366230-e765-4cc8-8498-84dfb82b72c0
+		summarizeBy: none
+		sourceColumn: ctype
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: ccdf8f29-8002-4fb4-af9c-2204510050bf
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column cdescript
+		dataType: string
+		lineageTag: 6dce348e-ecb2-4513-8fff-9fa008b7ad77
+		summarizeBy: none
+		sourceColumn: cdescript
+
+		annotation SummarizationSetBy = Automatic
+
+	column crevncode
+		dataType: string
+		lineageTag: b38e721f-e53f-4943-b555-c8fb74c21412
+		summarizeBy: none
+		sourceColumn: crevncode
+
+		annotation SummarizationSetBy = Automatic
+
+	column cinvtacc
+		dataType: string
+		lineageTag: c363a100-5abd-41f8-b0b6-2724bb1a70c6
+		summarizeBy: none
+		sourceColumn: cinvtacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cintracc
+		dataType: string
+		lineageTag: 911b289c-2688-4864-8d9a-256c49d7ac87
+		summarizeBy: none
+		sourceColumn: cintracc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cintrmacc
+		dataType: string
+		lineageTag: 6a93de24-1dd6-4a99-8055-bc2f37738f28
+		summarizeBy: none
+		sourceColumn: cintrmacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cccostacc
+		dataType: string
+		lineageTag: 5d9ba65d-da45-4278-985a-c61dd08edb36
+		summarizeBy: none
+		sourceColumn: cccostacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccobliacc
+		dataType: string
+		lineageTag: 54b2e796-0ef3-4729-89bf-48d520f2844e
+		summarizeBy: none
+		sourceColumn: ccobliacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccdiscacc
+		dataType: string
+		lineageTag: 29b4f648-ac4d-4d48-8b01-4a66708331d2
+		summarizeBy: none
+		sourceColumn: ccdiscacc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ictwhs = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=SQL_VAM", [HierarchicalNavigation=true]),
+				    keltec_Database = Source{[Name="keltec",Kind="Database"]}[Data],
+				    dbo_Schema = keltec_Database{[Name="dbo",Kind="Schema"]}[Data],
+				    ictwhs_Table = dbo_Schema{[Name="ictwhs",Kind="Table"]}[Data]
+				in
+				    ictwhs_Table
+

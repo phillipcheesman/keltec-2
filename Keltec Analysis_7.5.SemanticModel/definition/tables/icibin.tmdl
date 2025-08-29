@@ -1,0 +1,113 @@
+table icibin
+	lineageTag: 03e86946-6dec-4fd7-8f7c-e8129ca2c3f6
+
+	column cuid
+		dataType: string
+		lineageTag: 0420155e-1f2c-4d95-8624-5d996df309a5
+		summarizeBy: none
+		sourceColumn: cuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: 9ed7c9a1-8263-40cd-bbb9-de850a1fce82
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode1
+		dataType: string
+		lineageTag: a68592bd-ffc0-4ed3-a41a-0601bc51fd05
+		summarizeBy: none
+		sourceColumn: cspeccode1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode2
+		dataType: string
+		lineageTag: eeb70cff-cc3c-4854-81c9-c206256e3326
+		summarizeBy: none
+		sourceColumn: cspeccode2
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: 25594097-dbc1-4b20-9499-4510e9418e92
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbin
+		dataType: string
+		lineageTag: 4476a0a7-4f86-45c4-88a7-f799702c1dee
+		summarizeBy: none
+		sourceColumn: cbin
+
+		annotation SummarizationSetBy = Automatic
+
+	column ldesignate
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d996fd5-4dc5-4926-8bd7-f14cd57750dc
+		summarizeBy: sum
+		sourceColumn: ldesignate
+
+		annotation SummarizationSetBy = Automatic
+
+	column nseq
+		dataType: int64
+		formatString: 0
+		lineageTag: 95286037-193c-451c-984a-345f7ae6c7b9
+		summarizeBy: sum
+		sourceColumn: nseq
+
+		annotation SummarizationSetBy = Automatic
+
+	column nonhand
+		dataType: double
+		formatString: #,0
+		lineageTag: 8a41ca58-0322-4eaa-856e-b0432f7105cb
+		summarizeBy: sum
+		sourceColumn: nonhand
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column nrefillpt
+		dataType: double
+		lineageTag: ee65bc94-03bc-4e50-b0d7-69f7198de0c7
+		summarizeBy: sum
+		sourceColumn: nrefillpt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nrefillqty
+		dataType: double
+		lineageTag: a5ea476c-9c49-45ce-a824-fd704b6244a0
+		summarizeBy: sum
+		sourceColumn: nrefillqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition icibin = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=SQL_VAM", [HierarchicalNavigation=true]),
+				    keltec_Database = Source{[Name="keltec",Kind="Database"]}[Data],
+				    dbo_Schema = keltec_Database{[Name="dbo",Kind="Schema"]}[Data],
+				    icibin_Table = dbo_Schema{[Name="icibin",Kind="Table"]}[Data]
+				in
+				    icibin_Table
+
+	annotation PBI_ResultType = Table
+

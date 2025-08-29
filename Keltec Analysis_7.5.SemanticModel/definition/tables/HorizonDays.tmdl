@@ -1,0 +1,30 @@
+table HorizonDays
+	lineageTag: 1e854e96-d4b8-4e91-835e-98779364f2f3
+
+	measure 'HorizonDays Value' = SELECTEDVALUE('HorizonDays'[HorizonDays], 14)
+		formatString: 0
+		lineageTag: 73987825-41ac-463b-a644-03e595f75489
+
+	measure HznDays = [HorizonDays Value]   // measure
+		formatString: 0
+		lineageTag: a66b5e66-3233-4a29-b200-5ea1f76ac75e
+
+	column HorizonDays
+		formatString: 0
+		lineageTag: aa7dc99a-37d3-47ce-b852-7073665410a7
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition HorizonDays = calculated
+		mode: import
+		source = GENERATESERIES(0, 90, 1)
+
+	annotation PBI_Id = cd6672ba67194140bef32df69f2f1a95
+

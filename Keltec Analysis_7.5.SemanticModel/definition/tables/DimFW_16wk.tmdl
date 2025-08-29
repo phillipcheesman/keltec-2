@@ -1,0 +1,65 @@
+table DimFW_16wk
+	lineageTag: 5dc78a53-e166-4f63-afe1-9bd1bf46d34d
+
+	column FY
+		formatString: 0
+		lineageTag: 836f6aea-e438-47fb-84ff-46b15b998aea
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FY]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FW
+		formatString: 0
+		lineageTag: 563107b9-398c-4845-a3e6-56a9cdb982c4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FW]
+		sortByColumn: SortKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekStart
+		formatString: 0
+		lineageTag: 0c0f7f1b-ead2-46d0-832c-872d3b9431b3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekStart]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SortKey
+		formatString: 0
+		lineageTag: 0c5690c9-d481-4382-8eaf-c9413f24ff1c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [SortKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFW_16wk = calculated
+		mode: import
+		source = ```
+				
+				VAR EndDate   = TODAY() - WEEKDAY ( TODAY(), 1 )            -- last Saturday
+				VAR StartDate = EndDate - 7 * 16 + 1                        -- 16 weeks ago Sunday
+				VAR Dates =
+				    ADDCOLUMNS (
+				        CALENDAR ( StartDate, EndDate ),
+				        "WeekStart", INT ( [Date] ) - WEEKDAY ( [Date], 1 ) + 1
+				    )
+				VAR Weeks =
+				    SUMMARIZE ( Dates, [WeekStart] )
+				RETURN
+				ADDCOLUMNS (
+				    Weeks,
+				    "FY", YEAR ( [WeekStart] ),
+				    "FW", WEEKNUM ( [WeekStart], 1 ),
+				    "SortKey", YEAR ( [WeekStart] ) * 100 + WEEKNUM ( [WeekStart], 1 )
+				)
+				
+				```
+
+	annotation PBI_Id = 9aa5e543f39c4a3f91c3206df0496f97
+

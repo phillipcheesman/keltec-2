@@ -1,0 +1,348 @@
+table iciwhs
+	lineageTag: db9f7d98-5668-40ad-b30a-fe5d830a0095
+
+	column cuid
+		dataType: string
+		lineageTag: 86b8f289-a3d6-43e7-b9cd-6156494f4bf7
+		summarizeBy: none
+		sourceColumn: cuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: e11210d6-94e9-41f6-b738-df5ff660f095
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode1
+		dataType: string
+		lineageTag: 1fce5221-9b35-4613-9a9a-ac3719b99078
+		summarizeBy: none
+		sourceColumn: cspeccode1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode2
+		dataType: string
+		lineageTag: fc297077-1c43-4fed-b80b-0790d4419d31
+		summarizeBy: none
+		sourceColumn: cspeccode2
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: e474647e-4bb4-4b65-892b-77e0b0039b0c
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column csernum
+		dataType: string
+		lineageTag: 5544bcb7-720b-4aa4-bbe6-fcec73ae1cbf
+		summarizeBy: none
+		sourceColumn: csernum
+
+		annotation SummarizationSetBy = Automatic
+
+	column cinvtacc
+		dataType: string
+		lineageTag: bb9790a8-5ff4-4c3d-a4a9-5388f0c19368
+		summarizeBy: none
+		sourceColumn: cinvtacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cintracc
+		dataType: string
+		lineageTag: 4992906d-2f86-4730-bd12-e645c18478f7
+		summarizeBy: none
+		sourceColumn: cintracc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cintrmacc
+		dataType: string
+		lineageTag: 81956d88-7256-4ec1-aacd-cbcccd392443
+		summarizeBy: none
+		sourceColumn: cintrmacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column crevncode
+		dataType: string
+		lineageTag: d9ec2eee-4d9b-40a1-bd0a-445eb2477c33
+		summarizeBy: none
+		sourceColumn: crevncode
+
+		annotation SummarizationSetBy = Automatic
+
+	column cccostacc
+		dataType: string
+		lineageTag: 03ae20f1-6a02-47a9-9369-31bf51602827
+		summarizeBy: none
+		sourceColumn: cccostacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccobliacc
+		dataType: string
+		lineageTag: ebfd992f-fad1-483d-9e7d-5afa52d1f075
+		summarizeBy: none
+		sourceColumn: ccobliacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccdiscacc
+		dataType: string
+		lineageTag: 6ddd5a09-c82b-46a6-8469-0e8afef5ab63
+		summarizeBy: none
+		sourceColumn: ccdiscacc
+
+		annotation SummarizationSetBy = Automatic
+
+	column dlastrecv
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a29b1e04-886f-4272-a664-7397f132ebe8
+		summarizeBy: none
+		sourceColumn: dlastrecv
+
+		variation Variation
+			isDefault
+			relationship: 7b2ede0e-78dc-4286-8ae7-6955a9c6f13c
+			defaultHierarchy: LocalDateTable_0d71edc5-aeab-422e-a100-b88b80d820b6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dlastrepd
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b0b4120a-47c0-4d99-a862-6c55a6669b24
+		summarizeBy: none
+		sourceColumn: dlastrepd
+
+		variation Variation
+			isDefault
+			relationship: 791b5cdb-46a6-4796-af86-b5e55e784ae4
+			defaultHierarchy: LocalDateTable_46c93c08-d632-4bfd-8d2a-2fe16ac32c74.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column nmfgltime
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c1154bf-8f93-4459-9e2a-2a64d5ae0f93
+		summarizeBy: sum
+		sourceColumn: nmfgltime
+
+		annotation SummarizationSetBy = Automatic
+
+	column nsafestock
+		dataType: double
+		lineageTag: 4caf46ab-a128-4b60-ac1d-91e215c1f0e7
+		summarizeBy: sum
+		sourceColumn: nsafestock
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nreordpt
+		dataType: double
+		lineageTag: 73736dc4-a589-4b07-9f56-f3f81720c1b2
+		summarizeBy: sum
+		sourceColumn: nreordpt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nreordqty
+		dataType: double
+		lineageTag: 982a9ba6-5315-47e7-a0fd-2411e773c420
+		summarizeBy: sum
+		sourceColumn: nreordqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonhand
+		dataType: double
+		lineageTag: 363a7702-0e0a-4032-b597-2977d1f03406
+		summarizeBy: sum
+		sourceColumn: nonhand
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonorder
+		dataType: double
+		lineageTag: 88b145e3-1a95-4173-b983-97a76b1dc9a4
+		summarizeBy: sum
+		sourceColumn: nonorder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ninprocess
+		dataType: double
+		lineageTag: f0047447-4570-4e8a-9b08-2486c2440ae5
+		summarizeBy: sum
+		sourceColumn: ninprocess
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nallocate
+		dataType: double
+		lineageTag: ca96d79c-d0e2-408e-a456-23296dfda856
+		summarizeBy: sum
+		sourceColumn: nallocate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nbook
+		dataType: double
+		lineageTag: 16af54fc-9d18-4ea1-9219-a5591a4602df
+		summarizeBy: sum
+		sourceColumn: nbook
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nintransit
+		dataType: double
+		lineageTag: 3d8e478f-5739-4d30-8000-e25548866a31
+		summarizeBy: sum
+		sourceColumn: nintransit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ncost
+		dataType: double
+		lineageTag: a6ca90c2-aa1f-4b19-b6d1-e5877ab1e26a
+		summarizeBy: sum
+		sourceColumn: ncost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlrecvcost
+		dataType: double
+		lineageTag: 98891c96-5a25-4f26-af90-c85b4c0ee314
+		summarizeBy: sum
+		sourceColumn: nlrecvcost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntotcost
+		dataType: double
+		lineageTag: 5d94c023-ac9d-41ab-b496-f144fffadb42
+		summarizeBy: sum
+		sourceColumn: ntotcost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlrepdcost
+		dataType: double
+		lineageTag: aec6e53c-19f4-479f-b76d-66af4e92579d
+		summarizeBy: sum
+		sourceColumn: nlrepdcost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nrmaonhand
+		dataType: double
+		lineageTag: 42922b86-56f3-4098-bd3b-74d6b26c00e4
+		summarizeBy: sum
+		sourceColumn: nrmaonhand
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nrmacost
+		dataType: double
+		lineageTag: 65a64cfc-125d-42a8-82a8-f2fec5ac4dd1
+		summarizeBy: sum
+		sourceColumn: nrmacost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nreprcost
+		dataType: double
+		lineageTag: 2b21d745-3293-4a7a-a69e-e80ceb742530
+		summarizeBy: sum
+		sourceColumn: nreprcost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ninterim
+		dataType: double
+		lineageTag: 74894034-3c54-4ecd-8395-c35ea1662d8b
+		summarizeBy: sum
+		sourceColumn: ninterim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column iclotsize
+		dataType: string
+		lineageTag: dda4fa0f-f9e8-4f1d-a379-8a2427340060
+		summarizeBy: none
+		sourceColumn: iclotsize
+
+		annotation SummarizationSetBy = Automatic
+
+	column idmodified
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2d82282e-3248-4493-a3db-7e023be79347
+		summarizeBy: none
+		sourceColumn: idmodified
+
+		variation Variation
+			isDefault
+			relationship: 12578074-9340-4ecc-a1a7-ebfbfe2f3b4f
+			defaultHierarchy: LocalDateTable_0dd38450-c8d8-4e3c-b716-07d0a56c576d.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition iciwhs = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "keltec", [Query="SELECT * FROM dbo.iciwhs"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

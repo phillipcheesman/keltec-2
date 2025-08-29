@@ -1,0 +1,78 @@
+table vsp_rpt_soopen_Item_past
+	lineageTag: b9d1abc0-6fc9-413d-bf0f-999aa95a8bd0
+
+	column citemno
+		lineageTag: f240e190-3b7e-43b0-97f0-ef97e8e55464
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: vsp_rpt_soopen[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column OpenQty
+		lineageTag: fbb2805e-b7f1-452b-9c7b-214b49eee732
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [OpenQty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonhand
+		lineageTag: 0a475246-8576-47b8-a7db-e42ec667a2b8
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [nonhand]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AllocationFull? =
+			
+			IF(
+			    vsp_rpt_soopen_Item_past[nonhand] >= vsp_rpt_soopen_Item_past[OpenQty],
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 680fb623-0e77-4f96-a6a5-573f74f2563c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vsp_rpt_soopen_Item_past = calculated
+		mode: import
+		source = ```
+				
+				VAR StartDate = DATE(2025, 1, 1)
+				VAR TodayDate = TODAY()
+				VAR PrevBiz1 =
+				    SWITCH ( WEEKDAY ( TodayDate, 2 ),
+				        1, TodayDate - 3,   -- Mon -> last Fri
+				        7, TodayDate - 2,   -- Sun -> Fri
+				        TodayDate - 1       -- Tue–Sat -> yesterday
+				    )
+				VAR PrevBiz2 =
+				    SWITCH ( WEEKDAY ( PrevBiz1, 2 ),
+				        1, PrevBiz1 - 3,
+				        7, PrevBiz1 - 2,
+				        PrevBiz1 - 1
+				    )
+				RETURN
+				SUMMARIZE (
+				    FILTER (
+				        vsp_rpt_soopen,
+				        vsp_rpt_soopen[drequest] >= StartDate &&
+				        vsp_rpt_soopen[drequest] <= PrevBiz2
+				    ),
+				    vsp_rpt_soopen[citemno],
+				    "OpenQty", SUM ( vsp_rpt_soopen[OpenQty] ),
+				    "nonhand", SUM ( vsp_rpt_soopen[nonhand] )
+				)
+				
+				```
+
+	annotation PBI_Id = 71c17bc47c964a93a04fe38fe3ac661f
+

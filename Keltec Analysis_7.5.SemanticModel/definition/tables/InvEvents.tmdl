@@ -1,0 +1,245 @@
+table InvEvents
+	lineageTag: a544cb7d-0f50-4b98-a81b-1e4c063c949c
+
+	measure TodayOH = ```
+			
+			VAR ItemKey =
+			    COALESCE( SELECTEDVALUE(InvEvents[citemno]),
+			              SELECTEDVALUE(InventorySummary[citemno]) )
+			RETURN
+			IF(
+			    ISBLANK(ItemKey),
+			    BLANK(),
+			    CALCULATE(
+			        MAX(InventorySummary[OH]),
+			        TREATAS( { ItemKey }, InventorySummary[citemno] )
+			    )
+			)
+			
+			```
+		lineageTag: 7a320eda-41a4-42eb-baf4-9d2d785ae8c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure RunningOH = ```
+			
+			VAR ItemKey =
+			    COALESCE( SELECTEDVALUE(InvEvents[citemno]),
+			              SELECTEDVALUE(InventorySummary[citemno]) )
+			VAR d      = MAX( DimDate[Date] )
+			VAR today  = TODAY()
+			VAR baseOH = [TodayOH]
+			VAR PastAdj =
+			    IF(
+			        d < today,
+			        CALCULATE(
+			            SUM( InvEvents[QtySigned] ),
+			            REMOVEFILTERS( InvEvents ),
+			            TREATAS( { ItemKey }, InvEvents[citemno] ),
+			            InvEvents[EventDate] > d,
+			            InvEvents[EventDate] <= today
+			        )
+			    )
+			VAR FutAdj =
+			    IF(
+			        d > today,
+			        CALCULATE(
+			            SUM( InvEvents[QtySigned] ),
+			            REMOVEFILTERS( InvEvents ),
+			            TREATAS( { ItemKey }, InvEvents[citemno] ),
+			            InvEvents[EventDate] > today,
+			            InvEvents[EventDate] <= d
+			        )
+			    )
+			RETURN
+			IF(
+			    ISBLANK(ItemKey) || ISBLANK(baseOH),
+			    BLANK(),
+			    SWITCH(
+			        TRUE(),
+			        d < today, baseOH - COALESCE(PastAdj,0),
+			        d = today, baseOH,
+			        baseOH + COALESCE(FutAdj,0)
+			    )
+			)
+			
+			```
+		lineageTag: c181acea-56ed-41e5-afa4-294d18d5bb2f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure TodayNeedle =
+			
+			NOW()
+		formatString: General Date
+		lineageTag: 8c1c949a-6aee-46b5-8af1-297f9823fb7b
+
+	measure EventQty =
+			
+			SUM ( InvEvents[QtySigned] )
+		lineageTag: ef544b61-8518-4f79-8132-7f3ae4c5e83a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure InboundQty =
+			
+			CALCULATE ( [EventQty], KEEPFILTERS ( InvEvents[QtySigned] > 0 ) )
+		lineageTag: dd512e71-b4fc-4715-aa70-db96b4247223
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure OutboundQty =
+			
+			CALCULATE ( [EventQty], KEEPFILTERS ( InvEvents[QtySigned] < 0 ) )
+		lineageTag: ea7f4796-5f02-486e-9c77-8be2fa1047c9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column citemno
+		lineageTag: 7e71e988-8f2b-4ecf-bddc-22533d797c2b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventDate
+		formatString: m/d/yy
+		lineageTag: a05fe4b4-27e2-4d2b-9f27-58b23eab8c0d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventDate]
+
+		variation Variation
+			isDefault
+			relationship: a4edebf6-cd05-4452-aa4a-a1664bdd5d81
+			defaultHierarchy: LocalDateTable_e750f25a-c20b-400a-84c8-d1c79e6ac444.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column OrderNo
+		lineageTag: df22d028-556d-406f-94bf-a10d023d204d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [OrderNo]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventType
+		lineageTag: 8431463f-0e4d-4eef-9917-d055ba66123a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventType]
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrigQty
+		lineageTag: 49b99028-7037-4af9-97fd-4d7b010a98d1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [OrigQty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Fulfilled
+		lineageTag: 1f5bfc9a-0cd8-4032-b5cf-9859aad24519
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Fulfilled]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Remaining
+		lineageTag: 12cfa668-b63a-4c35-a60f-5e03e179054b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Remaining]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QtySigned
+		lineageTag: 96c5c61c-5c18-4652-8190-3917db6de2cc
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [QtySigned]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition InvEvents = calculated
+		mode: import
+		source = ```
+				
+				UNION(
+				    // History: inventory transactions (signed qty)
+				    SELECTCOLUMNS(
+				        ictrsn,
+				        "citemno",    ictrsn[citemno],
+				        "EventDate",  ictrsn[dtrs],      // <-- date col
+				        "OrderNo",    ictrsn[ctrsno],
+				        "EventType",  ictrsn[ctrstype],
+				        "OrigQty",    ictrsn[nqty],
+				        "Fulfilled",  ictrsn[nqty],
+				        "Remaining",  BLANK(),
+				        "QtySigned",
+				            SWITCH(
+				                TRUE(),
+				                ictrsn[ctrstype] IN {"MCFG","ADJ_IN","+ADJ"},  ictrsn[nqty],
+				                ictrsn[ctrstype] IN {"SHIP","ADJ_OUT","-ADJ"},  ictrsn[nqty],
+				                ictrsn[ctrstype] = "WO_ISSUE",                      -ictrsn[nqty],
+				                0
+				            )
+				    ),
+				    // Future: open sales orders
+				    SELECTCOLUMNS(
+				        vsp_rpt_soopen,
+				        "citemno",    vsp_rpt_soopen[citemno],
+				        "EventDate",  vsp_rpt_soopen[drequest],
+				        "OrderNo",    vsp_rpt_soopen[csono],
+				        "EventType",  "SO_OPEN",
+				        "OrigQty",    vsp_rpt_soopen[nordqty],
+				        "Fulfilled",  vsp_rpt_soopen[nshipqty],
+				        "Remaining",  vsp_rpt_soopen[OpenQty],
+				        "QtySigned", -vsp_rpt_soopen[OpenQty]
+				    ),
+				    // Future: released / WIP work orders
+				    SELECTCOLUMNS(
+				        mcwwip,
+				        "citemno",    mcwwip[cserno],
+				        "EventDate",  mcwwip[tendtime],        // expected completion
+				        "OrderNo",    mcwwip[cwono],
+				        "EventType",  "WO_WIP",
+				        "OrigQty",    mcwwip[nfgqty],
+				        "Fulfilled",  0, //mcwwip[nfgqty],
+				        "Remaining",  mcwwip[nfgqty],         // remaining to receive
+				        "QtySigned",  mcwwip[nfgqty]          // inbound
+				    ),
+				    // Future: scheduled (not released) work orders
+				    SELECTCOLUMNS(
+				        mcschd,
+				        "citemno",    mcschd[citemno],
+				        "EventDate",  mcschd[dRequest],       // planned receipt date
+				        "OrderNo",    mcschd[cwono],
+				        "EventType",  "WO_SCHED",
+				        "OrigQty",    mcschd[nordqty],
+				        "Fulfilled",  BLANK(),
+				        "Remaining",  mcschd[nordqty],        // scheduled qty
+				        "QtySigned",  mcschd[nordqty]         // inbound
+				    )
+				)
+				
+				```
+
+	annotation PBI_Id = b7146e8417f2406e9d759885eff96e2d
+

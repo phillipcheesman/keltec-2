@@ -1,0 +1,384 @@
+table vsp_rpt_soopen2
+	lineageTag: 5dceb048-83f0-4dcf-bbd4-e50698696e94
+
+	column dcreate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0606dd2f-eb40-4e51-a777-e2f109f7a4c8
+		summarizeBy: none
+		sourceColumn: dcreate
+
+		variation Variation
+			isDefault
+			relationship: 6dd9e72e-d79a-4e82-a7a5-db4b4f305006
+			defaultHierarchy: LocalDateTable_c75e5b22-99a1-4e17-9379-34b867135069.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column cslpnno
+		dataType: string
+		lineageTag: 226d6c01-7d99-4875-947f-29283cb03ef8
+		summarizeBy: none
+		sourceColumn: cslpnno
+
+		annotation SummarizationSetBy = Automatic
+
+	column csono
+		dataType: string
+		lineageTag: 4e0c39c7-0141-48e2-9c1a-9a5d550196e0
+		summarizeBy: none
+		sourceColumn: csono
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccustno
+		dataType: string
+		lineageTag: 7e16aef0-6e87-4e11-8c79-204d1a41c6e8
+		summarizeBy: none
+		sourceColumn: ccustno
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccurrcode
+		dataType: string
+		lineageTag: 619377a0-0ee8-400d-a0e9-8ae515174ce5
+		summarizeBy: none
+		sourceColumn: ccurrcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column nxchgrate
+		dataType: double
+		lineageTag: f3706f62-22cc-4ebe-b909-9ff139ad0942
+		summarizeBy: sum
+		sourceColumn: nxchgrate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lhold
+		dataType: int64
+		formatString: 0
+		lineageTag: c61a83c4-de36-43b4-928f-cbb51ffa4954
+		summarizeBy: sum
+		sourceColumn: lhold
+
+		annotation SummarizationSetBy = Automatic
+
+	column lquote
+		dataType: int64
+		formatString: 0
+		lineageTag: 069388b5-b004-44a7-b0e4-01ce9e1af78e
+		summarizeBy: sum
+		sourceColumn: lquote
+
+		annotation SummarizationSetBy = Automatic
+
+	column lcrhold
+		dataType: int64
+		formatString: 0
+		lineageTag: 80de51b6-4772-4c75-bb0d-e31e4380312b
+		summarizeBy: sum
+		sourceColumn: lcrhold
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: 82606406-e7eb-4d62-9eb1-b6b114e76712
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: e26efd0f-4a27-4e3b-8902-6467da00d8fe
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode1
+		dataType: string
+		lineageTag: 30354d71-b2e9-4f23-b781-004d5de7c6da
+		summarizeBy: none
+		sourceColumn: cspeccode1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cspeccode2
+		dataType: string
+		lineageTag: 8c210713-ad13-4ecf-9b4e-693d09210f07
+		summarizeBy: none
+		sourceColumn: cspeccode2
+
+		annotation SummarizationSetBy = Automatic
+
+	column cdescript
+		dataType: string
+		lineageTag: 9a202613-5038-4912-9eec-f81dd3054331
+		summarizeBy: none
+		sourceColumn: cdescript
+
+		annotation SummarizationSetBy = Automatic
+
+	column cmeasure
+		dataType: string
+		lineageTag: fa085755-55b9-48e0-8f9e-b5c7609c4d82
+		summarizeBy: none
+		sourceColumn: cmeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	column drequest
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f89d0db9-b8d2-4d15-8ffa-00163c979723
+		summarizeBy: none
+		sourceColumn: drequest
+
+		variation Variation
+			isDefault
+			relationship: 5b1ceb65-4504-4b15-99da-a10fec3c3165
+			defaultHierarchy: LocalDateTable_35fee8fe-e636-4e47-9d6a-44c5a1ea8a35.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ndiscrate
+		dataType: double
+		lineageTag: e194d55d-47f3-4169-95ed-99fbd98526ca
+		summarizeBy: sum
+		sourceColumn: ndiscrate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nordqty
+		dataType: double
+		lineageTag: 1b660a23-f24c-4fc6-b23d-d3255a56d154
+		summarizeBy: sum
+		sourceColumn: nordqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nshipqty
+		dataType: double
+		lineageTag: 30108026-a27e-4505-b6f7-cec0639d5894
+		summarizeBy: sum
+		sourceColumn: nshipqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nprice
+		dataType: double
+		lineageTag: ff0f5802-537c-4f7f-a609-43b7e02a3761
+		summarizeBy: sum
+		sourceColumn: nprice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfprice
+		dataType: double
+		lineageTag: a4851694-8be7-4dfb-a13f-6d228b0f42d6
+		summarizeBy: sum
+		sourceColumn: nfprice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nqtydec
+		dataType: int64
+		formatString: 0
+		lineageTag: b58255ad-755e-47b1-94e8-c27b917493f5
+		summarizeBy: sum
+		sourceColumn: nqtydec
+
+		annotation SummarizationSetBy = Automatic
+
+	column nlineseq
+		dataType: int64
+		formatString: 0
+		lineageTag: e0156556-dc0d-49f3-a68e-3d35f6312be8
+		summarizeBy: sum
+		sourceColumn: nlineseq
+
+		annotation SummarizationSetBy = Automatic
+
+	column clineitem
+		dataType: string
+		lineageTag: 6c9a2f09-086d-414e-a088-78944d786256
+		summarizeBy: none
+		sourceColumn: clineitem
+
+		annotation SummarizationSetBy = Automatic
+
+	column tax_per_unit_dom
+		dataType: double
+		lineageTag: 7d7b22d9-bb19-47f0-aa38-8ec0a22a1098
+		summarizeBy: sum
+		sourceColumn: tax_per_unit_dom
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tax_per_unit_for
+		dataType: double
+		lineageTag: 4d7cd6b9-c348-42dd-9b48-358b0b7db8ed
+		summarizeBy: sum
+		sourceColumn: tax_per_unit_for
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonhand
+		dataType: double
+		lineageTag: 81257c12-548f-4568-b789-548847b33fca
+		summarizeBy: sum
+		sourceColumn: nonhand
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column navail
+		dataType: double
+		lineageTag: 82ca3105-9342-4047-9469-c1c9335b9da1
+		summarizeBy: sum
+		sourceColumn: navail
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ccompany
+		dataType: string
+		lineageTag: e9bc92d4-cf9b-488c-9bb9-533e9c652a37
+		summarizeBy: none
+		sourceColumn: ccompany
+
+		annotation SummarizationSetBy = Automatic
+
+	column cname
+		dataType: string
+		lineageTag: 77c471ba-398f-4d23-a510-2b985c137429
+		summarizeBy: none
+		sourceColumn: cname
+
+		annotation SummarizationSetBy = Automatic
+
+	column csymbol
+		dataType: string
+		lineageTag: 74f411dc-0db4-4d92-b387-f572ca87a9e0
+		summarizeBy: none
+		sourceColumn: csymbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwhsedesc
+		dataType: string
+		lineageTag: abf95247-890a-42f3-b09f-dc1ef7f73eb8
+		summarizeBy: none
+		sourceColumn: cwhsedesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctype
+		dataType: string
+		lineageTag: cb9dbf82-b5f4-4e59-98c0-d17339d04753
+		summarizeBy: none
+		sourceColumn: ctype
+
+		annotation SummarizationSetBy = Automatic
+
+	column cclass
+		dataType: string
+		lineageTag: f03c3a0f-b335-421a-8b04-0a1481d0b640
+		summarizeBy: none
+		sourceColumn: cclass
+
+		annotation SummarizationSetBy = Automatic
+
+	column cprodline
+		dataType: string
+		lineageTag: 3de44a05-5ed4-416c-931f-9b599599bddf
+		summarizeBy: none
+		sourceColumn: cprodline
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemdesc
+		dataType: string
+		lineageTag: eb1dd648-ea17-429f-9da6-f4c9b692e4dd
+		summarizeBy: none
+		sourceColumn: citemdesc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cclassdescript
+		dataType: string
+		lineageTag: 2c979047-3d20-4b6a-b155-3b67a8992354
+		summarizeBy: none
+		sourceColumn: cclassdescript
+
+		annotation SummarizationSetBy = Automatic
+
+	column cproddescript
+		dataType: string
+		lineageTag: f67692ac-09b4-4772-9a03-9954eaa5cab5
+		summarizeBy: none
+		sourceColumn: cproddescript
+
+		annotation SummarizationSetBy = Automatic
+
+	column ntotonhand
+		dataType: double
+		lineageTag: e763559f-8063-48d0-b15e-d5b6ace40ba1
+		summarizeBy: sum
+		sourceColumn: ntotonhand
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntotavail
+		dataType: double
+		lineageTag: ac2e2156-7e40-4f2f-baf9-99d845c4be11
+		summarizeBy: sum
+		sourceColumn: ntotavail
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cwkstation
+		dataType: string
+		lineageTag: bb44ab9b-a898-41fa-b9dd-a1cfb3a4de46
+		summarizeBy: none
+		sourceColumn: cwkstation
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vsp_rpt_soopen2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "keltec", [Query="SELECT#(lf)    h.dcreate, h.cslpnno, h.csono, h.ccustno, h.ccurrcode, h.nxchgrate,#(lf)    h.lhold, h.lquote, h.lcrhold,#(lf)#(lf)    d.cwarehouse, d.citemno, d.cspeccode1, d.cspeccode2, d.cdescript, d.cmeasure,#(lf)    d.drequest, d.ndiscrate, d.nordqty, d.nshipqty, d.nprice, d.nfprice, d.nqtydec,#(lf)    d.nseq AS nlineseq, d.clineitem,#(lf)#(lf)    NULLIF(d.ntaxamt1 + d.ntaxamt2 + d.ntaxamt3, 0) / NULLIF(d.nordqty, 0.0) AS tax_per_unit_dom,#(lf)    NULLIF(d.nftaxamt1 + d.nftaxamt2 + d.nftaxamt3, 0) / NULLIF(d.nordqty, 0.0) AS tax_per_unit_for,#(lf)#(lf)    ISNULL(w.nonhand, 0) AS nonhand,#(lf)    ISNULL(w.nonhand - w.nbook - w.nallocate, 0) AS navail,#(lf)#(lf)    c.ccompany, s.cname, u.csymbol, wh.cdescript AS cwhsedesc,#(lf)#(lf)    i.ctype, i.cclass, i.cprodline,#(lf)    ISNULL(t.citemdesc, '')   AS citemdesc,#(lf)    ISNULL(cls.cdescript, '') AS cclassdescript,#(lf)    ISNULL(pl.cdescript, '')  AS cproddescript,#(lf)#(lf)    (SELECT ISNULL(SUM(w2.nonhand),0)#(lf)     FROM dbo.iciwhs AS w2#(lf)     WHERE w2.citemno = d.citemno#(lf)       AND w2.cspeccode1 = d.cspeccode1#(lf)       AND w2.cspeccode2 = d.cspeccode2) AS ntotonhand,#(lf)#(lf)    (SELECT ISNULL(SUM(w2.nonhand - w2.nbook - w2.nallocate),0)#(lf)     FROM dbo.iciwhs AS w2#(lf)     WHERE w2.citemno = d.citemno#(lf)       AND w2.cspeccode1 = d.cspeccode1#(lf)       AND w2.cspeccode2 = d.cspeccode2) AS ntotavail,#(lf)#(lf)    ws.cwkstation#(lf)#(lf)FROM dbo.sosord AS h#(lf)JOIN dbo.sostrs AS d#(lf)  ON d.csono = h.csono AND d.ccustno = h.ccustno#(lf)LEFT JOIN dbo.arcust  AS c  ON c.ccustno  = h.ccustno#(lf)LEFT JOIN dbo.arslpn  AS s  ON s.cslpnno  = h.cslpnno#(lf)LEFT JOIN dbo.icunit  AS u  ON u.cmeasure = d.cmeasure#(lf)LEFT JOIN dbo.icwhse  AS wh ON wh.cwarehouse = d.cwarehouse#(lf)LEFT JOIN dbo.icitem  AS i  ON i.citemno   = d.citemno#(lf)LEFT JOIN dbo.ictype  AS t  ON t.ctype     = i.ctype#(lf)LEFT JOIN dbo.comisc  AS cls ON cls.ccode  = i.cclass    AND cls.ctype = 'ITEMCLASS'#(lf)LEFT JOIN dbo.comisc  AS pl  ON pl.ccode   = i.cprodline AND pl.ctype  = 'ITEMPRODLN'#(lf)LEFT JOIN dbo.iciwhs  AS w#(lf)  ON  w.cwarehouse = d.cwarehouse#(lf)  AND w.citemno    = d.citemno#(lf)  AND w.cspeccode1 = d.cspeccode1#(lf)  AND w.cspeccode2 = d.cspeccode2#(lf)#(lf)LEFT JOIN (#(lf)  SELECT X.CITEMNO,#(lf)         STUFF((#(lf)            SELECT DISTINCT CHAR(13) + LTRIM(RTRIM(X2.CWCCODE))#(lf)            FROM (#(lf)               SELECT DISTINCT R2.CITEMNO, P2.CWCCODE#(lf)               FROM mckeltec..MCWWIP  W2#(lf)               JOIN mckeltec..MCROUT  R2 ON R2.IRTCODE = W2.IRTCODE#(lf)               JOIN mckeltec..MCWSTP  S2 ON S2.CSERNO  = W2.CSERNO AND (S2.NIPQTY + S2.NWTQTY > 0)#(lf)               JOIN mckeltec..MCRSTP  P2 ON P2.IRTCODE = W2.IRTCODE AND P2.NSTEPNO = S2.NSTEPNO#(lf)            ) AS X2#(lf)            WHERE X2.CITEMNO = X.CITEMNO#(lf)            FOR XML PATH(''), TYPE#(lf)         ).value('.','nvarchar(max)'),1,1,'') AS cwkstation#(lf)  FROM (#(lf)     SELECT DISTINCT R.CITEMNO#(lf)     FROM mckeltec..MCWWIP  W#(lf)     JOIN mckeltec..MCROUT  R ON R.IRTCODE = W.IRTCODE#(lf)     JOIN mckeltec..MCWSTP  S ON S.CSERNO  = W.CSERNO AND (S.NIPQTY + S.NWTQTY > 0)#(lf)     JOIN mckeltec..MCRSTP  P ON P.IRTCODE = W.IRTCODE AND P.NSTEPNO = S.NSTEPNO#(lf)  ) AS X#(lf)) AS ws#(lf)  ON ws.CITEMNO = d.citemno#(lf)#(lf)WHERE#(lf)    ISNULL(d.nordqty,0) > ISNULL(d.nshipqty,0)#(lf)    AND ISNULL(h.lcrhold,0) = 0;#(lf)"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

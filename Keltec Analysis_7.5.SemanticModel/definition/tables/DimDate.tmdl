@@ -1,0 +1,250 @@
+table DimDate
+	lineageTag: e4b956e4-a174-433a-bbe6-b31a8e7a5648
+
+	column Date
+		formatString: General Date
+		lineageTag: 87dda0f0-ed62-4630-ad52-6a9ed1c6be2e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: b0d6b0a9-e285-4966-91ae-bc46895954e3
+			defaultHierarchy: LocalDateTable_df898c1e-301b-42c3-a4ed-93440960be94.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		formatString: 0
+		lineageTag: eb42f31d-437a-451b-9069-cd20fd79110b
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [DateKey]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		formatString: 0
+		lineageTag: 246b37fb-2873-45dd-9af4-8ca2c86f5109
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterNum
+		formatString: 0
+		lineageTag: 66ffcd1a-b60b-4502-9740-6fea8ba18923
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [QuarterNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: e5d70a81-60d7-4667-82d1-41a59420c61a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNum
+		formatString: 0
+		lineageTag: 16fbb527-8a7d-4c09-ad54-7f53d24cc409
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MonthNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		lineageTag: 5bfb2157-d991-445f-b53f-eef559178e13
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthShort
+		lineageTag: ffd4ed02-3d2f-4e12-a682-adbb82d92bcb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthShort]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonth
+		lineageTag: 08000044-4dd1-431d-9ff4-4b04ec64893a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [YearMonth]
+
+		annotation SummarizationSetBy = Automatic
+
+	column YearMonthSort
+		formatString: 0
+		lineageTag: 34241f7b-0222-48b5-81d6-1b9414ba4323
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [YearMonthSort]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		formatString: 0
+		lineageTag: 663301cb-04b2-49f9-a7fd-23aa9ee5fd5b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Day]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayNum
+		formatString: 0
+		lineageTag: 591e52bd-79eb-4724-bc49-cea72b3778fa
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [WeekdayNum]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayName
+		lineageTag: 28a67081-207d-4357-85f2-8f37538460ff
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdayName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekdayShort
+		lineageTag: 4766c874-b9c1-44dc-b4c4-b5571ac301ba
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekdayShort]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISOWeek
+		formatString: 0
+		lineageTag: 91514be9-dd95-4110-826a-db0138315003
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ISOWeek]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISOYear
+		formatString: 0
+		lineageTag: 20cbf32c-159b-440c-9f60-f1328397a8cb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [ISOYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWeekend
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e941ffb7-0958-405b-9d25-8a3e2766060f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsWeekend]
+
+		annotation SummarizationSetBy = Automatic
+
+	column HolidayName
+		lineageTag: 40749e49-9b91-4025-ac42-d344f3a4426a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [HolidayName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHoliday
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: d39dd15d-3b20-4a73-9ffc-bb9816402477
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHoliday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsWorkday
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 94f74917-c498-4eb0-ae1b-9d22cf8e77c8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsWorkday]
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekStart
+		formatString: General Date
+		lineageTag: 9717f4e4-ede7-4bca-8792-1a8ab6ae2e0f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekStart]
+
+		variation Variation
+			isDefault
+			relationship: 34637fb2-e705-45f5-a15a-6dbfaa5fc8dd
+			defaultHierarchy: LocalDateTable_c919e0d9-bfb0-4757-9633-586024b9ee40.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekEnd
+		formatString: General Date
+		lineageTag: 2fff5479-2ebd-4cd6-85c6-dea6a9456eed
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [WeekEnd]
+
+		variation Variation
+			isDefault
+			relationship: 0e226837-a6e2-4d10-9389-8275820aaebf
+			defaultHierarchy: LocalDateTable_0891935f-c2bf-495f-9605-9286f5cbe33c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimDate = calculated
+		mode: import
+		source = ```
+				
+				VAR MinDate = DATE(2020,1,1)
+				VAR MaxDate = DATE(2026,12,31)
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(MinDate, MaxDate),
+				    "DateKey", YEAR([Date])*10000 + MONTH([Date])*100 + DAY([Date]),
+				    "Year", YEAR([Date]),
+				    "QuarterNum", QUARTER([Date]),
+				    "Quarter", "Q" & QUARTER([Date]),
+				    "MonthNum", MONTH([Date]),
+				    "MonthName", FORMAT([Date], "MMMM"),
+				    "MonthShort", FORMAT([Date], "MMM"),
+				    "YearMonth", FORMAT([Date], "YYYY-MM"),
+				    "YearMonthSort", YEAR([Date])*100 + MONTH([Date]),
+				    "Day", DAY([Date]),
+				    "WeekdayNum", WEEKDAY([Date], 2),          // Mon=1 … Sun=7
+				    "WeekdayName", FORMAT([Date], "dddd"),
+				    "WeekdayShort", FORMAT([Date], "ddd"),
+				    "ISOWeek", WEEKNUM([Date], 21),
+				    "ISOYear", YEAR([Date] - WEEKDAY([Date],2) + 4),
+				    "IsWeekend", IF(WEEKDAY([Date],2) >= 6, TRUE(), FALSE()),
+				    "HolidayName", LOOKUPVALUE( US_Holidays[Holiday], US_Holidays[Date], [Date] ),
+				    "IsHoliday", NOT ISBLANK( LOOKUPVALUE( US_Holidays[Holiday], US_Holidays[Date], [Date] ) ),
+				    "IsWorkday",
+				        IF(
+				            WEEKDAY([Date],2) >= 6
+				            || NOT ISBLANK( LOOKUPVALUE( US_Holidays[Holiday], US_Holidays[Date], [Date] ) ),
+				            FALSE(), TRUE()
+				        ),
+				    "WeekStart", [Date] - WEEKDAY([Date],2) + 1,
+				    "WeekEnd",   [Date] - WEEKDAY([Date],2) + 7
+				)
+				
+				```
+
+	annotation PBI_Id = 9f1d9b8b9ea346ce9671d41dacab7af1
+

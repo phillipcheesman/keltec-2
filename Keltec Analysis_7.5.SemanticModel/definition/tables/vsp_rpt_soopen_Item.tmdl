@@ -1,0 +1,59 @@
+table vsp_rpt_soopen_Item
+	lineageTag: 3fcea6ea-1f10-4bea-b260-6064066e4061
+
+	column citemno
+		lineageTag: 8d176326-89c1-4b79-a1fc-aa6a3e562b2a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: vsp_rpt_soopen[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AllocationFull? =
+			
+			IF(
+			    vsp_rpt_soopen_Item[nonhand] >= vsp_rpt_soopen_Item[OpenQty],
+			    1,
+			    0
+			)
+		formatString: #,0
+		lineageTag: d0133479-4c93-4a98-853d-6e939687a10a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column OpenQty
+		lineageTag: 98e68b29-b3b1-4d95-bc0f-5fda5d8ae0ca
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [OpenQty]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nonhand
+		lineageTag: 0675c8f0-78aa-4141-9062-b5a9d91b6c27
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [nonhand]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition vsp_rpt_soopen_Item = calculated
+		mode: import
+		source =
+				
+				SUMMARIZE(
+				    vsp_rpt_soopen,
+				    vsp_rpt_soopen[citemno],
+				    "OpenQty", SUM(vsp_rpt_soopen[OpenQty]),
+				    "nonhand", sum(vsp_rpt_soopen[nonhand])
+				)
+
+	annotation PBI_Id = abd46682722d4253bbe37ebeb3e61612
+

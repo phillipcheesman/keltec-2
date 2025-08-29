@@ -1,0 +1,135 @@
+table ItemStats_16wk_AllActive
+	lineageTag: 07943f68-f267-4b66-9b53-0c26ae8ba5a4
+
+	column citemno
+		lineageTag: f8459a20-93fb-4720-a6b6-4e0b4c9772af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ActiveItems[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cdescript
+		lineageTag: 4950d248-f7c3-431a-8b51-4de40a95dd97
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ActiveItems[cdescript]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctype
+		lineageTag: 2044e0da-c470-4d39-a1d6-c5831c4c4b17
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ActiveItems[ctype]
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbuyer
+		lineageTag: d8f5f62e-daae-4a2e-9ea9-755f52cef220
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ActiveItems[cbuyer]
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_sales
+		lineageTag: 643bc270-9203-4370-ac27-355e7389be37
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [total_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_sales
+		lineageTag: d2b5a228-9dff-4e30-b8f2-85ae2277e78d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [avg_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column stddev
+		lineageTag: 386dc031-34ce-47c1-bc00-6ee1e6d68fd4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [stddev]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_sales
+		lineageTag: ba37c11a-39c1-4ea7-aae3-1208aaa4acf1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [min_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_sales
+		lineageTag: bfda9974-701c-4438-a865-2514e9e6721b
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [max_sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'M vs B'
+		lineageTag: 52a286fd-4cab-490e-84c7-fc7ccdb571c3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: ActiveItems[M vs B]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemStats_16wk_AllActive = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS (
+				    ActiveItems,
+				    "total_sales", COALESCE (
+				        LOOKUPVALUE ( 
+				            ItemStats_16wk[total_sales], 
+				            ItemStats_16wk[citemno], ActiveItems[citemno] 
+				        ), 0
+				    ),
+				    "avg_sales", COALESCE (
+				        LOOKUPVALUE ( 
+				            ItemStats_16wk[avg_salesCount0s], 
+				            ItemStats_16wk[citemno], ActiveItems[citemno] 
+				        ), 0
+				    ),
+				    "stddev", COALESCE (
+				        LOOKUPVALUE ( 
+				            ItemStats_16wk[stddev], 
+				            ItemStats_16wk[citemno], ActiveItems[citemno] 
+				        ), 0
+				    ),
+				    "min_sales", COALESCE (
+				        LOOKUPVALUE ( 
+				            ItemStats_16wk[min_sales], 
+				            ItemStats_16wk[citemno], ActiveItems[citemno] 
+				        ), 0
+				    ),
+				    "max_sales", COALESCE (
+				        LOOKUPVALUE ( 
+				            ItemStats_16wk[max_sales], 
+				            ItemStats_16wk[citemno], ActiveItems[citemno] 
+				        ), 0
+				    )
+				)
+				
+				```
+
+	annotation PBI_Id = 8469e37c124447b0af7763527b973981
+

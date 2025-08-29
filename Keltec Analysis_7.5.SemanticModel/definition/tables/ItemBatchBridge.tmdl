@@ -1,0 +1,103 @@
+table ItemBatchBridge
+	lineageTag: 816531e2-9ff6-4429-a7db-0ab8b172fcaa
+
+	column cserno
+		dataType: string
+		lineageTag: 4454aef9-b014-4e22-9cca-a31efc3b984b
+		summarizeBy: none
+		sourceColumn: cserno
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: da13e7f3-a2cc-4d18-9d02-c922bb83cf46
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwono
+		dataType: string
+		lineageTag: afacb39b-0cc0-4598-8662-cafb1b4fa602
+		summarizeBy: none
+		sourceColumn: cwono
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_name
+		dataType: string
+		lineageTag: 442ba852-a84d-4419-989a-ac6960d2cd87
+		summarizeBy: none
+		sourceColumn: source_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ItemBatchBridge = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="-- One row per cserno with the most reliable citemno
+				WITH src AS (
+				    -- Highest confidence: explicit WO/serial/item tie
+				    SELECT  cserno,
+				            citemno,
+				            cwono,
+				            'mcwost' AS source_name,
+				            TRY_CONVERT(datetime, NULL) AS ts,   -- no timestamp fields here
+				            1 AS src_rank
+				    FROM mckeltec.dbo.mcwost
+				    WHERE cserno <> '' AND citemno <> ''
+				
+				    UNION ALL
+				    -- WIP header: cfgitem is the FG item for this serial
+				    SELECT  cserno,
+				            cfgitem AS citemno,
+				            cwono,
+				            'mcfwip' AS source_name,
+				            tadtime AS ts,
+				            2 AS src_rank
+				    FROM mckeltec.dbo.mcfwip
+				    WHERE cserno <> '' AND cfgitem <> ''
+				
+				    UNION ALL
+				    -- Shipped lines: confirm mapping post-ship
+				    SELECT  cserno,
+				            citemno,
+				            NULL     AS cwono,
+				            'mcship' AS source_name,
+				            tshiptime AS ts,
+				            3 AS src_rank
+				    FROM mckeltec.dbo.mcship
+				    WHERE cserno <> '' AND citemno <> ''
+				
+				    UNION ALL
+				    SELECT  cserno,
+				            citemno,
+				            NULL     AS cwono,
+				            'mcshiph' AS source_name,
+				            dshipdate AS ts,
+				            3 AS src_rank
+				    FROM mckeltec.dbo.mcshiph
+				    WHERE cserno <> '' AND citemno <> ''
+				),
+				ranked AS (
+				    SELECT *,
+				           ROW_NUMBER() OVER (
+				             PARTITION BY cserno
+				             ORDER BY src_rank ASC, ts DESC
+				           ) AS rn
+				    FROM src
+				)
+				SELECT cserno, citemno, cwono, source_name
+				FROM ranked
+				WHERE rn = 1
+				ORDER BY cserno;
+				"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

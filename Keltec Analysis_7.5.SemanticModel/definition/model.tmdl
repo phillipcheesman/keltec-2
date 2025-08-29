@@ -1,0 +1,140 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","miboml","icibin_2","mcfbom","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table sosord
+ref table DateTableTemplate_118538f7-ba89-4661-a4d1-59c17c24026c
+ref table LocalDateTable_c989d75e-f4f7-4195-a057-09642b6a3e08
+ref table LocalDateTable_0f48c02a-c304-4319-afbf-47278d8af4d3
+ref table LocalDateTable_179b2012-4e82-4023-bc47-b8fb234bc197
+ref table LocalDateTable_d4fc33ba-9f74-4b73-b8b1-33dde2c1ce8a
+ref table sostrs
+ref table LocalDateTable_58f9c8e4-e272-415b-8705-e7bcc3d96423
+ref table LocalDateTable_77b9f11f-ed39-4bfd-8bf3-a327089e339a
+ref table vsp_rpt_soopen
+ref table LocalDateTable_7c899eab-c9e7-4789-b011-6f3f53ef34d3
+ref table LocalDateTable_8f97712b-2546-4d2d-82a5-683b78f8d7dc
+ref table vsp_rpt_soopen_SO
+ref table icitem
+ref table LocalDateTable_2c80f837-8fa4-42c8-a14c-0934b979db04
+ref table LocalDateTable_b4dde502-1c26-4679-8547-7236d2322415
+ref table LocalDateTable_10b0a3ea-c655-456d-b8f0-5f256255773b
+ref table LocalDateTable_059a93b9-7012-44b7-a409-be7713662335
+ref table LocalDateTable_728966ae-9f4f-4b1c-aff3-9c97ecb617f7
+ref table LocalDateTable_36b058b2-d613-4b41-abba-60dbf63ba995
+ref table ictwhs
+ref table icibin
+ref table SalesByItemWeek_16wk
+ref table ItemStats_16wk
+ref table ItemStats_16wk_AllActive
+ref table ActiveItems
+ref table popord
+ref table LocalDateTable_2533e4b4-53c6-4ebe-ba3e-245bc60aca27
+ref table LocalDateTable_306ec365-ee5c-48b0-817a-bb55fab1f7dd
+ref table LocalDateTable_bf5a6c24-ce3c-4867-b232-647bc0bb9704
+ref table LocalDateTable_fdbd95d7-e6b3-4db0-90a0-0d081deb126d
+ref table portrs
+ref table LocalDateTable_a6ba691e-6a12-4891-974e-d039390c6e2f
+ref table LocalDateTable_fdf4e832-198b-4819-8461-58c173daf297
+ref table LocalDateTable_db98402b-f911-403f-9535-de59710e5373
+ref table poptrs
+ref table LocalDateTable_e625c4bb-ecb1-495f-92aa-dfa55fafbfc6
+ref table LocalDateTable_d108f310-c1a4-49a2-ac29-b5aaf7d84cf7
+ref table LocalDateTable_4164b0f1-60a3-4351-b5fb-aded1c8ecc66
+ref table LocalDateTable_da69c7cf-9ec5-4e2c-b9e8-be9a638fbd8f
+ref table POStats
+ref table vsp_rpt_soopen_Item
+ref table tblMakeBuy
+ref table InventorySummary
+ref table SL_A
+ref table vsp_rpt_soopen2
+ref table LocalDateTable_c75e5b22-99a1-4e17-9379-34b867135069
+ref table LocalDateTable_35fee8fe-e636-4e47-9d6a-44c5a1ea8a35
+ref table DimFW_16wk
+ref table vsp_rpt_soopen_Item_past
+ref table ictrsn
+ref table LocalDateTable_69eb6019-6f39-49c5-8ca5-ce9fd023ad4a
+ref table LocalDateTable_30fe5743-df96-4a67-a8a8-7a1038e2258d
+ref table WO
+ref table mcitem
+ref table mciwhs
+ref table LocalDateTable_e53d46b7-d077-4afd-a12c-66f378736c9a
+ref table LocalDateTable_e9a21917-e4a1-4685-99b0-09d6ede64071
+ref table mcflog_trimmed
+ref table LocalDateTable_f06bc36e-74de-4dd9-a4b8-f83a4b150286
+ref table LocalDateTable_c4f51588-c20a-4944-ae57-1fc36be47298
+ref table LocalDateTable_fd1d9df0-a89e-475c-ad9b-56614f1519cb
+ref table LocalDateTable_06061a71-eae7-427a-8007-217337787a3a
+ref table mcfwip_trimmed
+ref table LocalDateTable_3f4f1d00-b5c4-499c-af34-85238dff8bb3
+ref table LocalDateTable_a1ad94d8-deb4-48f5-80c8-b43e054c9b60
+ref table LocalDateTable_afbdc9d1-d1ff-485d-aa8b-206a43ba3413
+ref table LocalDateTable_e6b59413-f36f-49c1-a349-46297731d5e7
+ref table LocalDateTable_93a993d6-ba3b-4323-9559-420e7671be16
+ref table LocalDateTable_c431523e-1619-43ee-8f0d-674cea1ecb69
+ref table LocalDateTable_fd4cb576-d206-4a28-ad38-c2b57ef14524
+ref table mcwlog_trimmed
+ref table LocalDateTable_0cb8e560-565e-4c03-b5f4-e6ab152c5938
+ref table LocalDateTable_47c08c42-88f5-4d6d-8a3a-211352304c17
+ref table LocalDateTable_2123105c-a9d5-4d88-919c-089f45fbb91c
+ref table LocalDateTable_14ac421a-af61-4440-9358-059698e6c8f5
+ref table mcschd
+ref table LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce
+ref table LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6
+ref table LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba
+ref table miboml
+ref table LocalDateTable_644d37a0-8df5-4c3f-98f7-f49f0ec79cc3
+ref table icibin_2
+ref table mcfbom
+ref table LocalDateTable_1549da9f-861e-4c3a-a972-8e415829fead
+ref table LocalDateTable_a585d130-c23a-4286-abd1-493363d25be0
+ref table LateSummary
+ref table LocalDateTable_2a8ab9ae-ea08-4643-bc44-cae75608a1ec
+ref table iciwhs
+ref table LocalDateTable_0d71edc5-aeab-422e-a100-b88b80d820b6
+ref table LocalDateTable_46c93c08-d632-4bfd-8d2a-2fe16ac32c74
+ref table LocalDateTable_0dd38450-c8d8-4e3c-b716-07d0a56c576d
+ref table mcwwip
+ref table LocalDateTable_f0880116-3bc0-407b-9645-398f2700c1f7
+ref table LocalDateTable_4283d93c-e93f-4b7c-bf80-068b7b9ae43a
+ref table LocalDateTable_8a215c3e-7fdc-47fe-819c-fa13e5f79609
+ref table LocalDateTable_dd6ac072-5ce8-4408-8601-30d9ac352c33
+ref table LocalDateTable_38eb52ab-8749-42c0-b297-78cc8583f2cb
+ref table ItemBatchBridge
+ref table BomExplode
+ref table InvEvents
+ref table US_Holidays
+ref table LocalDateTable_b39b6784-4ac6-4eb8-8acd-85a6a15ad6c6
+ref table DimDate
+ref table LocalDateTable_df898c1e-301b-42c3-a4ed-93440960be94
+ref table LocalDateTable_c919e0d9-bfb0-4757-9633-586024b9ee40
+ref table LocalDateTable_0891935f-c2bf-495f-9605-9286f5cbe33c
+ref table DimItem
+ref table OpenPO
+ref table LocalDateTable_aef413d6-4b5d-46fc-9c4e-f249b1681289
+ref table LocalDateTable_22638ce3-7f7f-4692-88df-f170aa7303be
+ref table LocalDateTable_28c20cac-888b-4538-a823-25137df9cd49
+ref table LocalDateTable_45a22884-c4ea-4882-914f-fc0461507cee
+ref table LocalDateTable_00699843-ef89-4eaf-b2be-039989e4af83
+ref table LocalDateTable_e750f25a-c20b-400a-84c8-d1c79e6ac444
+ref table InvEvents_Base
+ref table LocalDateTable_5b8b7190-71d2-45b3-90d7-4dd5689690b7
+ref table InvEvents_Daily
+ref table LocalDateTable_52e14533-06c8-448a-a8d3-376dcca2819e
+ref table HorizonDays
+ref table SPSCItems
+
+ref cultureInfo en-US
+

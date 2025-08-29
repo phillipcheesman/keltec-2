@@ -1,0 +1,60 @@
+table LateSummary
+	lineageTag: b9f24e0c-4ae6-4d76-be71-2ebf66ad1321
+
+	column citemno
+		lineageTag: 887f1f41-40d9-46d9-be64-99bfc349807d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: vsp_rpt_soopen[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxDaysLate
+		formatString: 0
+		lineageTag: 40ff60cc-c933-4a3d-9897-2bafb820d72e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [MaxDaysLate]
+
+		annotation SummarizationSetBy = Automatic
+
+	column RevDense = ```
+			
+			VAR NonZero = FILTER( VALUES( LateSummary[MaxDaysLate] ), LateSummary[MaxDaysLate] > 0 )
+			RETURN
+			IF(
+			    LateSummary[MaxDaysLate] > 0,
+			    RANKX( NonZero, LateSummary[MaxDaysLate], , ASC, DENSE ), // 23→4, 10→3, 3→2, 1→1
+			    0
+			)
+			
+			```
+		formatString: 0
+		lineageTag: c03db367-2772-4553-8b59-9f8afce4ce94
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LateSummary = calculated
+		mode: import
+		source = ```
+				
+				VAR TodayDate = TODAY()
+				RETURN
+				ADDCOLUMNS(
+				    SUMMARIZE( vsp_rpt_soopen, vsp_rpt_soopen[citemno] ),
+				    "MaxDaysLate",
+				        VAR EarliestPd =
+				            CALCULATE(
+				                MIN( vsp_rpt_soopen[drequest] ),
+				                vsp_rpt_soopen[lquote] = 0,
+				                vsp_rpt_soopen[lhold] = 0,
+				                vsp_rpt_soopen[drequest] < TodayDate
+				            )
+				        RETURN MAX( 0, INT( TodayDate - COALESCE( EarliestPd, TodayDate ) ) )
+				)
+				
+				```
+
+	annotation PBI_Id = 0f9fbdc0445942a9b24d14d74a2d1813
+

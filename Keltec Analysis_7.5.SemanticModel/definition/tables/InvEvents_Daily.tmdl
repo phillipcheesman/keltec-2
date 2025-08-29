@@ -1,0 +1,85 @@
+table InvEvents_Daily
+	lineageTag: b1da053d-51b5-4b43-a43c-e052d9c115fd
+
+	measure RunningOH3 =
+			
+			VAR k      = SELECTEDVALUE(DimItem[citemno], SELECTEDVALUE(InventorySummary[citemno]))
+			VAR d      = MAX(DimDate[Date])
+			VAR today  = TODAY()
+			VAR baseOH = [TodayOH]
+			VAR PastAdj =
+			    IF(d < today,
+			       CALCULATE(
+			         SUM(InvEvents_Daily[QtyNet]),
+			         TREATAS({k}, InvEvents_Daily[citemno]),
+			         FILTER(ALL(InvEvents_Daily), InvEvents_Daily[EventDate] > d && InvEvents_Daily[EventDate] <= today)
+			       )
+			    )
+			VAR FutAdj =
+			    IF(d > today,
+			       CALCULATE(
+			         SUM(InvEvents_Daily[QtyNet]),
+			         TREATAS({k}, InvEvents_Daily[citemno]),
+			         FILTER(ALL(InvEvents_Daily), InvEvents_Daily[EventDate] > today && InvEvents_Daily[EventDate] <= d)
+			       )
+			    )
+			RETURN
+			IF(
+			  ISBLANK(k) || ISBLANK(baseOH), BLANK(),
+			  SWITCH(TRUE(), d<today, baseOH-COALESCE(PastAdj,0),
+			                   d=today, baseOH,
+			                            baseOH+COALESCE(FutAdj,0))
+			)
+		lineageTag: 2e56ce97-ed5c-4b62-9a6e-2e301fc6a6b2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column citemno
+		lineageTag: f48c8e83-7dd9-45a3-ac5e-f312ab516ac3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: InvEvents_Base[citemno]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventDate
+		formatString: General Date
+		lineageTag: 31aa6aee-9565-4b78-9f67-bcbf0515f4e5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: InvEvents_Base[EventDate]
+
+		variation Variation
+			isDefault
+			relationship: 2a0d304e-c936-49ff-99fe-012f5a008a0f
+			defaultHierarchy: LocalDateTable_52e14533-06c8-448a-a8d3-376dcca2819e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column QtyNet
+		lineageTag: fff63f6b-e2e4-4cba-b324-65e965ec99b6
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [QtyNet]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition InvEvents_Daily = calculated
+		mode: import
+		source = ```
+				
+				VAR G =
+				    SUMMARIZECOLUMNS(
+				        InvEvents_Base[citemno],
+				        InvEvents_Base[EventDate],
+				        "QtyNet", SUM(InvEvents_Base[QtySigned])
+				    )
+				RETURN
+				FILTER( G, NOT ISBLANK([citemno]) && NOT ISBLANK([EventDate]) && [QtyNet] <> 0 )
+				
+				```
+
+	annotation PBI_Id = 4814e75d49224a4286ed665f6a36ccac
+

@@ -1,0 +1,170 @@
+table mciwhs
+	lineageTag: dd7a74cc-086f-4ea6-99da-cc901b02954c
+
+	column cuid
+		dataType: string
+		lineageTag: 098bb57b-4903-4085-8123-0c61262cdf1e
+		summarizeBy: none
+		sourceColumn: cuid
+
+		annotation SummarizationSetBy = Automatic
+
+	column citemno
+		dataType: string
+		lineageTag: ed1ab857-8869-43db-98dc-d18ea0f969d3
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwarehouse
+		dataType: string
+		lineageTag: c117e4e3-2a6e-46cd-bd8a-e5cf30672622
+		summarizeBy: none
+		sourceColumn: cwarehouse
+
+		annotation SummarizationSetBy = Automatic
+
+	column dlastfnh
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: be2501c5-909e-4e70-bcdb-e0d5a91bbd38
+		summarizeBy: none
+		sourceColumn: dlastfnh
+
+		variation Variation
+			isDefault
+			relationship: bedbd3a5-8f47-4f14-8689-b875e833b020
+			defaultHierarchy: LocalDateTable_e53d46b7-d077-4afd-a12c-66f378736c9a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column ninprocess
+		dataType: double
+		lineageTag: 633eaf7b-0902-4075-8b89-8512d64b5e35
+		summarizeBy: sum
+		sourceColumn: ninprocess
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nallocate
+		dataType: double
+		lineageTag: 6f90c0f0-1a76-4430-9e0b-bcdd1e3f84c5
+		summarizeBy: sum
+		sourceColumn: nallocate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlastcost
+		dataType: double
+		lineageTag: 96df801a-26b3-49bb-a0f4-2389406e1d91
+		summarizeBy: sum
+		sourceColumn: nlastcost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlastqty
+		dataType: double
+		lineageTag: fcec864c-1d16-413d-ab31-66353e67fff9
+		summarizeBy: sum
+		sourceColumn: nlastqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlastwip
+		dataType: double
+		lineageTag: ae0f90a0-b0fc-4b15-8328-c4b62f46103e
+		summarizeBy: sum
+		sourceColumn: nlastwip
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlastall
+		dataType: double
+		lineageTag: e0047002-ac6b-4d68-9beb-d0611366e3d7
+		summarizeBy: sum
+		sourceColumn: nlastall
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nlfnhcost
+		dataType: double
+		lineageTag: a3e9aaba-91f6-45bd-bb32-20af3e3a9fb7
+		summarizeBy: sum
+		sourceColumn: nlfnhcost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nrmbook
+		dataType: double
+		lineageTag: a50254f9-faa8-456e-8679-4fb41c7ec3ed
+		summarizeBy: sum
+		sourceColumn: nrmbook
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nbuildqty
+		dataType: double
+		lineageTag: 86ea1141-94dd-4987-b2e4-ecd39f30c35a
+		summarizeBy: sum
+		sourceColumn: nbuildqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tbuildtime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 986df68e-5151-42a3-a1f2-da17be2799b3
+		summarizeBy: none
+		sourceColumn: tbuildtime
+
+		variation Variation
+			isDefault
+			relationship: 87529ea2-5711-4883-a502-5e73711b5658
+			defaultHierarchy: LocalDateTable_e9a21917-e4a1-4685-99b0-09d6ede64071.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column nschdqty
+		dataType: double
+		lineageTag: 5f31e0ec-674b-4a6d-baec-210d25c3f747
+		summarizeBy: sum
+		sourceColumn: nschdqty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition mciwhs = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=SQL_VAM", [HierarchicalNavigation=true]),
+				    keltec_Database = Source{[Name="keltec",Kind="Database"]}[Data],
+				    dbo_Schema = keltec_Database{[Name="dbo",Kind="Schema"]}[Data],
+				    mciwhs_Table = dbo_Schema{[Name="mciwhs",Kind="Table"]}[Data]
+				in
+				    mciwhs_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

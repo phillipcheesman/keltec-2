@@ -1,0 +1,990 @@
+table sosord
+	lineageTag: e0efa12b-a00a-4880-88e8-f70d187032e2
+
+	column csono
+		dataType: string
+		lineageTag: 37792dd7-1b1f-43ee-b7de-d016ac91faf8
+		summarizeBy: none
+		sourceColumn: csono
+
+		annotation SummarizationSetBy = Automatic
+
+	column crevision
+		dataType: string
+		lineageTag: 9e4cd7b1-e197-4ccd-86f9-75f140fc71d3
+		summarizeBy: none
+		sourceColumn: crevision
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccustno
+		dataType: string
+		lineageTag: 59cc0d23-4771-4034-9be4-5625329eb878
+		summarizeBy: none
+		sourceColumn: ccustno
+
+		annotation SummarizationSetBy = Automatic
+
+	column corderby
+		dataType: string
+		lineageTag: 6195cfe4-dc5b-4bf0-acc7-c1a8c966ce98
+		summarizeBy: none
+		sourceColumn: corderby
+
+		annotation SummarizationSetBy = Automatic
+
+	column cslpnno
+		dataType: string
+		lineageTag: 570be67f-1289-4363-aa80-ba357b972585
+		summarizeBy: none
+		sourceColumn: cslpnno
+
+		annotation SummarizationSetBy = Automatic
+
+	column centerby
+		dataType: string
+		lineageTag: 250c5805-c825-4320-bc49-f0166dddc3e5
+		summarizeBy: none
+		sourceColumn: centerby
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbaddrno
+		dataType: string
+		lineageTag: 52d1a77f-9aeb-44d5-ba45-e0d15210279f
+		summarizeBy: none
+		sourceColumn: cbaddrno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbcompany
+		dataType: string
+		lineageTag: 15d36eb3-603a-4e00-9895-c1d420cd99b4
+		summarizeBy: none
+		sourceColumn: cbcompany
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbaddr1
+		dataType: string
+		lineageTag: fc7ab8d1-1e91-4332-b8e3-a7939b7611bd
+		summarizeBy: none
+		sourceColumn: cbaddr1
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbaddr2
+		dataType: string
+		lineageTag: ab2ff18a-d988-4593-944c-4a03742c4149
+		summarizeBy: none
+		sourceColumn: cbaddr2
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbcity
+		dataType: string
+		lineageTag: 4f4f4249-4c88-4a11-8ab9-aee3d433e20b
+		summarizeBy: none
+		sourceColumn: cbcity
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbstate
+		dataType: string
+		lineageTag: 51dc9a94-ef60-4011-9715-4e34e8e65d60
+		summarizeBy: none
+		sourceColumn: cbstate
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbzip
+		dataType: string
+		lineageTag: 50524574-64ef-4d50-9469-67e7659b899c
+		summarizeBy: none
+		sourceColumn: cbzip
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbcountry
+		dataType: string
+		lineageTag: 3dd89375-789c-4f58-9bd2-4e2dbc4a1c8c
+		summarizeBy: none
+		sourceColumn: cbcountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbphone
+		dataType: string
+		lineageTag: 9f711b2f-1822-4ac3-b08d-b06f92e9cdb1
+		summarizeBy: none
+		sourceColumn: cbphone
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbcontact
+		dataType: string
+		lineageTag: 5f452c87-cc8a-4f99-bf4b-c37b6d239da9
+		summarizeBy: none
+		sourceColumn: cbcontact
+
+		annotation SummarizationSetBy = Automatic
+
+	column csaddrno
+		dataType: string
+		lineageTag: 6f1c4d34-de4f-45c0-89a7-a4e6ddc1c604
+		summarizeBy: none
+		sourceColumn: csaddrno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cscompany
+		dataType: string
+		lineageTag: 7117a1b1-5459-476b-85cb-a09589e685a9
+		summarizeBy: none
+		sourceColumn: cscompany
+
+		annotation SummarizationSetBy = Automatic
+
+	column csaddr1
+		dataType: string
+		lineageTag: 981ae7ac-7495-4c6e-b9d3-a9d2cff5d689
+		summarizeBy: none
+		sourceColumn: csaddr1
+
+		annotation SummarizationSetBy = Automatic
+
+	column csaddr2
+		dataType: string
+		lineageTag: dd6386b0-67c4-4984-a2aa-2b5f77aeab82
+		summarizeBy: none
+		sourceColumn: csaddr2
+
+		annotation SummarizationSetBy = Automatic
+
+	column cscity
+		dataType: string
+		lineageTag: a7f746d3-3b7e-486d-9671-cda1f0032fdd
+		summarizeBy: none
+		sourceColumn: cscity
+
+		annotation SummarizationSetBy = Automatic
+
+	column csstate
+		dataType: string
+		lineageTag: fa85371d-7b0c-4675-a07f-d1e0b6117c88
+		summarizeBy: none
+		sourceColumn: csstate
+
+		annotation SummarizationSetBy = Automatic
+
+	column cszip
+		dataType: string
+		lineageTag: d896aaf9-44db-42cb-8e36-f3f2e66ca065
+		summarizeBy: none
+		sourceColumn: cszip
+
+		annotation SummarizationSetBy = Automatic
+
+	column cscountry
+		dataType: string
+		lineageTag: 6630c461-6cf3-4432-a17d-5d681276272d
+		summarizeBy: none
+		sourceColumn: cscountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column csphone
+		dataType: string
+		lineageTag: d3e327d1-b2a5-4d4b-9e3e-782ea84dbce4
+		summarizeBy: none
+		sourceColumn: csphone
+
+		annotation SummarizationSetBy = Automatic
+
+	column cscontact
+		dataType: string
+		lineageTag: 35420dfd-b301-4ef8-b15d-d69cfaa4cb87
+		summarizeBy: none
+		sourceColumn: cscontact
+
+		annotation SummarizationSetBy = Automatic
+
+	column cshipvia
+		dataType: string
+		lineageTag: 11ff4a01-c6fe-49c5-8a4e-f90c1c698c4b
+		summarizeBy: none
+		sourceColumn: cshipvia
+
+		annotation SummarizationSetBy = Automatic
+
+	column cfob
+		dataType: string
+		lineageTag: 948a7a8d-ed59-4171-9a05-815d03380eb8
+		summarizeBy: none
+		sourceColumn: cfob
+
+		annotation SummarizationSetBy = Automatic
+
+	column cpono
+		dataType: string
+		lineageTag: 3a694067-4a08-47f6-aa3d-b93e079a8110
+		summarizeBy: none
+		sourceColumn: cpono
+
+		annotation SummarizationSetBy = Automatic
+
+	column cfrgtcode
+		dataType: string
+		lineageTag: 57f4d746-d8f3-4d4d-9091-28a453921752
+		summarizeBy: none
+		sourceColumn: cfrgtcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column cfrtaxcode
+		dataType: string
+		lineageTag: ef87ffe8-81fe-48f3-aa95-4697baabf494
+		summarizeBy: none
+		sourceColumn: cfrtaxcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ctaxcode
+		dataType: string
+		lineageTag: e04c898b-681d-42a2-bbc6-3c65fe2f3cbe
+		summarizeBy: none
+		sourceColumn: ctaxcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column cpaycode
+		dataType: string
+		lineageTag: b62c5cf1-868b-4f64-8cca-5d210dc94518
+		summarizeBy: none
+		sourceColumn: cpaycode
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbankno
+		dataType: string
+		lineageTag: fef7c14a-e21a-45d5-910c-7f82b7428f61
+		summarizeBy: none
+		sourceColumn: cbankno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cchkno
+		dataType: string
+		lineageTag: c9999b38-596c-4490-b4f2-838530443faf
+		summarizeBy: none
+		sourceColumn: cchkno
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccardno
+		dataType: string
+		lineageTag: edcbdbf1-026e-4aa6-ace8-8cd23c6377aa
+		summarizeBy: none
+		sourceColumn: ccardno
+
+		annotation SummarizationSetBy = Automatic
+
+	column cexpdate
+		dataType: string
+		lineageTag: 65b9e8ac-01fb-4031-9c3c-dd9822fea3e7
+		summarizeBy: none
+		sourceColumn: cexpdate
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccardname
+		dataType: string
+		lineageTag: 91cc5494-5a90-4c17-ac92-3d8c744cbe99
+		summarizeBy: none
+		sourceColumn: ccardname
+
+		annotation SummarizationSetBy = Automatic
+
+	column cpayref
+		dataType: string
+		lineageTag: 5d58a7e7-8426-4520-9b4e-9e55551a7d85
+		summarizeBy: none
+		sourceColumn: cpayref
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccurrcode
+		dataType: string
+		lineageTag: 710955dc-7a9a-4c72-898e-63bba7c82690
+		summarizeBy: none
+		sourceColumn: ccurrcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciono
+		dataType: string
+		lineageTag: 5c612e0e-6fa9-4b18-806a-9271c695fdc8
+		summarizeBy: none
+		sourceColumn: ciono
+
+		annotation SummarizationSetBy = Automatic
+
+	column ccommiss
+		dataType: string
+		lineageTag: 0e7d0ddc-2f0b-45ab-aa1b-d28daa6d8086
+		summarizeBy: none
+		sourceColumn: ccommiss
+
+		annotation SummarizationSetBy = Automatic
+
+	column csource
+		dataType: string
+		lineageTag: 56523c5a-bb96-4e89-b243-ceae735a9600
+		summarizeBy: none
+		sourceColumn: csource
+
+		annotation SummarizationSetBy = Automatic
+
+	column cbsono
+		dataType: string
+		lineageTag: af714d72-7d19-4437-80bd-641b1c6da44a
+		summarizeBy: none
+		sourceColumn: cbsono
+
+		annotation SummarizationSetBy = Automatic
+
+	column dcreate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 579ad1fc-776b-40d6-87c1-d51d326297b3
+		summarizeBy: none
+		sourceColumn: dcreate
+
+		variation Variation
+			isDefault
+			relationship: df2c4f61-a6b0-4181-bf8b-585af1030dd4
+			defaultHierarchy: LocalDateTable_c989d75e-f4f7-4195-a057-09642b6a3e08.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dorder
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 85bc4527-bd1b-42ec-9691-6038f1b0f29e
+		summarizeBy: none
+		sourceColumn: dorder
+
+		variation Variation
+			isDefault
+			relationship: afbcfc78-da0d-410d-8ffc-a28af32f7b7d
+			defaultHierarchy: LocalDateTable_0f48c02a-c304-4319-afbf-47278d8af4d3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column dquote
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e5fc3beb-61ef-4db5-be20-ca48dcb0df00
+		summarizeBy: none
+		sourceColumn: dquote
+
+		variation Variation
+			isDefault
+			relationship: 6f3ad216-1f2d-49d8-a875-3b91ced61f88
+			defaultHierarchy: LocalDateTable_179b2012-4e82-4023-bc47-b8fb234bc197.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column lquote
+		dataType: int64
+		formatString: 0
+		lineageTag: 207a12bb-dd00-494c-b7da-820c595264eb
+		summarizeBy: sum
+		sourceColumn: lquote
+
+		annotation SummarizationSetBy = Automatic
+
+	column lhold
+		dataType: int64
+		formatString: 0
+		lineageTag: c6f7faf9-8e76-4448-826f-50d68601d0c2
+		summarizeBy: sum
+		sourceColumn: lhold
+
+		annotation SummarizationSetBy = Automatic
+
+	column lcrhold
+		dataType: int64
+		formatString: 0
+		lineageTag: 7525864e-8f06-46d8-9c46-f66783ed25b5
+		summarizeBy: sum
+		sourceColumn: lcrhold
+
+		annotation SummarizationSetBy = Automatic
+
+	column lvoid
+		dataType: int64
+		formatString: 0
+		lineageTag: 5606673e-8109-4b67-9ff5-c9191968f482
+		summarizeBy: sum
+		sourceColumn: lvoid
+
+		annotation SummarizationSetBy = Automatic
+
+	column lnobo
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d2378a4-975d-406a-99c2-1b939bfdbaa6
+		summarizeBy: sum
+		sourceColumn: lnobo
+
+		annotation SummarizationSetBy = Automatic
+
+	column lusecusitm
+		dataType: int64
+		formatString: 0
+		lineageTag: 00e8c8c7-d33e-4315-9cd9-b1269ab2bad8
+		summarizeBy: sum
+		sourceColumn: lusecusitm
+
+		annotation SummarizationSetBy = Automatic
+
+	column lfrttax1
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e618049-84f7-48d3-8a75-9d038909e7cf
+		summarizeBy: sum
+		sourceColumn: lfrttax1
+
+		annotation SummarizationSetBy = Automatic
+
+	column lfrttax2
+		dataType: int64
+		formatString: 0
+		lineageTag: 84b6e939-2f10-4acc-86bf-1ad0bbdc5e4c
+		summarizeBy: sum
+		sourceColumn: lfrttax2
+
+		annotation SummarizationSetBy = Automatic
+
+	column lapplytax
+		dataType: int64
+		formatString: 0
+		lineageTag: a04f671d-b227-428a-b039-b617ac11333e
+		summarizeBy: sum
+		sourceColumn: lapplytax
+
+		annotation SummarizationSetBy = Automatic
+
+	column lprcinctax
+		dataType: int64
+		formatString: 0
+		lineageTag: db1532ac-ab61-4c86-88e6-974bc726dcf3
+		summarizeBy: sum
+		sourceColumn: lprcinctax
+
+		annotation SummarizationSetBy = Automatic
+
+	column lprtsord
+		dataType: int64
+		formatString: 0
+		lineageTag: 384720d6-074d-4737-8fd5-8695f8fc0018
+		summarizeBy: sum
+		sourceColumn: lprtsord
+
+		annotation SummarizationSetBy = Automatic
+
+	column lprtlist
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e597f02-a283-4f58-87be-27c5fc7d2eba
+		summarizeBy: sum
+		sourceColumn: lprtlist
+
+		annotation SummarizationSetBy = Automatic
+
+	column lprtcod
+		dataType: int64
+		formatString: 0
+		lineageTag: d29c5503-ed69-43e4-a786-6044583639a4
+		summarizeBy: sum
+		sourceColumn: lprtcod
+
+		annotation SummarizationSetBy = Automatic
+
+	column lprtlbl
+		dataType: int64
+		formatString: 0
+		lineageTag: 83fb4932-6345-4284-afb9-37d624b019fe
+		summarizeBy: sum
+		sourceColumn: lprtlbl
+
+		annotation SummarizationSetBy = Automatic
+
+	column lsavecard
+		dataType: int64
+		formatString: 0
+		lineageTag: 13289344-4b59-4778-81f3-032127667986
+		summarizeBy: sum
+		sourceColumn: lsavecard
+
+		annotation SummarizationSetBy = Automatic
+
+	column lautoacpt
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f5192bd-b7d4-41ed-817c-a90c036b944a
+		summarizeBy: sum
+		sourceColumn: lautoacpt
+
+		annotation SummarizationSetBy = Automatic
+
+	column ndiscday
+		dataType: int64
+		formatString: 0
+		lineageTag: d2091885-959a-4549-a3fe-6bdf37db360e
+		summarizeBy: sum
+		sourceColumn: ndiscday
+
+		annotation SummarizationSetBy = Automatic
+
+	column ndueday
+		dataType: int64
+		formatString: 0
+		lineageTag: 29555617-de42-47e2-ac2c-b2d1dd61ea90
+		summarizeBy: sum
+		sourceColumn: ndueday
+
+		annotation SummarizationSetBy = Automatic
+
+	column ntermdisc
+		dataType: double
+		lineageTag: 28d836ce-a124-4f9f-bb5a-9d4105b42705
+		summarizeBy: sum
+		sourceColumn: ntermdisc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ndiscrate
+		dataType: double
+		lineageTag: 582e535c-e7fa-4516-b662-4d37e5554570
+		summarizeBy: sum
+		sourceColumn: ndiscrate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntaxver
+		dataType: double
+		lineageTag: ccfcc325-1ec3-4130-8b13-2f3e92841b39
+		summarizeBy: sum
+		sourceColumn: ntaxver
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfrtaxver
+		dataType: double
+		lineageTag: eba5da39-5e56-4898-a42d-0cb0c9b45a21
+		summarizeBy: sum
+		sourceColumn: nfrtaxver
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntaxable1
+		dataType: double
+		lineageTag: 026b58a1-ca53-455c-86f7-1b56234265b3
+		summarizeBy: sum
+		sourceColumn: ntaxable1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntaxable2
+		dataType: double
+		lineageTag: ddb46766-98cc-41ac-a41f-61851468fb66
+		summarizeBy: sum
+		sourceColumn: ntaxable2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nsalesamt
+		dataType: double
+		lineageTag: 61233400-2a28-4dd3-9826-c3a0ff637f91
+		summarizeBy: sum
+		sourceColumn: nsalesamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ndiscamt
+		dataType: double
+		lineageTag: 9e00e86c-2db3-4d35-ab49-17f828845893
+		summarizeBy: sum
+		sourceColumn: ndiscamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfrtamt
+		dataType: double
+		lineageTag: 0e896f75-46a5-4af8-bab0-c54f58ad63ca
+		summarizeBy: sum
+		sourceColumn: nfrtamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntaxamt1
+		dataType: double
+		lineageTag: 48c863dc-7465-40b2-b418-511233e74585
+		summarizeBy: sum
+		sourceColumn: ntaxamt1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntaxamt2
+		dataType: double
+		lineageTag: 64024053-c509-4b90-906c-7ca05d413948
+		summarizeBy: sum
+		sourceColumn: ntaxamt2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ntaxamt3
+		dataType: double
+		lineageTag: b56ffa9a-1396-49e8-a0ea-46d584008704
+		summarizeBy: sum
+		sourceColumn: ntaxamt3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfrttax1
+		dataType: double
+		lineageTag: b9ce7286-f775-469b-aeb7-b32e5c203aed
+		summarizeBy: sum
+		sourceColumn: nfrttax1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfrttax2
+		dataType: double
+		lineageTag: f3afe02f-b9ed-4234-9f05-5d111dc60d52
+		summarizeBy: sum
+		sourceColumn: nfrttax2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfrttax3
+		dataType: double
+		lineageTag: c37a8859-695f-4e0a-bf0b-ea9f4c87b054
+		summarizeBy: sum
+		sourceColumn: nfrttax3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nadjamt
+		dataType: double
+		lineageTag: 1bf0ac6e-bd7a-41b7-9c3e-3469b32aa01f
+		summarizeBy: sum
+		sourceColumn: nadjamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nadjusted
+		dataType: double
+		lineageTag: b747c422-a523-4923-815f-8dfd3eabcf81
+		summarizeBy: sum
+		sourceColumn: nadjusted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfrtamtchg
+		dataType: double
+		lineageTag: f3bf1871-6a85-4f5d-aa25-a0244de02bd1
+		summarizeBy: sum
+		sourceColumn: nfrtamtchg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nftaxable1
+		dataType: double
+		lineageTag: d6c95956-cc31-4072-9b53-68d254e5d6b6
+		summarizeBy: sum
+		sourceColumn: nftaxable1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nftaxable2
+		dataType: double
+		lineageTag: a7bb281e-25d8-4642-81ed-10aa3e7b64d9
+		summarizeBy: sum
+		sourceColumn: nftaxable2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfsalesamt
+		dataType: double
+		lineageTag: a3fe4623-d6c1-40dc-8a49-7a225d27411a
+		summarizeBy: sum
+		sourceColumn: nfsalesamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfdiscamt
+		dataType: double
+		lineageTag: 447739d6-c2b7-49d7-9975-6d6890cd9b31
+		summarizeBy: sum
+		sourceColumn: nfdiscamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nffrtamt
+		dataType: double
+		lineageTag: 84af75ac-2289-486e-b6d5-05ce4f60fdea
+		summarizeBy: sum
+		sourceColumn: nffrtamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nftaxamt1
+		dataType: double
+		lineageTag: be627b1f-f50a-4afd-a504-5c8b120ab028
+		summarizeBy: sum
+		sourceColumn: nftaxamt1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nftaxamt2
+		dataType: double
+		lineageTag: a56d7e0a-6e50-4334-ac8d-424022dfae21
+		summarizeBy: sum
+		sourceColumn: nftaxamt2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nftaxamt3
+		dataType: double
+		lineageTag: f47e3fcd-d1cb-4554-b365-d7bbc278d94f
+		summarizeBy: sum
+		sourceColumn: nftaxamt3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nffrttax1
+		dataType: double
+		lineageTag: 0ee27bc0-a297-4e06-a13e-29e989a928e4
+		summarizeBy: sum
+		sourceColumn: nffrttax1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nffrttax2
+		dataType: double
+		lineageTag: 6855020b-5240-4d77-b917-178c32f0a4d2
+		summarizeBy: sum
+		sourceColumn: nffrttax2
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nffrttax3
+		dataType: double
+		lineageTag: 06dcb72b-9b92-4c65-ac5e-3b7ad64b6e51
+		summarizeBy: sum
+		sourceColumn: nffrttax3
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfadjamt
+		dataType: double
+		lineageTag: 5fed839b-8453-47c3-a8be-ba5cd176e243
+		summarizeBy: sum
+		sourceColumn: nfadjamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nfadjusted
+		dataType: double
+		lineageTag: 709d2365-05dc-4e4d-9678-a7f5416cd5c8
+		summarizeBy: sum
+		sourceColumn: nfadjusted
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nffrtamtch
+		dataType: double
+		lineageTag: ed6cae13-85f0-4e8d-9b2c-e4141ea989a0
+		summarizeBy: sum
+		sourceColumn: nffrtamtch
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nweight
+		dataType: double
+		lineageTag: d72dbac8-5d8d-4ede-94aa-a3deccb06611
+		summarizeBy: sum
+		sourceColumn: nweight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column nxchgrate
+		dataType: double
+		lineageTag: 8e698b56-9529-4927-b9fc-f36c3a194d23
+		summarizeBy: sum
+		sourceColumn: nxchgrate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cbemail
+		dataType: string
+		lineageTag: 2ddc655e-d9f5-4f85-9311-953940c83c6a
+		summarizeBy: none
+		sourceColumn: cbemail
+
+		annotation SummarizationSetBy = Automatic
+
+	column csemail
+		dataType: string
+		lineageTag: b5b60155-d795-4f84-af57-f2db648c2226
+		summarizeBy: none
+		sourceColumn: csemail
+
+		annotation SummarizationSetBy = Automatic
+
+	column dquoteaprv
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0e2f1d3e-98a0-40cc-81aa-1a2dc6dc0a41
+		summarizeBy: none
+		sourceColumn: dquoteaprv
+
+		variation Variation
+			isDefault
+			relationship: df5970b3-0e45-4437-b88a-72dc200f018b
+			defaultHierarchy: LocalDateTable_d4fc33ba-9f74-4b73-b8b1-33dde2c1ce8a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column entry_id
+		dataType: int64
+		formatString: 0
+		lineageTag: efa4da78-6953-457f-894b-8bd7048e5923
+		summarizeBy: sum
+		sourceColumn: entry_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column ilshipcomp
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b61a339-5661-4783-a4e8-8ed1f8e8a24b
+		summarizeBy: sum
+		sourceColumn: ilshipcomp
+
+		annotation SummarizationSetBy = Automatic
+
+	column hubid
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b3ddb24-43b6-4839-8f01-978c6363a4b5
+		summarizeBy: sum
+		sourceColumn: hubid
+
+		annotation SummarizationSetBy = Automatic
+
+	column inschgrate
+		dataType: double
+		lineageTag: 7e21084a-1983-4f70-a876-bbaa70a5c29b
+		summarizeBy: sum
+		sourceColumn: inschgrate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column inschgamt
+		dataType: double
+		lineageTag: 2a0b174f-e132-4426-ac70-ed098948f2d7
+		summarizeBy: sum
+		sourceColumn: inschgamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition sosord = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("keltec-sql:1433"),
+				    keltec = Source{[Name="keltec"]}[Data],
+				    dbo_sosord = keltec{[Schema="dbo",Item="sosord"]}[Data]
+				in
+				    dbo_sosord
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

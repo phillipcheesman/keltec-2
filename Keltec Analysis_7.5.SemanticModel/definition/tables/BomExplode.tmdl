@@ -1,0 +1,339 @@
+table BomExplode
+	lineageTag: d8c99e5c-0107-4679-be13-2d81fea61c72
+
+	measure MaxMakeQty =
+			
+			DIVIDE(
+			    SUM(BomExplode[OH]),
+			    SUM(BomExplode[extended_qty])
+			)
+		formatString: #,0
+		lineageTag: deae238c-f900-4181-a12a-9e33ef16f34a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure MaxMakeNegative = IF([MakeQty] <= 0, 1, 0)
+		formatString: 0
+		lineageTag: 78da0bf3-8576-40db-8bf6-a31e4567e19c
+
+	column level
+		dataType: int64
+		formatString: 0
+		lineageTag: 10d48a0b-ab2e-4ed5-8887-4a8e5a44d166
+		summarizeBy: sum
+		sourceColumn: level
+
+		annotation SummarizationSetBy = Automatic
+
+	column top_parent
+		dataType: string
+		lineageTag: 969043b9-5a6a-4288-97e7-046e4e02d7f1
+		summarizeBy: none
+		sourceColumn: top_parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column parent
+		dataType: string
+		lineageTag: f5335974-329e-458c-8c5c-6ea73ceea7f2
+		summarizeBy: none
+		sourceColumn: parent
+
+		annotation SummarizationSetBy = Automatic
+
+	column component
+		dataType: string
+		lineageTag: a8a2ae9e-85e2-49b0-8be0-ed30b863c4ab
+		summarizeBy: none
+		sourceColumn: component
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: ec8d2f40-1530-45fd-b00e-ab900d654374
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column qty_per
+		dataType: double
+		lineageTag: 3ae42330-38ce-4fda-bcaa-46bd26129054
+		summarizeBy: sum
+		sourceColumn: qty_per
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column extended_qty
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 585aa36f-dc8f-440c-9dc8-eb6e00411e84
+		summarizeBy: sum
+		sourceColumn: extended_qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column revision
+		dataType: string
+		lineageTag: 25aa0e7d-33a4-460d-8439-f6a1007eb4f0
+		summarizeBy: none
+		sourceColumn: revision
+
+		annotation SummarizationSetBy = Automatic
+
+	column path
+		dataType: string
+		lineageTag: 87d9dc7e-c7fd-41db-bad6-68847c33504f
+		summarizeBy: none
+		sourceColumn: path
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_type
+		dataType: string
+		lineageTag: 39c81520-c2a0-402b-8ec5-876787f9027e
+		summarizeBy: none
+		sourceColumn: item_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column OH = ```
+			
+			SUMX(
+			    RELATEDTABLE(
+			        icibin_2),
+			        icibin_2[nonhand]
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 67583fb5-bcce-494b-94e8-4aac1d0f0275
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column IsTarget = ```
+			
+			VAR DescText = COALESCE ( BomExplode[description], "" )
+			VAR ItemCode = COALESCE ( BomExplode[component], "" )
+			VAR HasKeyword =
+			    CONTAINSSTRING ( DescText, "FLANGE" )
+			        || CONTAINSSTRING ( DescText, "U-RING" )
+			        || CONTAINSSTRING ( DescText, "L-RING" )
+			        || CONTAINSSTRING ( DescText, "Z-RING" )
+			        || CONTAINSSTRING ( DescText, "RETAINER" )
+			        || CONTAINSSTRING ( DescText, "COUPLING" )
+			        || CONTAINSSTRING ( DescText, "THREADED COUPLING" )
+			        || CONTAINSSTRING ( DescText, "GLS-BLUE" )
+			        || CONTAINSSTRING ( DescText, "GLS-GOLD" )
+			        || CONTAINSSTRING ( DescText, "GLS-PURPLE" )
+			VAR HasSuffix =
+			    RIGHT ( ItemCode, 4 ) IN { "-002", "-005", "-006", "-007", "008", "-009", "-021" }
+			RETURN
+			    IF ( BomExplode[level] <> 0, HasKeyword || HasSuffix, FALSE )
+			
+			```
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ed18a8d8-2d3a-474a-832b-116ed031e426
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsNegative = IF([MakeQty] <= 0, 1, 0)
+		formatString: 0
+		lineageTag: 18befbf5-0a2e-45e0-a400-bfaf9671226e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MaxMakeNegative2 = IF(BomExplode[MaxMakeQty2] <= BomExplode[TopParentSchedQty], 1, 0)
+		formatString: 0
+		lineageTag: a123b9ba-3a56-438b-8107-9615b2f9a862
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReqDate = ```
+			
+			VAR OpenFiltered =
+			    FILTER (
+			        RELATEDTABLE ( OpenPO ),
+			        OpenPO[%Rec] < 0.9
+			    )
+			RETURN
+			    MINX ( OpenFiltered, OpenPO[poptrs_drequest] )
+			
+			```
+		formatString: m/d/yy
+		lineageTag: 31103643-a988-4404-9b69-1a70eb073c49
+		summarizeBy: none
+
+		variation Variation
+			isDefault
+			relationship: 99edf7da-b0b3-499c-a96c-70dd8edb177c
+			defaultHierarchy: LocalDateTable_aef413d6-4b5d-46fc-9c4e-f249b1681289.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column TopParentSchedQty =
+			
+			SUMX(RELATEDTABLE(mcschd), mcschd[nordqty])
+		lineageTag: 289ec928-bbaa-4ffc-931d-15142d3626d4
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MaxMakeQty2 = ```
+			
+			    BomExplode[OH]/
+			    BomExplode[extended_qty]
+			```
+		formatString: #,0
+		lineageTag: 9dab9f57-bce3-4227-b510-764f3e9d8e67
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column NextQtyForReqDate = ```
+			
+			VAR OpenFiltered =
+			    FILTER ( RELATEDTABLE ( OpenPO ), OpenPO[%Rec] < 0.9 )
+			VAR EarliestRow =
+			    TOPN ( 1, OpenFiltered, OpenPO[poptrs_drequest], ASC, OpenPO[poptrs_cpono], ASC )
+			RETURN
+			    MAXX ( EarliestRow, OpenPO[poptrs_OpenQty] )
+			
+			```
+		formatString: #,0
+		lineageTag: 56915d98-7bc4-4feb-9f1a-95fc9f290c13
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	partition BomExplode = m
+		mode: import
+		source = ```
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="-- 3-Level BOM Explosion for ALL items with latest revisions
+				WITH LatestRoutes AS (
+				    -- Get latest route for each item
+				    SELECT citemno, irtcode, cdesc, crev,
+				           ROW_NUMBER() OVER (PARTITION BY citemno ORDER BY tadtime DESC, crev DESC) as rn
+				    FROM mckeltec.dbo.mcrouth
+				),
+				TopLevelItems AS (
+				    -- Get all items that have BOMs (parent items only)
+				    SELECT DISTINCT r.citemno, r.irtcode, r.cdesc, r.crev
+				    FROM LatestRoutes r
+				    WHERE r.rn = 1
+				    AND EXISTS (SELECT 1 FROM mckeltec.dbo.mcrbom b WHERE b.irtcode = r.irtcode)
+				),
+				ComponentCheck AS (
+				    -- Check which items have child components
+				    SELECT DISTINCT b.irtcode, 1 as has_children
+				    FROM mckeltec.dbo.mcrbom b
+				)
+				-- Level 0: All parent items
+				SELECT 
+				    0 as level,
+				    t.citemno as top_parent,
+				    t.citemno as parent,
+				    t.citemno as component,
+				    t.cdesc as description,
+				    CAST(1 as numeric(18,8)) as qty_per,
+				    CAST(1 as numeric(18,8)) as extended_qty,
+				    t.crev as revision,
+				    CAST(t.citemno as varchar(500)) as path,
+				    CASE WHEN cc.has_children = 1 THEN 'Assembly' ELSE 'Purchase' END as item_type
+				FROM TopLevelItems t
+				LEFT JOIN ComponentCheck cc ON cc.irtcode = t.irtcode
+				
+				UNION ALL
+				
+				-- Level 1: Direct components for all parent items
+				SELECT 
+				    1 as level,
+				    t.citemno as top_parent,
+				    t.citemno as parent,
+				    b1.crmitem as component,
+				    COALESCE(r1.cdesc, b1.crmitem) as description,
+				    b1.nrmqty as qty_per,
+				    b1.nrmqty as extended_qty,
+				    COALESCE(r1.crev, '') as revision,
+				    CAST(RTRIM(t.citemno) + ' -> ' + RTRIM(b1.crmitem) as varchar(500)) as path,
+				    CASE WHEN cc1.has_children = 1 THEN 'Assembly' ELSE 'Purchase' END as item_type
+				FROM TopLevelItems t
+				INNER JOIN mckeltec.dbo.mcrbom b1 ON b1.irtcode = t.irtcode
+				LEFT JOIN LatestRoutes r1 ON r1.citemno = b1.crmitem AND r1.rn = 1
+				LEFT JOIN ComponentCheck cc1 ON cc1.irtcode = r1.irtcode
+				
+				UNION ALL
+				
+				-- Level 2: Components of sub-assemblies for all
+				SELECT 
+				    2 as level,
+				    t.citemno as top_parent,
+				    b1.crmitem as parent,
+				    b2.crmitem as component,
+				    COALESCE(r2.cdesc, b2.crmitem) as description,
+				    b2.nrmqty as qty_per,
+				    b1.nrmqty * b2.nrmqty as extended_qty,
+				    COALESCE(r2.crev, '') as revision,
+				    CAST(RTRIM(t.citemno) + ' -> ' + RTRIM(b1.crmitem) + ' -> ' + RTRIM(b2.crmitem) as varchar(500)) as path,
+				    CASE WHEN cc2.has_children = 1 THEN 'Assembly' ELSE 'Purchase' END as item_type
+				FROM TopLevelItems t
+				INNER JOIN mckeltec.dbo.mcrbom b1 ON b1.irtcode = t.irtcode
+				INNER JOIN LatestRoutes r1 ON r1.citemno = b1.crmitem AND r1.rn = 1
+				INNER JOIN mckeltec.dbo.mcrbom b2 ON b2.irtcode = r1.irtcode
+				LEFT JOIN LatestRoutes r2 ON r2.citemno = b2.crmitem AND r2.rn = 1
+				LEFT JOIN ComponentCheck cc2 ON cc2.irtcode = r2.irtcode
+				
+				UNION ALL
+				
+				-- Level 3: Components of level 2 sub-assemblies for all
+				SELECT 
+				    3 as level,
+				    t.citemno as top_parent,
+				    b2.crmitem as parent,
+				    b3.crmitem as component,
+				    COALESCE(r3.cdesc, b3.crmitem) as description,
+				    b3.nrmqty as qty_per,
+				    b1.nrmqty * b2.nrmqty * b3.nrmqty as extended_qty,
+				    COALESCE(r3.crev, '') as revision,
+				    CAST(RTRIM(t.citemno) + ' -> ' + RTRIM(b1.crmitem) + ' -> ' + RTRIM(b2.crmitem) + ' -> ' + RTRIM(b3.crmitem) as varchar(500)) as path,
+				    CASE WHEN cc3.has_children = 1 THEN 'Assembly' ELSE 'Purchase' END as item_type
+				FROM TopLevelItems t
+				INNER JOIN mckeltec.dbo.mcrbom b1 ON b1.irtcode = t.irtcode
+				INNER JOIN LatestRoutes r1 ON r1.citemno = b1.crmitem AND r1.rn = 1
+				INNER JOIN mckeltec.dbo.mcrbom b2 ON b2.irtcode = r1.irtcode
+				INNER JOIN LatestRoutes r2 ON r2.citemno = b2.crmitem AND r2.rn = 1
+				INNER JOIN mckeltec.dbo.mcrbom b3 ON b3.irtcode = r2.irtcode
+				LEFT JOIN LatestRoutes r3 ON r3.citemno = b3.crmitem AND r3.rn = 1
+				LEFT JOIN ComponentCheck cc3 ON cc3.irtcode = r3.irtcode
+				
+				ORDER BY top_parent, path;"])
+				in
+				    Source
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
