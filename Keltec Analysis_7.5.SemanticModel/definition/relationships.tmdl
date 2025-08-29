@@ -513,3 +513,9 @@ relationship 9723c132-cf55-08f4-49c1-6adc9d2d2fd4
 	fromColumn: SPSCItems.citemno
 	toColumn: InventorySummary.citemno
 
+relationship c9c2dc71-338f-4626-0186-01e35ec4ae91
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: CriticalA.'Part #'
+	toColumn: InventorySummary.citemno
+

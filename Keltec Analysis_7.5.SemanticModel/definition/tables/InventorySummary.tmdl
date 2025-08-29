@@ -1171,6 +1171,13 @@ table InventorySummary
 
 		annotation SummarizationSetBy = Automatic
 
+	column IsCritical = IF(InventorySummary[citemno] IN VALUES(CriticalA[Part #]), 1, 0)
+		formatString: 0
+		lineageTag: e7977c03-e1e0-43fc-a396-1514ed4fbb63
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
 	partition InventorySummary = calculated
 		mode: import
 		source = ```

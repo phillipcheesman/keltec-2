@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","miboml","icibin_2","mcfbom","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems"]
+annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","miboml","icibin_2","mcfbom","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems","CriticalA"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -135,6 +135,7 @@ ref table InvEvents_Daily
 ref table LocalDateTable_52e14533-06c8-448a-a8d3-376dcca2819e
 ref table HorizonDays
 ref table SPSCItems
+ref table CriticalA
 
 ref cultureInfo en-US
 

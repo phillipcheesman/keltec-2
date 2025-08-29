@@ -1,0 +1,73 @@
+table CriticalA
+	lineageTag: 6e4f0f82-0359-4f8f-bc46-df4bacd3f8c2
+
+	column 'Part #'
+		dataType: string
+		lineageTag: 6019fd55-c80b-4f65-ba2d-c3c87b47e465
+		summarizeBy: none
+		sourceColumn: Part #
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'In Process'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0f4c8791-af60-46cf-965b-c6ad910550e0
+		summarizeBy: sum
+		sourceColumn: In Process
+
+		annotation SummarizationSetBy = Automatic
+
+	column OH
+		dataType: int64
+		formatString: 0
+		lineageTag: 04cd8caa-1822-4e4a-86dc-f0a1be8ec960
+		summarizeBy: sum
+		sourceColumn: OH
+
+		annotation SummarizationSetBy = Automatic
+
+	column WOS
+		dataType: double
+		lineageTag: 869cd027-6ad8-403f-98e7-2a12d70feade
+		summarizeBy: sum
+		sourceColumn: WOS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'SS Level'
+		dataType: double
+		lineageTag: 438b3ced-1047-4eda-b4d0-d222bbc6fd0e
+		summarizeBy: sum
+		sourceColumn: SS Level
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Baseline Inventory'
+		dataType: double
+		lineageTag: b6654cc7-27d0-4427-93c3-1fb264504966
+		summarizeBy: sum
+		sourceColumn: Baseline Inventory
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition CriticalA = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\keltec\inputs\Critical A 082925.xlsx"), null, true),
+				    Table1_Table = Source{[Item="Table1",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(Table1_Table,{{"Part #", type text}, {"In Process", Int64.Type}, {"OH", Int64.Type}, {"WOS", type number}, {"SS Level", type number}, {"Baseline Inventory", type number}})
+				in
+				    #"Changed Type"
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+
