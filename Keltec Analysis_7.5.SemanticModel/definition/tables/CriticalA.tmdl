@@ -57,6 +57,14 @@ table CriticalA
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Notes
+		dataType: string
+		lineageTag: c365425e-1dcc-48ed-bec1-bd994d71eed5
+		summarizeBy: none
+		sourceColumn: Notes
+
+		annotation SummarizationSetBy = Automatic
+
 	partition CriticalA = m
 		mode: import
 		source =
@@ -66,8 +74,6 @@ table CriticalA
 				    #"Changed Type" = Table.TransformColumnTypes(Table1_Table,{{"Part #", type text}, {"In Process", Int64.Type}, {"OH", Int64.Type}, {"WOS", type number}, {"SS Level", type number}, {"Baseline Inventory", type number}})
 				in
 				    #"Changed Type"
-
-	changedProperty = Name
 
 	annotation PBI_ResultType = Table
 

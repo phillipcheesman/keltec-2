@@ -1045,38 +1045,45 @@ table InventorySummary
 	column HWShort = ```
 			
 			VAR PlanQty =
-			    COALESCE ( InventorySummary[WO_Need], 0 )
-			  + COALESCE ( InventorySummary[WO.rel], 0 )     // use [WO_rel] if that's your name
-			  + COALESCE ( InventorySummary[WO.sch], 0 )   // use [WO_Sched_Hzn] if needed
+			    COALESCE ( InventorySummary[WO_Need], 0 ) +
+			    COALESCE ( InventorySummary[WO.rel], 0 ) +
+			    COALESCE ( InventorySummary[WO.sch], 0 )
+			
 			VAR Lines =
-			    FILTER ( RELATEDTABLE ( miboml ), miboml[IsTarget] = TRUE () )
+			    FILTER ( RELATEDTABLE ( BomExplode ), BomExplode[IsTarget] = TRUE () )
+			
 			RETURN
 			IF (
 			    PlanQty <= 0 || ISEMPTY ( Lines ),
 			    BLANK (),
-			    VAR CompEval =
-			        ADDCOLUMNS (
+			    VAR BaseByComp =
+			        SUMMARIZE (
 			            Lines,
-			            "Req", miboml[nqty] * PlanQty,
+			            BomExplode[component],
+			            "ReqTotal", SUM ( BomExplode[extended_qty] ) * PlanQty   // use SUM(BomExplode[extended_qty]) if that's the right per-FG qty
+			        )
+			    VAR WithOH =
+			        ADDCOLUMNS (
+			            BaseByComp,
 			            "CompOH",
 			                COALESCE (
 			                    LOOKUPVALUE (
 			                        InventorySummary[OH],
-			                        InventorySummary[citemno], miboml[ccompno]
+			                        InventorySummary[citemno], [component]
 			                    ),
 			                    0
-			                ),
-			            "Shortage", MAX ( 0, [Req] - [CompOH] )
+			                )
 			        )
-			    VAR MaxShort = MAXX ( CompEval, [Shortage] )
+			    VAR WithShort =
+			        ADDCOLUMNS ( WithOH, "Shortage", MAX ( 0, [ReqTotal] - [CompOH] ) )
+			    VAR MaxShort = MAXX ( WithShort, [Shortage] )
 			    VAR WorstRow =
 			        TOPN (
 			            1,
-			            FILTER ( CompEval, [Shortage] = MaxShort && [Shortage] > 0 ),
-			            [Shortage], DESC,
-			            miboml[ccompno], ASC
+			            FILTER ( WithShort, [Shortage] = MaxShort && [Shortage] > 0 ),
+			            [Shortage], DESC, [component], ASC
 			        )
-			    RETURN IF ( MaxShort > 0, CONCATENATEX ( WorstRow, miboml[ccompno], "" ), BLANK () )
+			    RETURN IF ( MaxShort > 0, CONCATENATEX ( WorstRow, [component], "" ), BLANK () )
 			)
 			
 			```
