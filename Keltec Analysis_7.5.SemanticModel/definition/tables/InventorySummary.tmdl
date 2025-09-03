@@ -1285,6 +1285,15 @@ table InventorySummary
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'WksAvail.t' = IFERROR(InventorySummary[Avail.t] / InventorySummary[avg_sales], 0)
+		formatString: #,0
+		lineageTag: 43699f22-7d60-4b34-afe1-fc10cc1a7aee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
 	partition InventorySummary = calculated
 		mode: import
 		source = ```
