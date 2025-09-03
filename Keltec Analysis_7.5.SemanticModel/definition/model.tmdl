@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","icibin_2","mcfbom","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems","CriticalA"]
+annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","icibin_2","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems","CriticalA"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -95,9 +95,6 @@ ref table LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce
 ref table LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6
 ref table LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba
 ref table icibin_2
-ref table mcfbom
-ref table LocalDateTable_1549da9f-861e-4c3a-a972-8e415829fead
-ref table LocalDateTable_a585d130-c23a-4286-abd1-493363d25be0
 ref table LateSummary
 ref table LocalDateTable_2a8ab9ae-ea08-4643-bc44-cae75608a1ec
 ref table iciwhs

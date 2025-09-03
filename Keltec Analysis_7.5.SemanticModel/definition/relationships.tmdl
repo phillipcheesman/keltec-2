@@ -308,20 +308,6 @@ relationship 3f5bc660-5247-4735-814e-98ce48629c24
 	fromColumn: mcschd.tedtime
 	toColumn: LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba.Date
 
-relationship ef1efb7c-e447-4da0-aaa0-666824bca829
-	joinOnDateBehavior: datePartOnly
-	fromColumn: mcfbom.tadtime
-	toColumn: LocalDateTable_1549da9f-861e-4c3a-a972-8e415829fead.Date
-
-relationship bb9be826-abdc-45c5-88f2-f0c7cb0d4312
-	joinOnDateBehavior: datePartOnly
-	fromColumn: mcfbom.tedtime
-	toColumn: LocalDateTable_a585d130-c23a-4286-abd1-493363d25be0.Date
-
-relationship AutoDetected_85c5d210-4eb4-4396-9c0d-347703d71a7d
-	fromColumn: mcfbom.cserno
-	toColumn: mcfwip_trimmed.cserno
-
 relationship 329918ba-ebd0-4a3b-bd75-63805d89f13a
 	joinOnDateBehavior: datePartOnly
 	fromColumn: InventorySummary.EarliestDueDate
