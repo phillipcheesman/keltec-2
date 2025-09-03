@@ -224,6 +224,19 @@ table mcwwip
 
 		annotation SummarizationSetBy = Automatic
 
+	column ItemNo = ```
+			
+			LOOKUPVALUE(
+			    mcschdh[citemno], 
+			    mcschdh[irtcode],
+			    mcwwip[irtcode]
+			)
+			```
+		lineageTag: 885f1173-169d-4e38-a2c9-acc5624a88e9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition mcwwip = m
 		mode: import
 		source =

@@ -1,18 +1,18 @@
-table mcschd
-	lineageTag: 60ad50ff-fcf4-41d3-b65e-b764fdf5822c
+table mcschdh
+	lineageTag: 112e44e9-56dc-4286-a93b-7b6f72c768f3
 
-	column pk_mcschd
+	column pk_mcschdH
 		dataType: int64
 		formatString: 0
-		lineageTag: aa6f0aea-fe94-4292-a915-c99250dfdfc7
+		lineageTag: 5e78464e-315e-4045-ab30-fb2fea10bc89
 		summarizeBy: sum
-		sourceColumn: pk_mcschd
+		sourceColumn: pk_mcschdH
 
 		annotation SummarizationSetBy = Automatic
 
 	column citemno
 		dataType: string
-		lineageTag: 98db9c67-7ca2-4819-85cc-80102b4c5cfa
+		lineageTag: a4181ab6-7247-49c2-b014-ffb529d7284a
 		summarizeBy: none
 		sourceColumn: citemno
 
@@ -20,7 +20,7 @@ table mcschd
 
 	column cwarehouse
 		dataType: string
-		lineageTag: 648fe268-bc68-4fdb-8553-e48ae2eb0c0b
+		lineageTag: c5bdec32-bab5-4bbb-bb81-bd26ee480f46
 		summarizeBy: none
 		sourceColumn: cwarehouse
 
@@ -28,7 +28,7 @@ table mcschd
 
 	column cspeccode1
 		dataType: string
-		lineageTag: 7486807f-5357-4b38-b30d-c92b137d67b7
+		lineageTag: dca7f701-d6cf-4800-b6c9-cd8b1c595582
 		summarizeBy: none
 		sourceColumn: cspeccode1
 
@@ -36,7 +36,7 @@ table mcschd
 
 	column cspeccode2
 		dataType: string
-		lineageTag: 3d421202-e94f-435b-a82a-d5acd078a429
+		lineageTag: 9eabfdac-d87c-498c-8f48-a3ffd1fb26ce
 		summarizeBy: none
 		sourceColumn: cspeccode2
 
@@ -45,7 +45,7 @@ table mcschd
 	column irtcode
 		dataType: int64
 		formatString: 0
-		lineageTag: 88f025ec-1879-41fb-8486-7dd0c9135717
+		lineageTag: 1be2b530-0d4d-41e4-ba09-8330d208625f
 		summarizeBy: sum
 		sourceColumn: irtcode
 
@@ -53,8 +53,8 @@ table mcschd
 
 	column nordqty
 		dataType: double
-		formatString: #,0
-		lineageTag: edb487f0-6336-4598-89e6-3e7bcd5e0c8c
+		formatString: 0
+		lineageTag: 80cbbf19-a8dd-47ef-a1ae-46bafc41a880
 		summarizeBy: sum
 		sourceColumn: nordqty
 
@@ -65,14 +65,14 @@ table mcschd
 	column dRequest
 		dataType: dateTime
 		formatString: m/d/yy
-		lineageTag: 033b5dda-d698-479f-9944-80610833fc84
+		lineageTag: 98588351-096d-4853-a8b6-84a201320844
 		summarizeBy: none
 		sourceColumn: dRequest
 
 		variation Variation
 			isDefault
-			relationship: 661ec09e-42de-4ad5-8588-d98f00af2785
-			defaultHierarchy: LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce.'Date Hierarchy'
+			relationship: cbe00630-b94a-482d-8b6c-9eb338af1d88
+			defaultHierarchy: LocalDateTable_badbf4f0-395e-4a98-b916-802357c35a6b.'Date Hierarchy'
 
 		changedProperty = DataType
 
@@ -84,7 +84,7 @@ table mcschd
 
 	column cwono
 		dataType: string
-		lineageTag: ff0c4c40-8c2a-4030-a2d3-10b44a5f1260
+		lineageTag: 872d4266-5a62-495a-9ef0-f394eac71e01
 		summarizeBy: none
 		sourceColumn: cwono
 
@@ -92,7 +92,7 @@ table mcschd
 
 	column caduser
 		dataType: string
-		lineageTag: 0c5a9387-0aca-422f-98f9-0a4fa4dd5394
+		lineageTag: 51c90fe5-f501-43d6-9e7e-6dbf5fbdfb40
 		summarizeBy: none
 		sourceColumn: caduser
 
@@ -100,7 +100,7 @@ table mcschd
 
 	column ceduser
 		dataType: string
-		lineageTag: 85bf7b70-5e98-49fa-afe5-8d25c0499725
+		lineageTag: 8a6e92a5-c0ac-456f-8e7d-8ec343a4851e
 		summarizeBy: none
 		sourceColumn: ceduser
 
@@ -109,34 +109,34 @@ table mcschd
 	column tadtime
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 054c3aab-af1a-4baa-bf20-8f0b0e3db062
+		lineageTag: bef45952-33a7-4e27-829a-180853ecfd7c
 		summarizeBy: none
 		sourceColumn: tadtime
 
 		variation Variation
 			isDefault
-			relationship: c90d1170-2bbb-4818-9620-3e2fb27b4dc4
-			defaultHierarchy: LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6.'Date Hierarchy'
+			relationship: 23bd4f80-1d37-4089-a511-8b088e75b046
+			defaultHierarchy: LocalDateTable_667af03d-5b8c-4976-804d-6237ba7a1061.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
 	column tedtime
 		dataType: dateTime
 		formatString: General Date
-		lineageTag: 1cde45d9-cd4e-4d34-aa3c-f2baae2b9647
+		lineageTag: 6cc8cdd7-090d-46af-bf45-0dc9e31e028f
 		summarizeBy: none
 		sourceColumn: tedtime
 
 		variation Variation
 			isDefault
-			relationship: 3f5bc660-5247-4735-814e-98ce48629c24
-			defaultHierarchy: LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba.'Date Hierarchy'
+			relationship: 68b21037-29ac-450a-93a5-5aad359d6690
+			defaultHierarchy: LocalDateTable_e0b936b0-de65-4dee-9960-2e9a7759a7cd.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
 	column cstation
 		dataType: string
-		lineageTag: 21fe15c8-d4c9-4372-9fea-51767864496f
+		lineageTag: 2923f5f3-7cda-48db-8d7e-a7cf9cb2deb2
 		summarizeBy: none
 		sourceColumn: cstation
 
@@ -145,41 +145,17 @@ table mcschd
 	column nseq
 		dataType: int64
 		formatString: 0
-		lineageTag: 4c1fc29f-3853-43d2-80e3-62a733e3163d
+		lineageTag: 45706fb3-2dd0-4e7b-9df6-e6e7034d42cc
 		summarizeBy: sum
 		sourceColumn: nseq
 
 		annotation SummarizationSetBy = Automatic
 
-	column MakePriority = RELATED(InventorySummary[MakePriority_v3])
-		formatString: #,0
-		lineageTag: ce6b5461-3c90-44ae-882d-1b448291a161
-		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isDecimal":true}
-
-	column IsNeeded = ```
-			
-			IF (
-			    SUMX ( RELATEDTABLE ( InventorySummary ), InventorySummary[Avail] ) < 0,
-			    1,
-			    0
-			)
-			
-			```
-		formatString: 0
-		lineageTag: 83021904-3cc9-4361-8869-34bd137200b0
-		summarizeBy: sum
-
-		annotation SummarizationSetBy = Automatic
-
-	partition mcschd = m
+	partition mcschdh = m
 		mode: import
 		source =
 				let
-				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="SELECT * FROM dbo.mcschd"])
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="SELECT * FROM dbo.mcschdh WHERE dRequest > '2025-04-01'"])
 				in
 				    Source
 

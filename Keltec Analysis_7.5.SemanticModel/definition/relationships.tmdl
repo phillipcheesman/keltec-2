@@ -348,12 +348,6 @@ relationship 71437de8-b091-44b4-ad6e-fa857d8a9b15
 	fromColumn: mcwwip.tedtime
 	toColumn: LocalDateTable_dd6ac072-5ce8-4408-8601-30d9ac352c33.Date
 
-relationship 46abc468-5680-9574-e431-540ed6ca8171
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: mcwwip.cserno
-	toColumn: ItemBatchBridge.cserno
-
 relationship 1479fb6d-e6ba-6a71-da48-e57cc4ccecf6
 	crossFilteringBehavior: bothDirections
 	toCardinality: many
@@ -451,10 +445,6 @@ relationship 7eae875b-eef1-ed0e-39a7-fedda37947c7
 	fromColumn: iciwhs.citemno
 	toColumn: InventorySummary.citemno
 
-relationship 6b36ae1f-0f12-005a-724a-093a3430ac75
-	fromColumn: ItemBatchBridge.citemno
-	toColumn: InventorySummary.citemno
-
 relationship 742f3f9a-9452-8018-9ea1-32fb96fa2c77
 	fromColumn: BomExplode.top_parent
 	toColumn: InventorySummary.citemno
@@ -494,4 +484,23 @@ relationship c9c2dc71-338f-4626-0186-01e35ec4ae91
 	fromCardinality: one
 	fromColumn: CriticalA.'Part #'
 	toColumn: InventorySummary.citemno
+
+relationship d02eb4f6-e64a-e2de-fb41-585b2a01388f
+	fromColumn: mcwwip.ItemNo
+	toColumn: InventorySummary.citemno
+
+relationship cbe00630-b94a-482d-8b6c-9eb338af1d88
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcschdh.dRequest
+	toColumn: LocalDateTable_badbf4f0-395e-4a98-b916-802357c35a6b.Date
+
+relationship 23bd4f80-1d37-4089-a511-8b088e75b046
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcschdh.tadtime
+	toColumn: LocalDateTable_667af03d-5b8c-4976-804d-6237ba7a1061.Date
+
+relationship 68b21037-29ac-450a-93a5-5aad359d6690
+	joinOnDateBehavior: datePartOnly
+	fromColumn: mcschdh.tedtime
+	toColumn: LocalDateTable_e0b936b0-de65-4dee-9960-2e9a7759a7cd.Date
 

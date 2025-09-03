@@ -1252,7 +1252,6 @@ table InventorySummary
 	column 'Avail.t' =
 			
 			COALESCE( InventorySummary[OH], 0 )
-			+ COALESCE( InventorySummary[WO.sched.t], 0 )
 			+ COALESCE( InventorySummary[WO.rel.t], 0 )
 			- COALESCE( InventorySummary[SO.t], 0 )
 		formatString: 0
@@ -1263,7 +1262,7 @@ table InventorySummary
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	column 'WO_NeedMTO.t' = MAX( 0, -[Avail.t] )  // MTO-style (breakeven)
+	column 'WO_NeedMTO.t' = MAX( 0, -([Avail.t]+InventorySummary[WO.sched.t]) )  // MTO-style (breakeven)
 		formatString: #,0
 		lineageTag: b392ebea-b52f-42d8-878d-0941f09ca687
 		summarizeBy: sum
@@ -1275,6 +1274,13 @@ table InventorySummary
 	column 'Avail.t/RP' = IF(IFERROR(InventorySummary[Avail.t] / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(InventorySummary[Avail.t] / InventorySummary[RP], 0))
 		formatString: 0%;-0%;0%
 		lineageTag: e6d97aaf-3758-4fd2-bdc9-e57f081c0f58
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Schd/RP = IF(IFERROR((InventorySummary[Avail.t]+InventorySummary[WO.sched.t]) / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR((InventorySummary[Avail.t]+InventorySummary[WO.sched.t]) / InventorySummary[RP], 0))
+		formatString: #,0%;-#,0%;#,0%
+		lineageTag: 0713d876-b037-4b37-a090-8fb28e55436e
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
