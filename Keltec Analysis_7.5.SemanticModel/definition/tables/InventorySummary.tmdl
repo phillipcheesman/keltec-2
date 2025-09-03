@@ -1273,12 +1273,11 @@ table InventorySummary
 		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column 'Avail.t/RP' = IF(IFERROR(InventorySummary[Avail.t] / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(InventorySummary[Avail.t] / InventorySummary[RP], 0))
+		formatString: 0%;-0%;0%
 		lineageTag: e6d97aaf-3758-4fd2-bdc9-e57f081c0f58
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition InventorySummary = calculated
 		mode: import
