@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
-        "y": 566606.29821711662
+        "x": 709.15996553619232,
+        "y": 568392.52750365529
       },
       "nodes": [
         {
@@ -228,10 +228,11 @@
         },
         {
           "location": {
-            "x": 806.6383605846404,
-            "y": 567958.69755989616
+            "x": 1856.5211601370725,
+            "y": 568522.76502673642
           },
           "nodeIndex": "ItemStats_16wk",
+          "nodeLineageTag": "412de9f3-80ae-4afa-a861-9d2000e2ec27",
           "size": {
             "height": 200,
             "width": 234
@@ -240,8 +241,8 @@
         },
         {
           "location": {
-            "x": 1723.5034278138023,
-            "y": 567823.17706858588
+            "x": 1857.1841569493604,
+            "y": 568274.757092617
           },
           "nodeIndex": "ItemStats_16wk_AllActive",
           "nodeLineageTag": "07943f68-f267-4b66-9b53-0c26ae8ba5a4",
@@ -395,19 +396,6 @@
         },
         {
           "location": {
-            "x": 1778.4137310401748,
-            "y": 568388.70324512874
-          },
-          "nodeIndex": "miboml",
-          "nodeLineageTag": "74cd156c-41e8-44a8-bacd-671dae649f65",
-          "size": {
-            "height": 300,
-            "width": 234
-          },
-          "zIndex": 40
-        },
-        {
-          "location": {
             "x": 448.68934817407836,
             "y": 569359.00183623354
           },
@@ -421,8 +409,8 @@
         },
         {
           "location": {
-            "x": 3644.9014976454991,
-            "y": 566841.52558466746
+            "x": 3511.2207685099411,
+            "y": 567490.36619681318
           },
           "nodeIndex": "mcfbom",
           "nodeLineageTag": "5c16b35d-1505-400a-8a71-ceda23b14eb0",
@@ -434,8 +422,8 @@
         },
         {
           "location": {
-            "x": 2597.6919983884359,
-            "y": 568393.1900197512
+            "x": 2141.2212159743353,
+            "y": 568510.56822094333
           },
           "nodeIndex": "LateSummary",
           "nodeLineageTag": "b9f24e0c-4ae6-4d76-be71-2ebf66ad1321",
@@ -564,24 +552,26 @@
         },
         {
           "location": {
-            "x": 3928.9014976454991,
-            "y": 393101.87231919472
+            "x": 2153.9337710496111,
+            "y": 568742.58651650907
           },
           "nodeIndex": "InvEvents_Base",
+          "nodeLineageTag": "a6749be7-626d-4433-9f3f-661c1a59aeca",
           "size": {
-            "height": 200,
+            "height": 176,
             "width": 234
           },
           "zIndex": 1
         },
         {
           "location": {
-            "x": 4212.9014976454991,
-            "y": 392422.99187146826
+            "x": 1873.5302904238063,
+            "y": 568757.2587916581
           },
           "nodeIndex": "InvEvents_Daily",
+          "nodeLineageTag": "b1da053d-51b5-4b43-a43c-e052d9c115fd",
           "size": {
-            "height": 200,
+            "height": 176,
             "width": 234
           },
           "zIndex": 2
@@ -627,7 +617,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 108.66787078389729,
+      "zoomValue": 61.340180091962559,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

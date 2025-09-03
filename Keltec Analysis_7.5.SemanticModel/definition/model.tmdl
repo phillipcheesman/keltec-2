@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","miboml","icibin_2","mcfbom","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems","CriticalA"]
+annotation PBI_QueryOrder = ["sosord","sostrs","vsp_rpt_soopen","icitem","ictwhs","icibin","popord","portrs","poptrs","tblMakeBuy","vsp_rpt_soopen2","ictrsn","WO","mcitem","mciwhs","mcflog_trimmed","mcfwip_trimmed","mcwlog_trimmed","mcschd","icibin_2","mcfbom","iciwhs","mcwwip","ItemBatchBridge","BomExplode","SPSCItems","CriticalA"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -94,8 +94,6 @@ ref table mcschd
 ref table LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce
 ref table LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6
 ref table LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba
-ref table miboml
-ref table LocalDateTable_644d37a0-8df5-4c3f-98f7-f49f0ec79cc3
 ref table icibin_2
 ref table mcfbom
 ref table LocalDateTable_1549da9f-861e-4c3a-a972-8e415829fead
@@ -111,7 +109,6 @@ ref table LocalDateTable_f0880116-3bc0-407b-9645-398f2700c1f7
 ref table LocalDateTable_4283d93c-e93f-4b7c-bf80-068b7b9ae43a
 ref table LocalDateTable_8a215c3e-7fdc-47fe-819c-fa13e5f79609
 ref table LocalDateTable_dd6ac072-5ce8-4408-8601-30d9ac352c33
-ref table LocalDateTable_38eb52ab-8749-42c0-b297-78cc8583f2cb
 ref table ItemBatchBridge
 ref table BomExplode
 ref table InvEvents

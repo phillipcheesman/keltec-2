@@ -9850,6 +9850,16 @@ cultureInfo en-US
 			          "nonhand": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "OnHand": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -30624,6 +30634,16 @@ cultureInfo en-US
 			          "citemno": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Item #": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -30852,6 +30872,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "DateSched": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -32020,568 +32050,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.508
-			          }
-			        }
-			      ]
-			    },
-			    "miboml": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "miboml": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.citemno": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "citemno"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "citemno": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.ccompno": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "ccompno"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ccompno": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.cdescript": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "cdescript"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cdescript": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.cmeasure": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "cmeasure"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cmeasure": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.ctype": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "ctype"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ctype": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.dcreate": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "dcreate"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dcreate": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.dcreate.date_hierarchy": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "dcreate",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dcreate date hierarchy": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date hierarchy": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.dcreate.year": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "dcreate",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Year"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dcreate year": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "year": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dcreate yr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "yr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.dcreate.quarter": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "dcreate",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Quarter"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dcreate quarter": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "quarter": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dcreate qtr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.833
-			          }
-			        },
-			        {
-			          "qtr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.818
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.dcreate.month": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "dcreate",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Month"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dcreate month": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "month": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dcreate mth": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "mth": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.dcreate.day": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "dcreate",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Day"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dcreate day": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "day": {
-			            "State": "Generated"
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.nqtydec": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "nqtydec"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nqtydec": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.nstep": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "nstep"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nstep": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.nuptime": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "nuptime"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nuptime": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.ndntime": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "ndntime"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ndntime": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.nqty": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "nqty"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nqty": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.nrate": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "nrate"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "nrate": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.ncnvqty": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "ncnvqty"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ncnvqty": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.cspeccode_1": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "cspeccode1"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cspeccode 1": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "cspeccode1": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.cspeccode_2": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "cspeccode2"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cspeccode 2": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "cspeccode2": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.ccspecode_1": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "ccspecode1"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ccspecode 1": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ccspecode1": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.ccspecode_2": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "ccspecode2"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ccspecode 2": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ccspecode2": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.cuid": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "cuid"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cuid": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.oh": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "OH"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "oh": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.make_qty": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "MakeQty"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "make qty": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "MakeQty": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
 			          }
 			        }
 			      ]
@@ -35364,95 +34832,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "miboml.is_target": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "IsTarget"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "is target": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IsTarget": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "target": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "is focus": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "is goal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "is objective": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "focus": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "goal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
-			          "objective": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        }
-			      ]
-			    },
 			    "iciwh": {
 			      "Definition": {
 			        "Binding": {
@@ -38134,482 +37513,6 @@ cultureInfo en-US
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.due": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "Due"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "due": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        },
-			        {
-			          "owing": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "outstanding": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "payable": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.due.date_hierarchy": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "Due",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "due date hierarchy": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date hierarchy": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.due.year": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "Due",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Year"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "due year": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "year": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "due yr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "yr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.due.quarter": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "Due",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Quarter"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "due quarter": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "quarter": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "due qtr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.833
-			          }
-			        },
-			        {
-			          "qtr": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.818
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.due.month": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "Due",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Month"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "due month": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "month": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "due mth": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "mth": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.due.day": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "VariationSource": "Due",
-			          "VariationSet": "Variation",
-			          "Hierarchy": "Date Hierarchy",
-			          "HierarchyLevel": "Day"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "due day": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "day": {
-			            "State": "Generated"
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "miboml.is_negative": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "IsNegative"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "is negative": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IsNegative": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "negative": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "undesirable": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "damaging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "downbeat": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "depressing": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "disapproving": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "discouraging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "is rejection": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "is refusal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "is denial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        }
-			      ]
-			    },
-			    "miboml.make_negative": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "miboml",
-			          "ConceptualProperty": "MakeNegative"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "make negative": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "MakeNegative": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "negative": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "undesirable": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "damaging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "downbeat": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "depressing": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "disapproving": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "discouraging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "make rejection": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "make refusal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "make denial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
 			          }
 			        }
 			      ]
@@ -49981,42 +48884,125 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "critical_A.note": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "CriticalA",
+			          "ConceptualProperty": "Notes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "note": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "memo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "memorandum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "reminder": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "letter": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "message": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "communication": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "annotation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "addendum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "commentary": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "footnote": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "open_PO_poptrs_drequest_date_hierarchy_has_open_PO_poptrs_drequest_day": {
-			      "Binding": {
-			        "ConceptualEntity": "OpenPO"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "open_PO.poptrs_drequest.date_hierarchy": {
-			          "Target": {
-			            "Entity": "open_PO.poptrs_drequest.date_hierarchy"
-			          }
-			        },
-			        "open_PO.poptrs_drequest.day": {
-			          "Target": {
-			            "Entity": "open_PO.poptrs_drequest.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "open_PO.poptrs_drequest.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "open_PO.poptrs_drequest.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "poptrs_drequest_date_hierarchies_have_poptrs_drequest_days"
-			        }
-			      ]
-			    },
 			    "open_PO_poptrs_drequest_date_hierarchy_has_open_PO_poptrs_drequest_month": {
 			      "Binding": {
 			        "ConceptualEntity": "OpenPO"
@@ -51832,171 +50818,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "miboml_due_date_hierarchy_has_miboml_due_day": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.due.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.due.date_hierarchy"
-			          }
-			        },
-			        "miboml.due.day": {
-			          "Target": {
-			            "Entity": "miboml.due.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.due.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.due.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_day"
-			        }
-			      ]
-			    },
-			    "miboml_due_date_hierarchy_has_miboml_due_month": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.due.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.due.date_hierarchy"
-			          }
-			        },
-			        "miboml.due.month": {
-			          "Target": {
-			            "Entity": "miboml.due.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.due.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.due.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_month"
-			        }
-			      ]
-			    },
-			    "miboml_due_date_hierarchy_has_miboml_due_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.due.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.due.date_hierarchy"
-			          }
-			        },
-			        "miboml.due.quarter": {
-			          "Target": {
-			            "Entity": "miboml.due.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.due.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.due.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_quarter"
-			        }
-			      ]
-			    },
-			    "miboml_due_date_hierarchy_has_miboml_due_year": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.due.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.due.date_hierarchy"
-			          }
-			        },
-			        "miboml.due.year": {
-			          "Target": {
-			            "Entity": "miboml.due.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.due.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.due.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_year"
-			        }
-			      ]
-			    },
-			    "miboml_due_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.due": {
-			          "Target": {
-			            "Entity": "miboml.due"
-			          }
-			        },
-			        "miboml.due.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.due.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.due"
-			            },
-			            "Object": {
-			              "Role": "miboml.due.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_have_due_date_hierarchy"
-			        }
-			      ]
-			    },
 			    "mcwwip_tedtime_date_hierarchy_has_mcwwip_tedtime_day": {
 			      "Binding": {
 			        "ConceptualEntity": "mcwwip"
@@ -53644,171 +52465,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "tadtimes_have_tadtime_date_hierarchies1"
-			        }
-			      ]
-			    },
-			    "miboml_dcreate_date_hierarchy_has_miboml_dcreate_day": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.dcreate.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.date_hierarchy"
-			          }
-			        },
-			        "miboml.dcreate.day": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.dcreate.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.dcreate.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days"
-			        }
-			      ]
-			    },
-			    "miboml_dcreate_date_hierarchy_has_miboml_dcreate_month": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.dcreate.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.date_hierarchy"
-			          }
-			        },
-			        "miboml.dcreate.month": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.dcreate.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.dcreate.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months"
-			        }
-			      ]
-			    },
-			    "miboml_dcreate_date_hierarchy_has_miboml_dcreate_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.dcreate.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.date_hierarchy"
-			          }
-			        },
-			        "miboml.dcreate.quarter": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.dcreate.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.dcreate.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters"
-			        }
-			      ]
-			    },
-			    "miboml_dcreate_date_hierarchy_has_miboml_dcreate_year": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.dcreate.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.date_hierarchy"
-			          }
-			        },
-			        "miboml.dcreate.year": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.dcreate.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "miboml.dcreate.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years"
-			        }
-			      ]
-			    },
-			    "miboml_dcreate_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml.dcreate": {
-			          "Target": {
-			            "Entity": "miboml.dcreate"
-			          }
-			        },
-			        "miboml.dcreate.date_hierarchy": {
-			          "Target": {
-			            "Entity": "miboml.dcreate.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml.dcreate"
-			            },
-			            "Object": {
-			              "Role": "miboml.dcreate.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies"
 			        }
 			      ]
 			    },
@@ -64512,6 +63168,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "critical_A_has_note": {
+			      "Binding": {
+			        "ConceptualEntity": "CriticalA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "critical_A": {
+			          "Target": {
+			            "Entity": "critical_A"
+			          }
+			        },
+			        "critical_A.note": {
+			          "Target": {
+			            "Entity": "critical_A.note"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "critical_A"
+			            },
+			            "Object": {
+			              "Role": "critical_A.note"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "critical_A_have_notes"
+			        }
+			      ]
+			    },
 			    "critical_A_has_baseline_inventory": {
 			      "Binding": {
 			        "ConceptualEntity": "CriticalA"
@@ -68380,39 +67069,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "miboml_has_bom_explode_max_make_negative": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "bom_explode.max_make_negative": {
-			          "Target": {
-			            "Entity": "bom_explode.max_make_negative"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "bom_explode.max_make_negative"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_max_make_negative"
-			        }
-			      ]
-			    },
 			    "bom_explode_has_max_make_qty": {
 			      "Binding": {
 			        "ConceptualEntity": "BomExplode"
@@ -68991,125 +67647,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "item_batch_bridges_have_csernos"
-			        }
-			      ]
-			    },
-			    "miboml_has_make_negative": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.make_negative": {
-			          "Target": {
-			            "Entity": "miboml.make_negative"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.make_negative"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_make_negative"
-			        }
-			      ]
-			    },
-			    "miboml_has_is_negative": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.is_negative": {
-			          "Target": {
-			            "Entity": "miboml.is_negative"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.is_negative"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_is_negatives"
-			        },
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Adjectives": [
-			              {
-			                "negative": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "miboml.is_negative"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "is_negative_indicates_how_negative_mibomls_are"
-			        }
-			      ]
-			    },
-			    "miboml_has_due": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.due": {
-			          "Target": {
-			            "Entity": "miboml.due"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.due"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_due"
 			        }
 			      ]
 			    },
@@ -71179,39 +69716,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "miboml_has_is_target": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.is_target": {
-			          "Target": {
-			            "Entity": "miboml.is_target"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.is_target"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_is_targets"
-			        }
-			      ]
-			    },
 			    "late_summary_has_rev_dense": {
 			      "Binding": {
 			        "ConceptualEntity": "LateSummary"
@@ -72826,666 +71330,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "icibin_2_have_cuids"
-			        }
-			      ]
-			    },
-			    "miboml_has_make_qty": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.make_qty": {
-			          "Target": {
-			            "Entity": "miboml.make_qty"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.make_qty"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_make_qty"
-			        }
-			      ]
-			    },
-			    "miboml_has_oh": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.oh": {
-			          "Target": {
-			            "Entity": "miboml.oh"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.oh"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_oh"
-			        }
-			      ]
-			    },
-			    "miboml_has_cuid": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.cuid": {
-			          "Target": {
-			            "Entity": "miboml.cuid"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.cuid"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_cuids"
-			        }
-			      ]
-			    },
-			    "miboml_has_ccspecode_2": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.ccspecode_2": {
-			          "Target": {
-			            "Entity": "miboml.ccspecode_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.ccspecode_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_ccspecode_2"
-			        }
-			      ]
-			    },
-			    "miboml_has_ccspecode_1": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.ccspecode_1": {
-			          "Target": {
-			            "Entity": "miboml.ccspecode_1"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.ccspecode_1"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_ccspecode_1"
-			        }
-			      ]
-			    },
-			    "miboml_has_cspeccode_2": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.cspeccode_2": {
-			          "Target": {
-			            "Entity": "miboml.cspeccode_2"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.cspeccode_2"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_cspeccode_2"
-			        }
-			      ]
-			    },
-			    "miboml_has_cspeccode_1": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.cspeccode_1": {
-			          "Target": {
-			            "Entity": "miboml.cspeccode_1"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.cspeccode_1"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_cspeccode_1"
-			        }
-			      ]
-			    },
-			    "miboml_has_ncnvqty": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.ncnvqty": {
-			          "Target": {
-			            "Entity": "miboml.ncnvqty"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.ncnvqty"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_ncnvqties"
-			        }
-			      ]
-			    },
-			    "miboml_has_nrate": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.nrate": {
-			          "Target": {
-			            "Entity": "miboml.nrate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.nrate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_nrates"
-			        }
-			      ]
-			    },
-			    "miboml_has_nqty": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.nqty": {
-			          "Target": {
-			            "Entity": "miboml.nqty"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.nqty"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_nqties"
-			        }
-			      ]
-			    },
-			    "miboml_has_ndntime": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.ndntime": {
-			          "Target": {
-			            "Entity": "miboml.ndntime"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.ndntime"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_ndntimes"
-			        }
-			      ]
-			    },
-			    "miboml_has_nuptime": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.nuptime": {
-			          "Target": {
-			            "Entity": "miboml.nuptime"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.nuptime"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_nuptimes"
-			        }
-			      ]
-			    },
-			    "miboml_has_nstep": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.nstep": {
-			          "Target": {
-			            "Entity": "miboml.nstep"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.nstep"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_nsteps"
-			        }
-			      ]
-			    },
-			    "miboml_has_nqtydec": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.nqtydec": {
-			          "Target": {
-			            "Entity": "miboml.nqtydec"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.nqtydec"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_nqtydecs"
-			        }
-			      ]
-			    },
-			    "miboml_has_dcreate": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.dcreate": {
-			          "Target": {
-			            "Entity": "miboml.dcreate"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.dcreate"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_dcreates"
-			        }
-			      ]
-			    },
-			    "miboml_has_ctype": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.ctype": {
-			          "Target": {
-			            "Entity": "miboml.ctype"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.ctype"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_ctypes"
-			        }
-			      ]
-			    },
-			    "miboml_has_cmeasure": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.cmeasure": {
-			          "Target": {
-			            "Entity": "miboml.cmeasure"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.cmeasure"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_cmeasures"
-			        }
-			      ]
-			    },
-			    "miboml_has_cdescript": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.cdescript": {
-			          "Target": {
-			            "Entity": "miboml.cdescript"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.cdescript"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_cdescripts"
-			        }
-			      ]
-			    },
-			    "miboml_has_ccompno": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.ccompno": {
-			          "Target": {
-			            "Entity": "miboml.ccompno"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.ccompno"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_ccompnos"
-			        }
-			      ]
-			    },
-			    "miboml_has_citemno": {
-			      "Binding": {
-			        "ConceptualEntity": "miboml"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "miboml": {
-			          "Target": {
-			            "Entity": "miboml"
-			          }
-			        },
-			        "miboml.citemno": {
-			          "Target": {
-			            "Entity": "miboml.citemno"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "miboml"
-			            },
-			            "Object": {
-			              "Role": "miboml.citemno"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "mibomls_have_citemnos"
 			        }
 			      ]
 			    },
@@ -101738,6 +99582,48 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "mcschd_is_DateSched_on_d_request": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschd"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschd": {
+			          "Target": {
+			            "Entity": "mcschd"
+			          }
+			        },
+			        "mcschd.d_request": {
+			          "Target": {
+			            "Entity": "mcschd.d_request"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "When": {
+			          "Role": "mcschd.d_request"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Verb": {
+			            "Verbs": [
+			              {
+			                "DateSch": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "mcschd"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.9,
+			          "ID": "mcschds_are_DateSched_on_d_requests"
+			        }
+			      ]
+			    },
 			    "poptr_is_ordered_on_date_ordered_PO": {
 			      "Binding": {
 			        "ConceptualEntity": "poptrs"
@@ -101919,6 +99805,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "some_dim_dates_are_weekend_dim_dates"
+			        }
+			      ]
+			    },
+			    "open_PO_poptrs_drequest_date_hierarchy_has_open_PO_poptrs_drequest_day": {
+			      "Binding": {
+			        "ConceptualEntity": "OpenPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "open_PO.poptrs_drequest.date_hierarchy": {
+			          "Target": {
+			            "Entity": "open_PO.poptrs_drequest.date_hierarchy"
+			          }
+			        },
+			        "open_PO.poptrs_drequest.day": {
+			          "Target": {
+			            "Entity": "open_PO.poptrs_drequest.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "open_PO.poptrs_drequest.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "open_PO.poptrs_drequest.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "poptrs_drequest_date_hierarchies_have_poptrs_drequest_days"
 			        }
 			      ]
 			    },
