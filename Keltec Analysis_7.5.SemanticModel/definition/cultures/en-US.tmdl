@@ -30473,7 +30473,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "InventorySummary",
-			          "ConceptualProperty": "Avail/SSd"
+			          "ConceptualProperty": "Avail/RP"
 			        }
 			      },
 			      "State": "Generated",
@@ -32478,6 +32478,12 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
+			        },
+			        {
+			          "due date hierarchy": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -32507,6 +32513,12 @@ cultureInfo en-US
 			        {
 			          "earliest due date year": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "due year": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -32563,6 +32575,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "due yr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
 			          }
 			        },
 			        {
@@ -32626,6 +32648,12 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "due quarter": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
 			          "due date quarter": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -32659,6 +32687,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.846
+			          }
+			        },
+			        {
+			          "due qtr": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.833
 			          }
 			        },
 			        {
@@ -32742,6 +32780,12 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "due month": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
 			          "due date month": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -32795,6 +32839,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "due mth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
 			          }
 			        },
 			        {
@@ -32855,6 +32909,12 @@ cultureInfo en-US
 			        {
 			          "earliest due date day": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "due day": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -37915,125 +37975,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "bom_explode.is_negative": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BomExplode",
-			          "ConceptualProperty": "IsNegative"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "is negative": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "IsNegative": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "negative": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "undesirable": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "damaging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "downbeat": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "depressing": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "disapproving": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "discouraging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "is rejection": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "is refusal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        },
-			        {
-			          "is denial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.451
-			          }
-			        }
-			      ]
-			    },
 			    "bom_explode.max_make_negative_2": {
 			      "Definition": {
 			        "Binding": {
@@ -38108,135 +38049,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
-			          }
-			        }
-			      ]
-			    },
-			    "bom_explode.max_make_negative": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "BomExplode",
-			          "ConceptualProperty": "MaxMakeNegative"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "max make negative": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "MaxMakeNegative": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "negative": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "maximum make negative": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "undesirable": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "damaging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "max make rejection": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.458
-			          }
-			        },
-			        {
-			          "max make refusal": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.458
-			          }
-			        },
-			        {
-			          "max make denial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.458
-			          }
-			        },
-			        {
-			          "downbeat": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "depressing": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "disapproving": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
-			          }
-			        },
-			        {
-			          "discouraging": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.452
 			          }
 			        }
 			      ]
@@ -48189,6 +48001,138 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
+			    "inv_events_base_event_date_date_hierarchy_has_inv_events_base_event_date_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "InvEvents_Base"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "inv_events_base.event_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "inv_events_base.event_date.date_hierarchy"
+			          }
+			        },
+			        "inv_events_base.event_date.quarter": {
+			          "Target": {
+			            "Entity": "inv_events_base.event_date.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "inv_events_base.event_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "inv_events_base.event_date.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "event_date_hierarchies_have_event_quarters"
+			        }
+			      ]
+			    },
+			    "inv_events_base_event_date_date_hierarchy_has_inv_events_base_event_date_year": {
+			      "Binding": {
+			        "ConceptualEntity": "InvEvents_Base"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "inv_events_base.event_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "inv_events_base.event_date.date_hierarchy"
+			          }
+			        },
+			        "inv_events_base.event_date.year": {
+			          "Target": {
+			            "Entity": "inv_events_base.event_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "inv_events_base.event_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "inv_events_base.event_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "event_date_hierarchies_have_event_years"
+			        }
+			      ]
+			    },
+			    "inv_events_base_event_date_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "InvEvents_Base"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "inv_events_base.event_date": {
+			          "Target": {
+			            "Entity": "inv_events_base.event_date"
+			          }
+			        },
+			        "inv_events_base.event_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "inv_events_base.event_date.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "inv_events_base.event_date"
+			            },
+			            "Object": {
+			              "Role": "inv_events_base.event_date.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "event_dates_have_event_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "open_PO_poptrs_drequest_date_hierarchy_has_open_PO_poptrs_drequest_day": {
+			      "Binding": {
+			        "ConceptualEntity": "OpenPO"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "open_PO.poptrs_drequest.date_hierarchy": {
+			          "Target": {
+			            "Entity": "open_PO.poptrs_drequest.date_hierarchy"
+			          }
+			        },
+			        "open_PO.poptrs_drequest.day": {
+			          "Target": {
+			            "Entity": "open_PO.poptrs_drequest.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "open_PO.poptrs_drequest.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "open_PO.poptrs_drequest.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "poptrs_drequest_date_hierarchies_have_poptrs_drequest_days"
+			        }
+			      ]
+			    },
 			    "open_PO_poptrs_drequest_date_hierarchy_has_open_PO_poptrs_drequest_month": {
 			      "Binding": {
 			        "ConceptualEntity": "OpenPO"
@@ -49934,7 +49878,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_quarters"
+			          "ID": "event_date_hierarchies_have_event_quarters1"
 			        }
 			      ]
 			    },
@@ -49967,7 +49911,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_years"
+			          "ID": "event_date_hierarchies_have_event_years1"
 			        }
 			      ]
 			    },
@@ -50000,7 +49944,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_dates_have_event_date_hierarchies"
+			          "ID": "event_dates_have_event_date_hierarchies1"
 			        }
 			      ]
 			    },
@@ -51353,7 +51297,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_days2"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_days1"
 			        }
 			      ]
 			    },
@@ -51386,7 +51330,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_months2"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_months1"
 			        }
 			      ]
 			    },
@@ -51419,7 +51363,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters2"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters1"
 			        }
 			      ]
 			    },
@@ -51452,7 +51396,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_years2"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_years1"
 			        }
 			      ]
 			    },
@@ -51485,7 +51429,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtimes_have_tedtime_date_hierarchies2"
+			          "ID": "tedtimes_have_tedtime_date_hierarchies1"
 			        }
 			      ]
 			    },
@@ -51518,7 +51462,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_days2"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_days1"
 			        }
 			      ]
 			    },
@@ -51551,7 +51495,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_months2"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_months1"
 			        }
 			      ]
 			    },
@@ -51584,7 +51528,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters2"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters1"
 			        }
 			      ]
 			    },
@@ -51617,7 +51561,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_years2"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_years1"
 			        }
 			      ]
 			    },
@@ -51650,7 +51594,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies2"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies1"
 			        }
 			      ]
 			    },
@@ -51848,7 +51792,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_days3"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_days2"
 			        }
 			      ]
 			    },
@@ -51881,7 +51825,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_months3"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_months2"
 			        }
 			      ]
 			    },
@@ -51914,7 +51858,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters3"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters2"
 			        }
 			      ]
 			    },
@@ -51947,7 +51891,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_years3"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_years2"
 			        }
 			      ]
 			    },
@@ -51980,7 +51924,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtimes_have_tedtime_date_hierarchies3"
+			          "ID": "tedtimes_have_tedtime_date_hierarchies2"
 			        }
 			      ]
 			    },
@@ -52013,7 +51957,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_days3"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_days2"
 			        }
 			      ]
 			    },
@@ -52046,7 +51990,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_months3"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_months2"
 			        }
 			      ]
 			    },
@@ -52079,7 +52023,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters3"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters2"
 			        }
 			      ]
 			    },
@@ -52112,7 +52056,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_years3"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_years2"
 			        }
 			      ]
 			    },
@@ -52145,7 +52089,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies3"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies2"
 			        }
 			      ]
 			    },
@@ -53003,7 +52947,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_days4"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_days3"
 			        }
 			      ]
 			    },
@@ -53036,7 +52980,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_months4"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_months3"
 			        }
 			      ]
 			    },
@@ -53069,7 +53013,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters4"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters3"
 			        }
 			      ]
 			    },
@@ -53102,7 +53046,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_years4"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_years3"
 			        }
 			      ]
 			    },
@@ -53135,7 +53079,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtimes_have_tedtime_date_hierarchies4"
+			          "ID": "tedtimes_have_tedtime_date_hierarchies3"
 			        }
 			      ]
 			    },
@@ -53168,7 +53112,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_days4"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_days3"
 			        }
 			      ]
 			    },
@@ -53201,7 +53145,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_months4"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_months3"
 			        }
 			      ]
 			    },
@@ -53234,7 +53178,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters4"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters3"
 			        }
 			      ]
 			    },
@@ -53267,7 +53211,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_years4"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_years3"
 			        }
 			      ]
 			    },
@@ -53300,7 +53244,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies4"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies3"
 			        }
 			      ]
 			    },
@@ -53663,7 +53607,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_days5"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_days4"
 			        }
 			      ]
 			    },
@@ -53696,7 +53640,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_months5"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_months4"
 			        }
 			      ]
 			    },
@@ -53729,7 +53673,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters5"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_quarters4"
 			        }
 			      ]
 			    },
@@ -53762,7 +53706,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtime_date_hierarchies_have_tedtime_years5"
+			          "ID": "tedtime_date_hierarchies_have_tedtime_years4"
 			        }
 			      ]
 			    },
@@ -53795,7 +53739,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tedtimes_have_tedtime_date_hierarchies5"
+			          "ID": "tedtimes_have_tedtime_date_hierarchies4"
 			        }
 			      ]
 			    },
@@ -53828,7 +53772,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_days5"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_days4"
 			        }
 			      ]
 			    },
@@ -53861,7 +53805,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_months5"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_months4"
 			        }
 			      ]
 			    },
@@ -53894,7 +53838,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters5"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_quarters4"
 			        }
 			      ]
 			    },
@@ -53927,7 +53871,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtime_date_hierarchies_have_tadtime_years5"
+			          "ID": "tadtime_date_hierarchies_have_tadtime_years4"
 			        }
 			      ]
 			    },
@@ -53960,7 +53904,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies5"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies4"
 			        }
 			      ]
 			    },
@@ -54818,7 +54762,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days1"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days"
 			        }
 			      ]
 			    },
@@ -54851,7 +54795,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months1"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months"
 			        }
 			      ]
 			    },
@@ -54884,7 +54828,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters1"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters"
 			        }
 			      ]
 			    },
@@ -54917,7 +54861,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years1"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years"
 			        }
 			      ]
 			    },
@@ -54950,7 +54894,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies1"
+			          "ID": "dcreates_have_dcreate_date_hierarchies"
 			        }
 			      ]
 			    },
@@ -55148,7 +55092,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days2"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days1"
 			        }
 			      ]
 			    },
@@ -55181,7 +55125,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months2"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months1"
 			        }
 			      ]
 			    },
@@ -55214,7 +55158,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters2"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters1"
 			        }
 			      ]
 			    },
@@ -55247,7 +55191,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years2"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years1"
 			        }
 			      ]
 			    },
@@ -55280,7 +55224,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies2"
+			          "ID": "dcreates_have_dcreate_date_hierarchies1"
 			        }
 			      ]
 			    },
@@ -56006,7 +55950,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days3"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days2"
 			        }
 			      ]
 			    },
@@ -56039,7 +55983,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months3"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months2"
 			        }
 			      ]
 			    },
@@ -56072,7 +56016,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters3"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters2"
 			        }
 			      ]
 			    },
@@ -56105,7 +56049,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years3"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years2"
 			        }
 			      ]
 			    },
@@ -56138,7 +56082,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies3"
+			          "ID": "dcreates_have_dcreate_date_hierarchies2"
 			        }
 			      ]
 			    },
@@ -57557,7 +57501,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days4"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days3"
 			        }
 			      ]
 			    },
@@ -57590,7 +57534,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months4"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months3"
 			        }
 			      ]
 			    },
@@ -57623,7 +57567,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters4"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters3"
 			        }
 			      ]
 			    },
@@ -57656,7 +57600,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years4"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years3"
 			        }
 			      ]
 			    },
@@ -57689,7 +57633,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies4"
+			          "ID": "dcreates_have_dcreate_date_hierarchies3"
 			        }
 			      ]
 			    },
@@ -58547,7 +58491,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days5"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days4"
 			        }
 			      ]
 			    },
@@ -58580,7 +58524,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months5"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months4"
 			        }
 			      ]
 			    },
@@ -58613,7 +58557,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters5"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters4"
 			        }
 			      ]
 			    },
@@ -58646,7 +58590,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years5"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years4"
 			        }
 			      ]
 			    },
@@ -58679,7 +58623,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies5"
+			          "ID": "dcreates_have_dcreate_date_hierarchies4"
 			        }
 			      ]
 			    },
@@ -58877,7 +58821,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days6"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days5"
 			        }
 			      ]
 			    },
@@ -58910,7 +58854,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months6"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months5"
 			        }
 			      ]
 			    },
@@ -58943,7 +58887,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters6"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters5"
 			        }
 			      ]
 			    },
@@ -58976,7 +58920,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years6"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years5"
 			        }
 			      ]
 			    },
@@ -59009,7 +58953,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies6"
+			          "ID": "dcreates_have_dcreate_date_hierarchies5"
 			        }
 			      ]
 			    },
@@ -60263,7 +60207,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_days7"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_days6"
 			        }
 			      ]
 			    },
@@ -60296,7 +60240,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_months7"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_months6"
 			        }
 			      ]
 			    },
@@ -60329,7 +60273,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters7"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_quarters6"
 			        }
 			      ]
 			    },
@@ -60362,7 +60306,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreate_date_hierarchies_have_dcreate_years7"
+			          "ID": "dcreate_date_hierarchies_have_dcreate_years6"
 			        }
 			      ]
 			    },
@@ -60395,7 +60339,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dcreates_have_dcreate_date_hierarchies7"
+			          "ID": "dcreates_have_dcreate_date_hierarchies6"
 			        }
 			      ]
 			    },
@@ -65942,59 +65886,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "bom_explode_have_max_make_negative_2"
-			        }
-			      ]
-			    },
-			    "bom_explode_has_is_negative": {
-			      "Binding": {
-			        "ConceptualEntity": "BomExplode"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "bom_explode": {
-			          "Target": {
-			            "Entity": "bom_explode"
-			          }
-			        },
-			        "bom_explode.is_negative": {
-			          "Target": {
-			            "Entity": "bom_explode.is_negative"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "bom_explode"
-			            },
-			            "Object": {
-			              "Role": "bom_explode.is_negative"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "bom_explode_have_is_negatives"
-			        },
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "bom_explode"
-			            },
-			            "Adjectives": [
-			              {
-			                "negative": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "bom_explode.is_negative"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "is_negative_indicates_how_negative_bom_explode_are"
 			        }
 			      ]
 			    },
@@ -97856,138 +97747,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "some_dim_dates_are_weekend_dim_dates"
-			        }
-			      ]
-			    },
-			    "open_PO_poptrs_drequest_date_hierarchy_has_open_PO_poptrs_drequest_day": {
-			      "Binding": {
-			        "ConceptualEntity": "OpenPO"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "open_PO.poptrs_drequest.date_hierarchy": {
-			          "Target": {
-			            "Entity": "open_PO.poptrs_drequest.date_hierarchy"
-			          }
-			        },
-			        "open_PO.poptrs_drequest.day": {
-			          "Target": {
-			            "Entity": "open_PO.poptrs_drequest.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "open_PO.poptrs_drequest.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "open_PO.poptrs_drequest.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "poptrs_drequest_date_hierarchies_have_poptrs_drequest_days"
-			        }
-			      ]
-			    },
-			    "inv_events_base_event_date_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "InvEvents_Base"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "inv_events_base.event_date": {
-			          "Target": {
-			            "Entity": "inv_events_base.event_date"
-			          }
-			        },
-			        "inv_events_base.event_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "inv_events_base.event_date.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "inv_events_base.event_date"
-			            },
-			            "Object": {
-			              "Role": "inv_events_base.event_date.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "event_dates_have_event_date_hierarchies1"
-			        }
-			      ]
-			    },
-			    "inv_events_base_event_date_date_hierarchy_has_inv_events_base_event_date_year": {
-			      "Binding": {
-			        "ConceptualEntity": "InvEvents_Base"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "inv_events_base.event_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "inv_events_base.event_date.date_hierarchy"
-			          }
-			        },
-			        "inv_events_base.event_date.year": {
-			          "Target": {
-			            "Entity": "inv_events_base.event_date.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "inv_events_base.event_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "inv_events_base.event_date.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_years1"
-			        }
-			      ]
-			    },
-			    "inv_events_base_event_date_date_hierarchy_has_inv_events_base_event_date_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "InvEvents_Base"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "inv_events_base.event_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "inv_events_base.event_date.date_hierarchy"
-			          }
-			        },
-			        "inv_events_base.event_date.quarter": {
-			          "Target": {
-			            "Entity": "inv_events_base.event_date.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "inv_events_base.event_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "inv_events_base.event_date.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_quarters1"
 			        }
 			      ]
 			    },

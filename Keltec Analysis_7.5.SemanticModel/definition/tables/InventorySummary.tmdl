@@ -488,7 +488,7 @@ table InventorySummary
 			    vsp_rpt_soopen2[lhold] = 0 &&
 			    vsp_rpt_soopen2[lquote] = 0
 			    ), 
-			    vsp_rpt_soopen2[nordqty]
+			    vsp_rpt_soopen2[nordqty] - vsp_rpt_soopen2[nshipqty]
 			)
 			
 			
@@ -642,7 +642,7 @@ table InventorySummary
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	column Avail/SSd = IF(IFERROR(InventorySummary[Avail] / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(InventorySummary[Avail] / InventorySummary[RP], 0))
+	column Avail/RP = IF(IFERROR(InventorySummary[Avail] / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(InventorySummary[Avail] / InventorySummary[RP], 0))
 		formatString: 0%;-0%;0%
 		lineageTag: 46675f1b-511b-4376-8683-0e2a2c227175
 		summarizeBy: sum
@@ -1184,6 +1184,101 @@ table InventorySummary
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
+
+	column 'SO.t' =
+			
+			VAR TodayDate   = TODAY()
+			VAR HorizonDays = MAX( Config[HorizonDays] )
+			VAR Cutoff      = TodayDate + HorizonDays
+			RETURN
+			COALESCE(
+			    SUMX(
+			        FILTER(
+			            RELATEDTABLE( vsp_rpt_soopen2 ),
+			            vsp_rpt_soopen2[lhold]  = 0
+			            && vsp_rpt_soopen2[lquote] = 0
+			            && vsp_rpt_soopen2[drequest] <= Cutoff
+			        ),
+			        vsp_rpt_soopen2[nordqty]- vsp_rpt_soopen2[nshipqty]           // use [OpenQty] instead if that’s your need
+			    ),
+			    0
+			)
+		formatString: #,0
+		lineageTag: 19484ff2-4da5-42ba-a9fa-e62d4a1ab4cd
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'WO.sched.t' =
+			
+			VAR Cutoff = TODAY() + MAX( Config[HorizonDays] )
+			RETURN
+			COALESCE(
+			    SUMX(
+			        FILTER( RELATEDTABLE( mcschd ), mcschd[dRequest] <= Cutoff ),
+			        mcschd[nordqty]
+			    ),
+			    0
+			)
+		formatString: 0
+		lineageTag: 79a8df13-2b1a-4e58-aebb-5733adaaf0dd
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'WO.rel.t' =
+			
+			VAR Cutoff = TODAY() + MAX( Config[HorizonDays] )
+			RETURN
+			COALESCE(
+			    SUMX(
+			        FILTER( RELATEDTABLE( mcwwip ), DATEVALUE( mcwwip[tendtime] ) <= Cutoff ),
+			        mcwwip[nfgqty]
+			    ),
+			    0
+			)
+		formatString: 0
+		lineageTag: a8212fcc-559c-455c-b137-fe545b1bcdee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Avail.t' =
+			
+			COALESCE( InventorySummary[OH], 0 )
+			+ COALESCE( InventorySummary[WO.sched.t], 0 )
+			+ COALESCE( InventorySummary[WO.rel.t], 0 )
+			- COALESCE( InventorySummary[SO.t], 0 )
+		formatString: 0
+		lineageTag: a9ba5edb-960e-4987-92b5-407b061b13c9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'WO_NeedMTO.t' = MAX( 0, -[Avail.t] )  // MTO-style (breakeven)
+		formatString: #,0
+		lineageTag: b392ebea-b52f-42d8-878d-0941f09ca687
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Avail.t/RP' = IF(IFERROR(InventorySummary[Avail.t] / InventorySummary[RP], 0) > 99.99, 99.99, IFERROR(InventorySummary[Avail.t] / InventorySummary[RP], 0))
+		lineageTag: e6d97aaf-3758-4fd2-bdc9-e57f081c0f58
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition InventorySummary = calculated
 		mode: import

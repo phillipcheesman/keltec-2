@@ -1,0 +1,22 @@
+table Config
+	lineageTag: 8db96837-731e-4475-8727-86954f0eccd1
+
+	column HorizonDays
+		formatString: 0
+		lineageTag: 4f5afeaf-40ab-4076-b747-ae037e00971d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [HorizonDays]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Config = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE( "HorizonDays", INTEGER, { { 14 } } )
+				
+				```
+
+	annotation PBI_Id = cbeb733a066f4d33ac3d34234ded04e5
+

@@ -12,10 +12,6 @@ table BomExplode
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
-	measure MaxMakeNegative = IF([MakeQty] <= 0, 1, 0)
-		formatString: 0
-		lineageTag: 78da0bf3-8576-40db-8bf6-a31e4567e19c
-
 	column level
 		dataType: int64
 		formatString: 0
@@ -141,13 +137,6 @@ table BomExplode
 		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: ed18a8d8-2d3a-474a-832b-116ed031e426
 		summarizeBy: none
-
-		annotation SummarizationSetBy = Automatic
-
-	column IsNegative = IF([MakeQty] <= 0, 1, 0)
-		formatString: 0
-		lineageTag: 18befbf5-0a2e-45e0-a400-bfaf9671226e
-		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

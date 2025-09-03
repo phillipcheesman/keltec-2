@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 122.26895957520557,
-        "y": 567810.52725607739
+        "x": 0,
+        "y": 741032.62072644033
       },
       "nodes": [
         {
           "location": {
             "x": 334,
-            "y": 566743.480045328
+            "y": 740904.33479143237
           },
           "nodeIndex": "sosord",
           "nodeLineageTag": "e0efa12b-a00a-4880-88e8-f70d187032e2",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 284,
-            "y": 567147.41507446428
+            "y": 741308.26982056862
           },
           "nodeIndex": "sostrs",
           "nodeLineageTag": "d9b8a064-5802-4055-b375-83bed527f7a3",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 1069,
-            "y": 566817.480045328
+            "y": 740978.33479143237
           },
           "nodeIndex": "vsp_rpt_soopen",
           "nodeLineageTag": "e5048ca4-59f9-43cc-baf8-da542735d398",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 1416.518652337395,
-            "y": 566910.51475516858
+            "y": 741071.36950127291
           },
           "nodeIndex": "vsp_rpt_soopen_SO",
           "nodeLineageTag": "0ad44919-d4c6-458a-b9da-8d0fe815e97a",
@@ -63,7 +63,7 @@
         {
           "location": {
             "x": 660.18475118062975,
-            "y": 567498.72002355941
+            "y": 741659.57476966362
           },
           "nodeIndex": "icitem",
           "nodeLineageTag": "362c4c06-b63c-4119-bcb5-be260acbcc8f",
@@ -76,7 +76,7 @@
         {
           "location": {
             "x": 0,
-            "y": 568309.36393641925
+            "y": 742470.21868252358
           },
           "nodeIndex": "ictrsn",
           "nodeLineageTag": "3a48346c-824c-4514-ba3f-d86055321efa",
@@ -89,7 +89,7 @@
         {
           "location": {
             "x": 84.6640848327271,
-            "y": 569319.06289543957
+            "y": 743479.91764154378
           },
           "nodeIndex": "ictwhs",
           "nodeLineageTag": "660c750e-2360-46e0-98fe-23084ced5e1f",
@@ -102,7 +102,7 @@
         {
           "location": {
             "x": 649.6383605846404,
-            "y": 566920.69755989616
+            "y": 741081.55230600038
           },
           "nodeIndex": "icibin",
           "nodeLineageTag": "03e86946-6dec-4fd7-8f7c-e8129ca2c3f6",
@@ -115,7 +115,7 @@
         {
           "location": {
             "x": 1460.6383605846404,
-            "y": 567368.02383174829
+            "y": 741528.87857785262
           },
           "nodeIndex": "ActiveItems",
           "size": {
@@ -127,7 +127,7 @@
         {
           "location": {
             "x": 2423.0862235701884,
-            "y": 567545.98792727827
+            "y": 741706.84267338249
           },
           "nodeIndex": "popord",
           "nodeLineageTag": "2acfd708-34f6-4fd4-aef2-a0c9e42702d3",
@@ -140,7 +140,7 @@
         {
           "location": {
             "x": 1965.5144553675614,
-            "y": 567423.34267418261
+            "y": 741584.197420287
           },
           "nodeIndex": "poptrs",
           "nodeLineageTag": "52972171-c321-4278-bc2b-f92e20cfba23",
@@ -153,7 +153,7 @@
         {
           "location": {
             "x": 2362.37394489299,
-            "y": 566822.3490916969
+            "y": 740983.20383780124
           },
           "nodeIndex": "portrs",
           "nodeLineageTag": "e9422ff7-ee30-4f33-923a-f5d1053c9e10",
@@ -166,7 +166,7 @@
         {
           "location": {
             "x": 2676.7175733771464,
-            "y": 567351.49134631641
+            "y": 741512.34609242063
           },
           "nodeIndex": "POStats",
           "size": {
@@ -178,7 +178,7 @@
         {
           "location": {
             "x": 959.23883026898989,
-            "y": 567242.972693979
+            "y": 741403.82744008326
           },
           "nodeIndex": "vsp_rpt_soopen_Item",
           "nodeLineageTag": "3fcea6ea-1f10-4bea-b260-6064066e4061",
@@ -191,7 +191,7 @@
         {
           "location": {
             "x": 853.5388442260728,
-            "y": 567811.70062363532
+            "y": 741972.55536973965
           },
           "nodeIndex": "tblMakeBuy",
           "nodeLineageTag": "df83f523-e64a-447f-9b24-3884161c402c",
@@ -204,7 +204,7 @@
         {
           "location": {
             "x": 2792.9014976454991,
-            "y": 567096.88634290057
+            "y": 741257.74108900479
           },
           "nodeIndex": "SL_A",
           "nodeLineageTag": "6e659a49-e1dc-4972-aa00-0eaffba01044",
@@ -217,7 +217,7 @@
         {
           "location": {
             "x": 362.6383605846404,
-            "y": 567920.69755989616
+            "y": 742081.55230600038
           },
           "nodeIndex": "SalesByItemWeek_16wk",
           "size": {
@@ -229,7 +229,7 @@
         {
           "location": {
             "x": 1856.5211601370725,
-            "y": 568522.76502673642
+            "y": 742683.61977284076
           },
           "nodeIndex": "ItemStats_16wk",
           "nodeLineageTag": "412de9f3-80ae-4afa-a861-9d2000e2ec27",
@@ -242,7 +242,7 @@
         {
           "location": {
             "x": 1857.1841569493604,
-            "y": 568274.757092617
+            "y": 742435.6118387212
           },
           "nodeIndex": "ItemStats_16wk_AllActive",
           "nodeLineageTag": "07943f68-f267-4b66-9b53-0c26ae8ba5a4",
@@ -255,7 +255,7 @@
         {
           "location": {
             "x": 0,
-            "y": 567785.73853722983
+            "y": 741946.593283334
           },
           "nodeIndex": "InventorySummary",
           "nodeLineageTag": "6b6bffb7-ea92-4cf3-adc4-9193c2812936",
@@ -268,7 +268,7 @@
         {
           "location": {
             "x": 0,
-            "y": 567447.30575251451
+            "y": 741608.16049861885
           },
           "nodeIndex": "vsp_rpt_soopen2",
           "nodeLineageTag": "5dceb048-83f0-4dcf-bbd4-e50698696e94",
@@ -281,7 +281,7 @@
         {
           "location": {
             "x": 573.15214926165743,
-            "y": 568142.74270366051
+            "y": 742303.59744976484
           },
           "nodeIndex": "DimFW_16wk",
           "nodeLineageTag": "5dc78a53-e166-4f63-afe1-9bd1bf46d34d",
@@ -294,7 +294,7 @@
         {
           "location": {
             "x": 3076.9014976454991,
-            "y": 567443.51391819865
+            "y": 741604.36866430286
           },
           "nodeIndex": "vsp_rpt_soopen_Item_past",
           "size": {
@@ -306,7 +306,7 @@
         {
           "location": {
             "x": 1194.4686815272485,
-            "y": 568010.1297563992
+            "y": 742170.98450250342
           },
           "nodeIndex": "WO",
           "nodeLineageTag": "7ff2cfa3-f013-4f12-a9ae-3bd4def03755",
@@ -319,7 +319,7 @@
         {
           "location": {
             "x": 1489.5466648392458,
-            "y": 567812.07554097683
+            "y": 741972.930287081
           },
           "nodeIndex": "mcitem",
           "nodeLineageTag": "31534b12-6657-4d94-8ccb-c9b854bc65fc",
@@ -332,7 +332,7 @@
         {
           "location": {
             "x": 1881.6714872115192,
-            "y": 567784.88692506892
+            "y": 741945.74167117313
           },
           "nodeIndex": "mciwhs",
           "nodeLineageTag": "dd7a74cc-086f-4ea6-99da-cc901b02954c",
@@ -345,7 +345,7 @@
         {
           "location": {
             "x": 1424.7241730792634,
-            "y": 568357.56512644188
+            "y": 742518.4198725461
           },
           "nodeIndex": "mcflog_trimmed",
           "nodeLineageTag": "76c1717e-318e-454b-96f9-cc126b6daba0",
@@ -358,7 +358,7 @@
         {
           "location": {
             "x": 420.71006686782516,
-            "y": 568273.66165081621
+            "y": 742434.51639692043
           },
           "nodeIndex": "mcfwip_trimmed",
           "nodeLineageTag": "801fdef7-7e34-4d32-9eaf-4ac7a7c2468c",
@@ -371,7 +371,7 @@
         {
           "location": {
             "x": 713.25058007578343,
-            "y": 568642.43060577579
+            "y": 742803.28535188013
           },
           "nodeIndex": "mcwlog_trimmed",
           "nodeLineageTag": "44c84bec-e8e5-4472-8d0b-ce11fad102d5",
@@ -384,7 +384,7 @@
         {
           "location": {
             "x": 36.257563274904669,
-            "y": 568632.20383219083
+            "y": 742793.05857829517
           },
           "nodeIndex": "mcschd",
           "nodeLineageTag": "60ad50ff-fcf4-41d3-b65e-b764fdf5822c",
@@ -397,7 +397,7 @@
         {
           "location": {
             "x": 448.68934817407836,
-            "y": 569359.00183623354
+            "y": 743519.85658233776
           },
           "nodeIndex": "icibin_2",
           "nodeLineageTag": "a890754f-5001-4fb3-88fb-34d9d128cded",
@@ -410,7 +410,7 @@
         {
           "location": {
             "x": 2141.2212159743353,
-            "y": 568510.56822094333
+            "y": 742671.42296704766
           },
           "nodeIndex": "LateSummary",
           "nodeLineageTag": "b9f24e0c-4ae6-4d76-be71-2ebf66ad1321",
@@ -423,7 +423,7 @@
         {
           "location": {
             "x": 83.512722242797054,
-            "y": 568946.02512005484
+            "y": 743106.879866159
           },
           "nodeIndex": "iciwhs",
           "nodeLineageTag": "db9f7d98-5668-40ad-b30a-fe5d830a0095",
@@ -436,7 +436,7 @@
         {
           "location": {
             "x": 1439.8830471304132,
-            "y": 568851.56755528867
+            "y": 743012.422301393
           },
           "nodeIndex": "mcwwip",
           "nodeLineageTag": "5e4c9713-6513-4edf-a0c1-c4027a02003b",
@@ -449,7 +449,7 @@
         {
           "location": {
             "x": 1094.2694547311648,
-            "y": 568646.64373990416
+            "y": 742807.4984860085
           },
           "nodeIndex": "ItemBatchBridge",
           "nodeLineageTag": "816531e2-9ff6-4429-a7db-0ab8b172fcaa",
@@ -462,7 +462,7 @@
         {
           "location": {
             "x": 380.34830730686957,
-            "y": 568879.1298343552
+            "y": 743039.98458045954
           },
           "nodeIndex": "BomExplode",
           "nodeLineageTag": "d8c99e5c-0107-4679-be13-2d81fea61c72",
@@ -475,7 +475,7 @@
         {
           "location": {
             "x": 927.98366970888515,
-            "y": 568977.84895022283
+            "y": 743138.703696327
           },
           "nodeIndex": "InvEvents",
           "nodeLineageTag": "a544cb7d-0f50-4b98-a81b-1e4c063c949c",
@@ -488,7 +488,7 @@
         {
           "location": {
             "x": 2317.3433292029372,
-            "y": 568152.11498432152
+            "y": 742312.96973042586
           },
           "nodeIndex": "US_Holidays",
           "nodeLineageTag": "b3b304a6-f33d-4c73-be10-159f12884cb7",
@@ -501,7 +501,7 @@
         {
           "location": {
             "x": 2764.4102441758741,
-            "y": 567849.2632032109
+            "y": 742010.11794931511
           },
           "nodeIndex": "DimDate",
           "nodeLineageTag": "e4b956e4-a174-433a-bbe6-b31a8e7a5648",
@@ -514,7 +514,7 @@
         {
           "location": {
             "x": 879.07608587880259,
-            "y": 568388.59451497381
+            "y": 742549.44926107815
           },
           "nodeIndex": "DimItem",
           "nodeLineageTag": "b61bdd1d-8c68-4b16-8746-abe12dc7b0d4",
@@ -527,7 +527,7 @@
         {
           "location": {
             "x": 735.61383997722794,
-            "y": 569256.41948961432
+            "y": 743417.27423571865
           },
           "nodeIndex": "OpenPO",
           "nodeLineageTag": "eee209fc-268c-40b3-8fd2-6370da15084c",
@@ -540,7 +540,7 @@
         {
           "location": {
             "x": 2153.9337710496111,
-            "y": 568742.58651650907
+            "y": 742903.44126261328
           },
           "nodeIndex": "InvEvents_Base",
           "nodeLineageTag": "a6749be7-626d-4433-9f3f-661c1a59aeca",
@@ -553,7 +553,7 @@
         {
           "location": {
             "x": 1873.5302904238063,
-            "y": 568757.2587916581
+            "y": 742918.11353776231
           },
           "nodeIndex": "InvEvents_Daily",
           "nodeLineageTag": "b1da053d-51b5-4b43-a43c-e052d9c115fd",
@@ -566,7 +566,7 @@
         {
           "location": {
             "x": 4496.9014976454991,
-            "y": 348321.70949220855
+            "y": 522482.56423831283
           },
           "nodeIndex": "HorizonDays",
           "nodeLineageTag": "1e854e96-d4b8-4e91-835e-98779364f2f3",
@@ -579,7 +579,7 @@
         {
           "location": {
             "x": 0,
-            "y": 569321.95874328632
+            "y": 743482.81348939054
           },
           "nodeIndex": "SPSCItems",
           "nodeLineageTag": "aa005dfa-f88b-4139-a824-ff1cea2fb3d6",
@@ -592,12 +592,24 @@
         {
           "location": {
             "x": 1040.4711125180727,
-            "y": 569326.21701688168
+            "y": 743487.071762986
           },
           "nodeIndex": "CriticalA",
           "nodeLineageTag": "6e4f0f82-0359-4f8f-bc46-df4bacd3f8c2",
           "size": {
             "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4780.9014976454991,
+            "y": 284729.50091811677
+          },
+          "nodeIndex": "Config",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0
