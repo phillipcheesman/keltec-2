@@ -608,7 +608,7 @@ table InventorySummary
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Value = InventorySummary[Price] * InventorySummary[OH]
-		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 54c6d4c4-9b7a-4556-8275-dbd0d9a336b5
 		summarizeBy: sum
 
@@ -1293,6 +1293,30 @@ table InventorySummary
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column SchedValue = InventorySummary[Price] * InventorySummary[WO.sched.t]
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ed4c7d2a-5e14-4105-9259-ee9f5c4afef9
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column WksSched = IFERROR(InventorySummary[Sched.t] / InventorySummary[avg_sales], 0)
+		formatString: 0
+		lineageTag: c2b4a0b0-78ef-450a-bf6b-95407fc0202b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Sched.t' = InventorySummary[Avail.t]+InventorySummary[WO.sched.t]
+		lineageTag: d589c68d-c2f4-4d93-839f-ee94c63e391d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition InventorySummary = calculated
 		mode: import

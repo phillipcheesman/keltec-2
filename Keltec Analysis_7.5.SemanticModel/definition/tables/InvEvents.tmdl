@@ -64,9 +64,10 @@ table InvEvents
 			)
 			
 			```
+		formatString: #,0
 		lineageTag: c181acea-56ed-41e5-afa4-294d18d5bb2f
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure TodayNeedle =
 			
@@ -168,6 +169,7 @@ table InvEvents
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column QtySigned
+		formatString: #,0
 		lineageTag: 96c5c61c-5c18-4652-8190-3917db6de2cc
 		summarizeBy: sum
 		isNameInferred
@@ -175,7 +177,7 @@ table InvEvents
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	partition InvEvents = calculated
 		mode: import

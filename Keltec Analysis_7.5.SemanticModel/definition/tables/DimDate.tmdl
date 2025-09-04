@@ -2,7 +2,7 @@ table DimDate
 	lineageTag: e4b956e4-a174-433a-bbe6-b31a8e7a5648
 
 	column Date
-		formatString: General Date
+		formatString: m/d/yy
 		lineageTag: 87dda0f0-ed62-4630-ad52-6a9ed1c6be2e
 		summarizeBy: none
 		isNameInferred
@@ -14,6 +14,10 @@ table DimDate
 			defaultHierarchy: LocalDateTable_df898c1e-301b-42c3-a4ed-93440960be94.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column DateKey
 		formatString: 0
