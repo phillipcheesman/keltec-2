@@ -1318,6 +1318,23 @@ table InventorySummary
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column PositionBucket = ```
+			
+			SWITCH(
+			    TRUE(),
+			    InventorySummary[HW?] = 0, "HW Shortage",
+			    InventorySummary[WksAvail.t] > 6 || InventorySummary[SO.t] = 0, "No Demand/Overstocked",
+			    InventorySummary[WksSched] > 10, "Sched Qty High",
+			    InventorySummary[Avail.t] < 0 , "MTO",
+			    "MTS"
+			)
+			
+			```
+		lineageTag: 69303e59-f711-4d51-8bd9-2631dc429c07
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition InventorySummary = calculated
 		mode: import
 		source = ```
