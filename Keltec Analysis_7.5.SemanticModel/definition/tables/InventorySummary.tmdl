@@ -1311,12 +1311,13 @@ table InventorySummary
 		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column 'Sched.t' = InventorySummary[Avail.t]+InventorySummary[WO.sched.t]
+		formatString: 0
 		lineageTag: d589c68d-c2f4-4d93-839f-ee94c63e391d
 		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column PositionBucket = ```
 			

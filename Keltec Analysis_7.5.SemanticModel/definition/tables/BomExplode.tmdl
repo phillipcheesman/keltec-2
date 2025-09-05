@@ -129,7 +129,7 @@ table BomExplode
 			        || CONTAINSSTRING ( DescText, "GLS-GOLD" )
 			        || CONTAINSSTRING ( DescText, "GLS-PURPLE" )
 			VAR HasSuffix =
-			    RIGHT ( ItemCode, 4 ) IN { "-002", "-005", "-006", "-007", "008", "-009", "-021" }
+			    RIGHT ( ItemCode, 4 ) IN { "-002", "-005", "-006", "-007", "-008", "-009", "-021" }
 			RETURN
 			    IF ( BomExplode[level] <> 0, HasKeyword || HasSuffix, FALSE )
 			
