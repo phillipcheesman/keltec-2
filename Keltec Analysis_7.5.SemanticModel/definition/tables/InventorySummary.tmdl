@@ -518,7 +518,7 @@ table InventorySummary
 	column OH =
 			
 			SUMX(
-			    RELATEDTABLE(icibin),
+			    FILTER(RELATEDTABLE(icibin), icibin[cwarehouse] = "MAIN"),
 			    icibin[nonhand]
 			)
 		formatString: #,0
