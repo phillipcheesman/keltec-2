@@ -20589,16 +20589,6 @@ cultureInfo en-US
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
-			        },
-			        {
-			          "OH/SSd": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -25282,16 +25272,6 @@ cultureInfo en-US
 			          "nreorder": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "RPvam": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -26253,16 +26233,6 @@ cultureInfo en-US
 			        {
 			          "cserno": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Batch": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -30540,16 +30510,6 @@ cultureInfo en-US
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "WO": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -49780,9 +49740,289 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "inventory_summary.RP_m2": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "InventorySummary",
+			          "ConceptualProperty": "RP.m2"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "RP.m2": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "mcschdh_tadtime_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschdh"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschdh.tadtime": {
+			          "Target": {
+			            "Entity": "mcschdh.tadtime"
+			          }
+			        },
+			        "mcschdh.tadtime.date_hierarchy": {
+			          "Target": {
+			            "Entity": "mcschdh.tadtime.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mcschdh.tadtime"
+			            },
+			            "Object": {
+			              "Role": "mcschdh.tadtime.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tadtimes_have_tadtime_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_day": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschdh"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschdh.d_request.date_hierarchy": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.date_hierarchy"
+			          }
+			        },
+			        "mcschdh.d_request.day": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mcschdh.d_request.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "mcschdh.d_request.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_request_date_hierarchies_have_d_request_days"
+			        }
+			      ]
+			    },
+			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_month": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschdh"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschdh.d_request.date_hierarchy": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.date_hierarchy"
+			          }
+			        },
+			        "mcschdh.d_request.month": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mcschdh.d_request.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "mcschdh.d_request.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_request_date_hierarchies_have_d_request_months"
+			        }
+			      ]
+			    },
+			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschdh"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschdh.d_request.date_hierarchy": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.date_hierarchy"
+			          }
+			        },
+			        "mcschdh.d_request.quarter": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mcschdh.d_request.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "mcschdh.d_request.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_request_date_hierarchies_have_d_request_quarters"
+			        }
+			      ]
+			    },
+			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_year": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschdh"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschdh.d_request.date_hierarchy": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.date_hierarchy"
+			          }
+			        },
+			        "mcschdh.d_request.year": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mcschdh.d_request.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "mcschdh.d_request.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_request_date_hierarchies_have_d_request_years"
+			        }
+			      ]
+			    },
+			    "mcschdh_d_request_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "mcschdh"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "mcschdh.d_request": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request"
+			          }
+			        },
+			        "mcschdh.d_request.date_hierarchy": {
+			          "Target": {
+			            "Entity": "mcschdh.d_request.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "mcschdh.d_request"
+			            },
+			            "Object": {
+			              "Role": "mcschdh.d_request.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "d_requests_have_d_request_date_hierarchies"
+			        }
+			      ]
+			    },
+			    "inv_events_daily_event_date_date_hierarchy_has_inv_events_daily_event_date_day": {
+			      "Binding": {
+			        "ConceptualEntity": "InvEvents_Daily"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "inv_events_daily.event_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "inv_events_daily.event_date.date_hierarchy"
+			          }
+			        },
+			        "inv_events_daily.event_date.day": {
+			          "Target": {
+			            "Entity": "inv_events_daily.event_date.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "inv_events_daily.event_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "inv_events_daily.event_date.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "event_date_hierarchies_have_event_days"
+			        }
+			      ]
+			    },
+			    "inv_events_daily_event_date_date_hierarchy_has_inv_events_daily_event_date_month": {
+			      "Binding": {
+			        "ConceptualEntity": "InvEvents_Daily"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "inv_events_daily.event_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "inv_events_daily.event_date.date_hierarchy"
+			          }
+			        },
+			        "inv_events_daily.event_date.month": {
+			          "Target": {
+			            "Entity": "inv_events_daily.event_date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "inv_events_daily.event_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "inv_events_daily.event_date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "event_date_hierarchies_have_event_months"
+			        }
+			      ]
+			    },
 			    "inv_events_daily_event_date_date_hierarchy_has_inv_events_daily_event_date_quarter": {
 			      "Binding": {
 			        "ConceptualEntity": "InvEvents_Daily"
@@ -49911,7 +50151,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_days"
+			          "ID": "event_date_hierarchies_have_event_days1"
 			        }
 			      ]
 			    },
@@ -49944,7 +50184,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_months"
+			          "ID": "event_date_hierarchies_have_event_months1"
 			        }
 			      ]
 			    },
@@ -51759,7 +51999,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_days1"
+			          "ID": "event_date_hierarchies_have_event_days2"
 			        }
 			      ]
 			    },
@@ -51792,7 +52032,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_months1"
+			          "ID": "event_date_hierarchies_have_event_months2"
 			        }
 			      ]
 			    },
@@ -52221,7 +52461,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies1"
 			        }
 			      ]
 			    },
@@ -53541,7 +53781,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies1"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies2"
 			        }
 			      ]
 			    },
@@ -53574,7 +53814,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_days"
+			          "ID": "d_request_date_hierarchies_have_d_request_days1"
 			        }
 			      ]
 			    },
@@ -53607,7 +53847,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_months"
+			          "ID": "d_request_date_hierarchies_have_d_request_months1"
 			        }
 			      ]
 			    },
@@ -53640,7 +53880,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_quarters"
+			          "ID": "d_request_date_hierarchies_have_d_request_quarters1"
 			        }
 			      ]
 			    },
@@ -53673,7 +53913,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_years"
+			          "ID": "d_request_date_hierarchies_have_d_request_years1"
 			        }
 			      ]
 			    },
@@ -53706,7 +53946,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "d_requests_have_d_request_date_hierarchies"
+			          "ID": "d_requests_have_d_request_date_hierarchies1"
 			        }
 			      ]
 			    },
@@ -54036,7 +54276,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies2"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies3"
 			        }
 			      ]
 			    },
@@ -55191,7 +55431,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies3"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies4"
 			        }
 			      ]
 			    },
@@ -55851,7 +56091,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies4"
+			          "ID": "tadtimes_have_tadtime_date_hierarchies5"
 			        }
 			      ]
 			    },
@@ -63846,6 +64086,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "sosords_have_sostrs"
+			        }
+			      ]
+			    },
+			    "iciwh_has_inventory_summary_RP_m2": {
+			      "Binding": {
+			        "ConceptualEntity": "iciwhs"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "iciwh": {
+			          "Target": {
+			            "Entity": "iciwh"
+			          }
+			        },
+			        "inventory_summary.RP_m2": {
+			          "Target": {
+			            "Entity": "inventory_summary.RP_m2"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "iciwh"
+			            },
+			            "Object": {
+			              "Role": "inventory_summary.RP_m2"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "iciwhs_have_RP_m2"
 			        }
 			      ]
 			    },
@@ -100988,270 +101261,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "some_dim_dates_are_weekend_dim_dates"
-			        }
-			      ]
-			    },
-			    "inv_events_daily_event_date_date_hierarchy_has_inv_events_daily_event_date_month": {
-			      "Binding": {
-			        "ConceptualEntity": "InvEvents_Daily"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "inv_events_daily.event_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "inv_events_daily.event_date.date_hierarchy"
-			          }
-			        },
-			        "inv_events_daily.event_date.month": {
-			          "Target": {
-			            "Entity": "inv_events_daily.event_date.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "inv_events_daily.event_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "inv_events_daily.event_date.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_months2"
-			        }
-			      ]
-			    },
-			    "inv_events_daily_event_date_date_hierarchy_has_inv_events_daily_event_date_day": {
-			      "Binding": {
-			        "ConceptualEntity": "InvEvents_Daily"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "inv_events_daily.event_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "inv_events_daily.event_date.date_hierarchy"
-			          }
-			        },
-			        "inv_events_daily.event_date.day": {
-			          "Target": {
-			            "Entity": "inv_events_daily.event_date.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "inv_events_daily.event_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "inv_events_daily.event_date.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "event_date_hierarchies_have_event_days2"
-			        }
-			      ]
-			    },
-			    "mcschdh_d_request_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "mcschdh"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "mcschdh.d_request": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request"
-			          }
-			        },
-			        "mcschdh.d_request.date_hierarchy": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "mcschdh.d_request"
-			            },
-			            "Object": {
-			              "Role": "mcschdh.d_request.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_requests_have_d_request_date_hierarchies1"
-			        }
-			      ]
-			    },
-			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_year": {
-			      "Binding": {
-			        "ConceptualEntity": "mcschdh"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "mcschdh.d_request.date_hierarchy": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.date_hierarchy"
-			          }
-			        },
-			        "mcschdh.d_request.year": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "mcschdh.d_request.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "mcschdh.d_request.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_years1"
-			        }
-			      ]
-			    },
-			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "mcschdh"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "mcschdh.d_request.date_hierarchy": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.date_hierarchy"
-			          }
-			        },
-			        "mcschdh.d_request.quarter": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "mcschdh.d_request.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "mcschdh.d_request.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_quarters1"
-			        }
-			      ]
-			    },
-			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_month": {
-			      "Binding": {
-			        "ConceptualEntity": "mcschdh"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "mcschdh.d_request.date_hierarchy": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.date_hierarchy"
-			          }
-			        },
-			        "mcschdh.d_request.month": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "mcschdh.d_request.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "mcschdh.d_request.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_months1"
-			        }
-			      ]
-			    },
-			    "mcschdh_d_request_date_hierarchy_has_mcschdh_d_request_day": {
-			      "Binding": {
-			        "ConceptualEntity": "mcschdh"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "mcschdh.d_request.date_hierarchy": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.date_hierarchy"
-			          }
-			        },
-			        "mcschdh.d_request.day": {
-			          "Target": {
-			            "Entity": "mcschdh.d_request.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "mcschdh.d_request.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "mcschdh.d_request.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_request_date_hierarchies_have_d_request_days1"
-			        }
-			      ]
-			    },
-			    "mcschdh_tadtime_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "mcschdh"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "mcschdh.tadtime": {
-			          "Target": {
-			            "Entity": "mcschdh.tadtime"
-			          }
-			        },
-			        "mcschdh.tadtime.date_hierarchy": {
-			          "Target": {
-			            "Entity": "mcschdh.tadtime.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "mcschdh.tadtime"
-			            },
-			            "Object": {
-			              "Role": "mcschdh.tadtime.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tadtimes_have_tadtime_date_hierarchies5"
 			        }
 			      ]
 			    },
