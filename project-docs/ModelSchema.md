@@ -1,7 +1,7 @@
 ﻿# Power BI Semantic Model Reference
 
 - Model: Keltec Analysis_7.5
-- Generated: 2025-09-09 16:47:24
+- Generated: 2025-09-09 16:55:46
 - Tables: 121
 
 ## Overview

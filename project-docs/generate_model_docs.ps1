@@ -286,5 +286,26 @@ foreach ($t in $tables) {
 $mdPath = Join-Path $OutDir 'ModelSchema.md'
 $md -join "`r`n" | Out-File -FilePath $mdPath -Encoding UTF8
 
+# Generate Lite Markdown (Table + Purpose only)
+$lite = @()
+$lite += "# Model Tables: Purpose (Lite)"
+$lite += ""
+$lite += "- Model: Keltec Analysis_7.5"
+$lite += "- Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+$lite += "- Tables: $($tables.Count)"
+$lite += ""
+$lite += "| Table | Purpose |"
+$lite += "|---|---|"
+foreach ($t in $tables) {
+    $p = (Get-PurposeNote -t $t)
+    # Sanitize vertical bars in purpose
+    $p = $p -replace '\|', '\\|'
+    $lite += "| $($t.Name) | $p |"
+}
+
+$litePath = Join-Path $OutDir 'ModelSchema.lite.md'
+$lite -join "`r`n" | Out-File -FilePath $litePath -Encoding UTF8
+
 Write-Host "Wrote:" $jsonPath
 Write-Host "Wrote:" $mdPath
+Write-Host "Wrote:" $litePath
