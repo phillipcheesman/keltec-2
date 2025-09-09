@@ -1171,7 +1171,7 @@ table InventorySummary
 
 	column SPSC? =
 			
-			IF(InventorySummary[citemno] IN VALUES(SPSCItems[citemno]), 1, 0)
+			IF(InventorySummary[citemno] IN VALUES(SPSCItems_2[citemno]), 1, 0)
 		formatString: 0
 		lineageTag: 4b9c907c-14b1-4ab0-9528-58cf8b4fc8ca
 		summarizeBy: sum
@@ -1324,7 +1324,7 @@ table InventorySummary
 			SWITCH(
 			    TRUE(),
 			    InventorySummary[HW?] = 0, "HW Shortage",
-			    InventorySummary[WksAvail.t] > 6 || InventorySummary[SO.t] = 0, "No Demand/Overstocked",
+			    InventorySummary[WksAvail.t] > 6 || InventorySummary[SO.t] = 0, "Low Priority",
 			    InventorySummary[WksSched] > 10, "Sched Qty High",
 			    InventorySummary[Avail.t] < 0 , "MTO",
 			    "MTS"
@@ -1338,8 +1338,11 @@ table InventorySummary
 
 	column cprodline
 		lineageTag: ef51e8c0-ad9e-45ff-bc77-fdcce4ea7023
+		summarizeBy: none
 		isNameInferred
 		sourceColumn: ItemStats_16wk_AllActive[cprodline]
+
+		annotation SummarizationSetBy = Automatic
 
 	partition InventorySummary = calculated
 		mode: import

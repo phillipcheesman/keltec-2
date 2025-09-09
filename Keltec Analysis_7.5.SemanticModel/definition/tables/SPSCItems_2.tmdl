@@ -1,0 +1,96 @@
+table SPSCItems_2
+	lineageTag: f076919d-cde6-4288-be49-b8a52ec40de4
+
+	column citemno
+		dataType: string
+		lineageTag: 192478e4-3bfc-426d-b7fc-a05d7a733382
+		summarizeBy: none
+		sourceColumn: citemno
+
+		annotation SummarizationSetBy = Automatic
+
+	column caltcode
+		dataType: string
+		lineageTag: 5b863492-2c7c-4977-b2a0-a8ab8d4eb3d6
+		summarizeBy: none
+		sourceColumn: caltcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column crev
+		dataType: string
+		lineageTag: 0b0bda3f-68cf-40ce-8330-0777c860ceb6
+		summarizeBy: none
+		sourceColumn: crev
+
+		annotation SummarizationSetBy = Automatic
+
+	column irtcode
+		dataType: int64
+		formatString: 0
+		lineageTag: 8d1d5d21-b801-4deb-b302-f7a4b3125ee6
+		summarizeBy: sum
+		sourceColumn: irtcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column nstepno
+		dataType: int64
+		formatString: 0
+		lineageTag: 80ffef1d-b26c-4b67-bde5-3f6ed73232e1
+		summarizeBy: sum
+		sourceColumn: nstepno
+
+		annotation SummarizationSetBy = Automatic
+
+	column irtstep
+		dataType: int64
+		formatString: 0
+		lineageTag: fe01d014-e882-4d04-8db7-dbf772d8bd4b
+		summarizeBy: sum
+		sourceColumn: irtstep
+
+		annotation SummarizationSetBy = Automatic
+
+	column cwccode
+		dataType: string
+		lineageTag: 42fe4e87-cccf-4b8f-a963-a63e115ebe1f
+		summarizeBy: none
+		sourceColumn: cwccode
+
+		annotation SummarizationSetBy = Automatic
+
+	column step_desc
+		dataType: string
+		lineageTag: 10223189-77d9-4c57-a202-6f6b59b2dbf8
+		summarizeBy: none
+		sourceColumn: step_desc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SPSCItems_2 = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("keltec-sql:1433", "mckeltec", [Query="SELECT DISTINCT
+				    RTRIM(r.citemno)      AS citemno,
+				    RTRIM(ISNULL(r.caltcode,'')) AS caltcode,
+				    RTRIM(r.crev)         AS crev,
+				    r.irtcode,
+				    s.nstepno,
+				    s.irtstep,
+				    RTRIM(s.cwccode)      AS cwccode,
+				    s.cdesc               AS step_desc
+				FROM mckeltec.dbo.mcrout   AS r            -- current routing rows
+				JOIN mckeltec.dbo.mcrstp   AS s ON s.irtcode = r.irtcode   -- steps / work centers
+				WHERE UPPER(RTRIM(s.cwccode)) = 'SPSC'
+				  AND (r.lhold = 0 OR r.lhold IS NULL)                     -- optional: only released
+				ORDER BY citemno, caltcode, nstepno;
+				"])
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

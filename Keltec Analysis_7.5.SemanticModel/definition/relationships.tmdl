@@ -503,3 +503,7 @@ relationship 68b21037-29ac-450a-93a5-5aad359d6690
 	fromColumn: mcschdh.tedtime
 	toColumn: LocalDateTable_e0b936b0-de65-4dee-9960-2e9a7759a7cd.Date
 
+relationship c30bc774-464e-6aaf-2a02-dc15a1dadaa2
+	fromColumn: SPSCItems_2.citemno
+	toColumn: InventorySummary.citemno
+

@@ -2,7 +2,7 @@ table Config
 	lineageTag: 8db96837-731e-4475-8727-86954f0eccd1
 
 	column HorizonDays
-		formatString: 0
+		formatString: #,0
 		lineageTag: 4f5afeaf-40ab-4076-b747-ae037e00971d
 		summarizeBy: sum
 		isNameInferred
