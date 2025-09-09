@@ -145,6 +145,20 @@ table InventorySummary
 
 		annotation PBI_FormatHint = {"isDecimal":true}
 
+	measure 'RP.m2' = ```
+			
+			VAR v =
+			    CALCULATE(
+			        SUM ( iciwhs[nreordpt] ),
+			        iciwhs[cwarehouse] = "MAIN"
+			    )
+			RETURN IF( COALESCE(v,0) = 0, BLANK(), v )
+			
+			```
+		lineageTag: 8da1c077-0643-4f40-bd56-ade712e517f3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column citemno
 		lineageTag: 9cedd021-d745-468b-ba58-e2609b997b2b
 		summarizeBy: none
