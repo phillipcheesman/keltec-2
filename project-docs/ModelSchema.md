@@ -1,7 +1,7 @@
 ﻿# Power BI Semantic Model Reference
 
 - Model: Keltec Analysis_7.5
-- Generated: 2025-09-09 15:59:15
+- Generated: 2025-09-09 16:47:24
 - Tables: 121
 
 ## Overview
@@ -134,6 +134,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 6 | Measures: 0
+- Purpose: Operational table in ERP/domain used in planning and reporting.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -151,6 +152,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 17 | Measures: 1
+- Purpose: BOM explosion mapping top items to components with required dates; used for component supply planning. Connected to: icibin_2, LocalDateTable_aef413d6-4b5d-46fc-9c4e-f249b1681289, OpenPO, +1 more. Contains 1 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -181,6 +183,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 1 | Measures: 0
+- Purpose: Model configuration table for feature toggles or parameters.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -193,6 +196,7 @@
 - Source: Excel
 - Source Details: Path=C:\keltec\inputs\Critical A 082925.xlsx
 - Columns: 7 | Measures: 0
+- Purpose: Business input list of critical items and baseline settings to drive targeted review. Connected to: InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -211,6 +215,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -228,6 +233,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 22 | Measures: 0
+- Purpose: Conformed date dimension with standard calendar attributes for joining facts. Connected to: LocalDateTable_df898c1e-301b-42c3-a4ed-93440960be94, LocalDateTable_c919e0d9-bfb0-4757-9633-586024b9ee40, LocalDateTable_0891935f-c2bf-495f-9605-9286f5cbe33c.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -260,6 +266,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 4 | Measures: 0
+- Purpose: Dimension table providing descriptive attributes for slicing and grouping measures. Connected to: SalesByItemWeek_16wk.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -274,6 +281,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 1 | Measures: 0
+- Purpose: Item master dimension from ERP with item attributes used to slice/report facts. Connected to: InventorySummary, InvEvents.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -285,6 +293,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 1 | Measures: 2
+- Purpose: Operational fact table supporting KPIs and calculations across dates and items. Contains 2 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -301,6 +310,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 11 | Measures: 0
+- Purpose: Item-bin balances (on hand/available) to calculate OH and weeks-of-supply by storage bin. Connected to: vsp_rpt_soopen, InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -323,6 +333,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 11 | Measures: 0
+- Purpose: Item-bin balances (on hand/available) to calculate OH and weeks-of-supply by storage bin. Connected to: BomExplode.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -345,6 +356,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 117 | Measures: 0
+- Purpose: Item master dimension from ERP with item attributes used to slice/report facts. Connected to: LocalDateTable_2c80f837-8fa4-42c8-a14c-0934b979db04, LocalDateTable_b4dde502-1c26-4679-8547-7236d2322415, LocalDateTable_10b0a3ea-c655-456d-b8f0-5f256255773b, +8 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -473,6 +485,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=keltec
 - Columns: 35 | Measures: 0
+- Purpose: Item-warehouse balances (on hand, booked, allocated) by site; core for inventory positions. Connected to: LocalDateTable_0d71edc5-aeab-422e-a100-b88b80d820b6, LocalDateTable_46c93c08-d632-4bfd-8d2a-2fe16ac32c74, LocalDateTable_0dd38450-c8d8-4e3c-b716-07d0a56c576d, +1 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -519,6 +532,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=keltec
 - Columns: 20 | Measures: 0
+- Purpose: Inventory transaction history fact (trans dates, quantities) for movement and reconciliation. Connected to: LocalDateTable_69eb6019-6f39-49c5-8ca5-ce9fd023ad4a, LocalDateTable_30fe5743-df96-4a67-a8a8-7a1038e2258d, InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -550,6 +564,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 10 | Measures: 0
+- Purpose: Item totals by warehouse (summary) used in availability and stocking logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -570,6 +585,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 75 | Measures: 12
+- Purpose: Item-level inventory planning snapshot combining OH, reorder points, SO/WO horizons, and safety stock metrics; supports availability and stockout analyses. Connected to: LocalDateTable_2a8ab9ae-ea08-4643-bc44-cae75608a1ec, icibin, vsp_rpt_soopen2, +12 more. Contains 12 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -669,6 +685,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 8 | Measures: 6
+- Purpose: Inventory movement events fact, used to compute running on-hand and projected availability over time. Connected to: DimItem, LocalDateTable_e750f25a-c20b-400a-84c8-d1c79e6ac444. Contains 6 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -695,6 +712,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 4 | Measures: 0
+- Purpose: Inventory movement events fact, used to compute running on-hand and projected availability over time. Connected to: LocalDateTable_5b8b7190-71d2-45b3-90d7-4dd5689690b7.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -709,6 +727,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 3 | Measures: 1
+- Purpose: Inventory movement events fact, used to compute running on-hand and projected availability over time. Connected to: LocalDateTable_52e14533-06c8-448a-a8d3-376dcca2819e. Contains 1 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -726,6 +745,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 4 | Measures: 0
+- Purpose: Operational table in ERP/domain used in planning and reporting.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -740,6 +760,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 8 | Measures: 0
+- Purpose: Item demand statistics over 16 weeks (avg, stddev, totals) used for safety stock and RP logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -758,6 +779,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 11 | Measures: 0
+- Purpose: Item demand statistics over 16 weeks (avg, stddev, totals) used for safety stock and RP logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -779,6 +801,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 3 | Measures: 0
+- Purpose: Operational fact table supporting KPIs and calculations across dates and items.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -793,6 +816,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: OpenPO.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -811,6 +835,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -829,6 +854,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcflog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -847,6 +873,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: DimDate.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -865,6 +892,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwlog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -883,6 +911,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: iciwhs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -901,6 +930,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: iciwhs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -919,6 +949,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: sosord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -937,6 +968,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -955,6 +987,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwlog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -973,6 +1006,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: sosord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -991,6 +1025,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwlog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1009,6 +1044,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: poptrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1027,6 +1063,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: popord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1045,6 +1082,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: OpenPO.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1063,6 +1101,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1081,6 +1120,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1099,6 +1139,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: popord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1117,6 +1158,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: ictrsn.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1135,6 +1177,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: vsp_rpt_soopen2.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1153,6 +1196,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1171,6 +1215,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1189,6 +1234,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: poptrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1207,6 +1253,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwwip.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1225,6 +1272,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: OpenPO.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1243,6 +1291,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: iciwhs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1261,6 +1310,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwlog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1279,6 +1329,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: InvEvents_Daily.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1297,6 +1348,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: sostrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1315,6 +1367,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: InvEvents_Base.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1333,6 +1386,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcschdh.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1351,6 +1405,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: ictrsn.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1369,6 +1424,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1387,6 +1443,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: sostrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1405,6 +1462,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: vsp_rpt_soopen.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1423,6 +1481,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcschd.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1441,6 +1500,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwwip.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1459,6 +1519,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: vsp_rpt_soopen.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1477,6 +1538,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1495,6 +1557,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcschd.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1513,6 +1576,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1531,6 +1595,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: portrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1549,6 +1614,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcschd.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1567,6 +1633,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: BomExplode.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1585,6 +1652,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1603,6 +1671,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: US_Holidays.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1621,6 +1690,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1639,6 +1709,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcschdh.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1657,6 +1728,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: popord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1675,6 +1747,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1693,6 +1766,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcflog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1711,6 +1785,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: vsp_rpt_soopen2.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1729,6 +1804,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: DimDate.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1747,6 +1823,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: sosord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1765,6 +1842,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: popord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1783,6 +1861,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: sosord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1801,6 +1880,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: poptrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1819,6 +1899,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: portrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1837,6 +1918,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwwip.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1855,6 +1937,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: DimDate.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1873,6 +1956,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcschdh.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1891,6 +1975,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mciwhs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1909,6 +1994,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: poptrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1927,6 +2013,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1945,6 +2032,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: InvEvents.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1963,6 +2051,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mciwhs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1981,6 +2070,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcflog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -1999,6 +2089,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcwwip.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2017,6 +2108,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcflog_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2035,6 +2127,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: mcfwip_trimmed.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2053,6 +2146,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: popord.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2071,6 +2165,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Auto-generated date dimension for time intelligence and date slicing. Connected to: portrs.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2089,6 +2184,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 19 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_f06bc36e-74de-4dd9-a4b8-f83a4b150286, LocalDateTable_c4f51588-c20a-4944-ae57-1fc36be47298, LocalDateTable_fd1d9df0-a89e-475c-ad9b-56614f1519cb, +2 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2119,6 +2215,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 38 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_3f4f1d00-b5c4-499c-af34-85238dff8bb3, LocalDateTable_a1ad94d8-deb4-48f5-80c8-b43e054c9b60, LocalDateTable_afbdc9d1-d1ff-485d-aa8b-206a43ba3413, +7 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2168,6 +2265,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 52 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: mciwhs, InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2231,6 +2329,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 15 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_e53d46b7-d077-4afd-a12c-66f378736c9a, LocalDateTable_e9a21917-e4a1-4685-99b0-09d6ede64071, mcitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2257,6 +2356,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 17 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_adbe29dc-57bd-4ad3-821a-e9686e42d4ce, LocalDateTable_98176d9e-0605-4330-b696-bcd80292b9d6, LocalDateTable_815df419-9321-47fa-9c45-2413a2f057ba, +1 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2285,6 +2385,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 15 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_badbf4f0-395e-4a98-b916-802357c35a6b, LocalDateTable_667af03d-5b8c-4976-804d-6237ba7a1061, LocalDateTable_e0b936b0-de65-4dee-9960-2e9a7759a7cd.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2311,6 +2412,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 19 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_0cb8e560-565e-4c03-b5f4-e6ab152c5938, LocalDateTable_47c08c42-88f5-4d6d-8a3a-211352304c17, LocalDateTable_2123105c-a9d5-4d88-919c-089f45fbb91c, +2 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2341,6 +2443,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 24 | Measures: 0
+- Purpose: Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context. Connected to: LocalDateTable_f0880116-3bc0-407b-9645-398f2700c1f7, LocalDateTable_4283d93c-e93f-4b7c-bf80-068b7b9ae43a, LocalDateTable_8a215c3e-7fdc-47fe-819c-fa13e5f79609, +2 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2375,6 +2478,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 11 | Measures: 0
+- Purpose: Open purchase orders roll-up for expected receipts and supply pipeline tracking. Connected to: BomExplode, LocalDateTable_28c20cac-888b-4538-a823-25137df9cd49, LocalDateTable_45a22884-c4ea-4882-914f-fc0461507cee, +1 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2397,6 +2501,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 90 | Measures: 0
+- Purpose: Purchase order headers (vendor, order/create/request dates) supporting supply analytics. Connected to: LocalDateTable_2533e4b4-53c6-4ebe-ba3e-245bc60aca27, LocalDateTable_306ec365-ee5c-48b0-817a-bb55fab1f7dd, LocalDateTable_bf5a6c24-ce3c-4867-b232-647bc0bb9704, +3 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2498,6 +2603,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 49 | Measures: 0
+- Purpose: Purchase order line items for supply pipeline (ordered/received quantities, item-level). Connected to: LocalDateTable_e625c4bb-ecb1-495f-92aa-dfa55fafbfc6, popord, portrs, +4 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2558,6 +2664,7 @@
 - Source: ODBC
 - Source Details: DSN=SQL_VAM
 - Columns: 43 | Measures: 0
+- Purpose: Purchase receipts history for lead-time and receiving performance analysis. Connected to: LocalDateTable_a6ba691e-6a12-4891-974e-d039390c6e2f, LocalDateTable_fdf4e832-198b-4819-8461-58c173daf297, LocalDateTable_db98402b-f911-403f-9535-de59710e5373, +1 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2611,6 +2718,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 6 | Measures: 0
+- Purpose: Operational table in ERP/domain used in planning and reporting.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2627,6 +2735,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 5 | Measures: 0
+- Purpose: Sales quantities by item/week for trend and forecast baselines. Connected to: icitem, DimFW_16wk, InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2642,6 +2751,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 1 | Measures: 1
+- Purpose: Operational fact table supporting KPIs and calculations across dates and items. Contains 1 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2656,6 +2766,7 @@
 - Mode: import
 - Source: SQL.Database (M)
 - Columns: 107 | Measures: 0
+- Purpose: Sales order headers from ERP (customer, dates, currency) for order-level analysis. Connected to: LocalDateTable_c989d75e-f4f7-4195-a057-09642b6a3e08, LocalDateTable_0f48c02a-c304-4319-afbf-47278d8af4d3, LocalDateTable_179b2012-4e82-4023-bc47-b8fb234bc197, +2 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2773,6 +2884,7 @@
 - Mode: import
 - Source: SQL.Database (M)
 - Columns: 60 | Measures: 0
+- Purpose: Sales order line details (items, qty, price, requested dates) for detailed demand analysis. Connected to: LocalDateTable_58f9c8e4-e272-415b-8705-e7bcc3d96423, LocalDateTable_77b9f11f-ed39-4bfd-8bf3-a327089e339a, sosord, +1 more.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2844,6 +2956,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 8 | Measures: 0
+- Purpose: Special item set or program tagging used for prioritization/filters. Connected to: InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2863,6 +2976,7 @@
 - Source: Excel
 - Source Details: Path=F:\21 - Supply Chain\Brandon M 2025\Phil Cheesman\Excel\MakeBuy.xlsx
 - Columns: 2 | Measures: 0
+- Purpose: Reference mapping of items to Make/Buy classifications used in segmentation. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2875,6 +2989,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 2 | Measures: 0
+- Purpose: Holiday calendar to adjust lead-time and schedule-based calculations. Connected to: LocalDateTable_b39b6784-4ac6-4eb8-8acd-85a6a15ad6c6.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2888,6 +3003,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=keltec
 - Columns: 51 | Measures: 5
+- Purpose: Open sales orders fact view for demand/ship readiness, joined to item/date and warehouse context. Connected to: LocalDateTable_7c899eab-c9e7-4789-b011-6f3f53ef34d3, LocalDateTable_8f97712b-2546-4d2d-82a5-683b78f8d7dc, icitem, +3 more. Contains 5 measure(s) used in KPIs/availability logic.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2956,6 +3072,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 4 | Measures: 0
+- Purpose: Open sales orders fact view for demand/ship readiness, joined to item/date and warehouse context. Connected to: vsp_rpt_soopen.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2970,6 +3087,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 4 | Measures: 0
+- Purpose: Open sales orders fact view for demand/ship readiness, joined to item/date and warehouse context.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -2984,6 +3102,7 @@
 - Mode: import
 - Source: Calculated (DAX)
 - Columns: 7 | Measures: 0
+- Purpose: Open sales orders fact view for demand/ship readiness, joined to item/date and warehouse context. Connected to: vsp_rpt_soopen.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -3002,6 +3121,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=keltec
 - Columns: 41 | Measures: 0
+- Purpose: Open sales orders fact view for demand/ship readiness, joined to item/date and warehouse context. Connected to: LocalDateTable_c75e5b22-99a1-4e17-9379-34b867135069, LocalDateTable_35fee8fe-e636-4e47-9d6a-44c5a1ea8a35, InventorySummary.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |
@@ -3054,6 +3174,7 @@
 - Source: SQL.Database (M)
 - Source Details: Server=keltec-sql:1433, Database=mckeltec
 - Columns: 5 | Measures: 0
+- Purpose: Work orders (released/needed quantities and dates) feeding supply availability calculations. Connected to: icitem.
 
 ### Columns
 | Name | Data Type | Calc? | Source Column | Format |

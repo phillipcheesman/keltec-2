@@ -117,6 +117,107 @@ foreach ($tf in $tableFiles) {
     $tables += (Parse-TableFile -Path $tf.FullName)
 }
 
+# Parse relationships to capture connectivity per table
+$relationshipsPath = (Join-Path (Split-Path $ModelRoot -Parent) 'relationships.tmdl')
+$connections = @{}
+if (Test-Path $relationshipsPath) {
+    $relLines = Get-Content -Path $relationshipsPath -Encoding UTF8
+    $curFrom = $null; $curTo = $null
+    foreach ($ln in $relLines) {
+        if ($ln -match '^\s*relationship\s+') { $curFrom = $null; $curTo = $null; continue }
+        $mFrom = [Regex]::Match($ln, '^\s*fromColumn:\s*([^\.]+)\.(.+)$')
+        $mTo   = [Regex]::Match($ln, '^\s*toColumn:\s*([^\.]+)\.(.+)$')
+        if ($mFrom.Success) { $curFrom = $mFrom.Groups[1].Value.Trim() }
+        if ($mTo.Success)   { $curTo   = $mTo.Groups[1].Value.Trim() }
+        if ($curFrom -and $curTo) {
+            if (-not $connections.ContainsKey($curFrom)) { $connections[$curFrom] = New-Object System.Collections.Generic.HashSet[string] }
+            if (-not $connections.ContainsKey($curTo))   { $connections[$curTo]   = New-Object System.Collections.Generic.HashSet[string] }
+            [void]$connections[$curFrom].Add($curTo)
+            [void]$connections[$curTo].Add($curFrom)
+            $curFrom = $null; $curTo = $null
+        }
+    }
+}
+
+# Build quick lookup of table metadata by name
+$byName = @{}
+foreach ($t in $tables) { $byName[$t.Name] = $t }
+
+# Cross-reference usage: which files reference each table in DAX/M
+function Get-ReferencesForTable {
+    param([string]$TableName)
+    $refs = New-Object System.Collections.Generic.HashSet[string]
+    $pattern1 = "\b" + [Regex]::Escape($TableName) + "\s*\["      # CriticalA[Col]
+    $pattern2 = "'" + [Regex]::Escape($TableName) + "'\s*\["       # 'CriticalA'[Col]
+    $pattern3 = "\b" + [Regex]::Escape($TableName) + "\b"          # generic mention
+    foreach ($f in $tableFiles) {
+        try { $text = [System.IO.File]::ReadAllText($f.FullName) } catch { $text = $null }
+        if ($null -eq $text) { continue }
+        if ($text -match $pattern1 -or $text -match $pattern2) {
+            if ($f.BaseName -ne $TableName) { [void]$refs.Add($f.BaseName) }
+        }
+    }
+    return ,@($refs)
+}
+
+function Get-PurposeNote {
+    param($t)
+    $name = $t.Name
+    $src = $t.SourceType
+    $conns = @()
+    if ($connections.ContainsKey($name)) { $conns = @($connections[$name]) }
+    $refBy = Get-ReferencesForTable -TableName $name
+    $isFactish = ($t.MeasuresCount -gt 0) -or ($name -match '(sostrs|sosord|soopen|poptrs|popord|portrs|InvEvents|Sales|Summary|Events)')
+    $isDimish = ($name -match '^(Dim|Date|LocalDateTable_)|(^icitem$)')
+
+    $purpose = $null
+
+    if ($t.IsSystem) {
+        $purpose = "Auto-generated date dimension for time intelligence and date slicing."
+    }
+    elseif ($name -match '^DimDate$') { $purpose = "Conformed date dimension with standard calendar attributes for joining facts." }
+    elseif ($name -match '^DimItem$' -or $name -match '^icitem$') { $purpose = "Item master dimension from ERP with item attributes used to slice/report facts." }
+    elseif ($name -match '^InvEvents') { $purpose = "Inventory movement events fact, used to compute running on-hand and projected availability over time." }
+    elseif ($name -match '^InventorySummary$') { $purpose = "Item-level inventory planning snapshot combining OH, reorder points, SO/WO horizons, and safety stock metrics; supports availability and stockout analyses." }
+    elseif ($name -match '^vsp_rpt_soopen') { $purpose = "Open sales orders fact view for demand/ship readiness, joined to item/date and warehouse context." }
+    elseif ($name -match '^sosord$') { $purpose = "Sales order headers from ERP (customer, dates, currency) for order-level analysis." }
+    elseif ($name -match '^sostrs$') { $purpose = "Sales order line details (items, qty, price, requested dates) for detailed demand analysis." }
+    elseif ($name -match '^popord$') { $purpose = "Purchase order headers (vendor, order/create/request dates) supporting supply analytics." }
+    elseif ($name -match '^poptrs$') { $purpose = "Purchase order line items for supply pipeline (ordered/received quantities, item-level)." }
+    elseif ($name -match '^portrs$') { $purpose = "Purchase receipts history for lead-time and receiving performance analysis." }
+    elseif ($name -match '^iciwhs$') { $purpose = "Item-warehouse balances (on hand, booked, allocated) by site; core for inventory positions." }
+    elseif ($name -match '^icibin') { $purpose = "Item-bin balances (on hand/available) to calculate OH and weeks-of-supply by storage bin." }
+    elseif ($name -match '^ictwhs$') { $purpose = "Item totals by warehouse (summary) used in availability and stocking logic." }
+    elseif ($name -match '^ictrsn$') { $purpose = "Inventory transaction history fact (trans dates, quantities) for movement and reconciliation." }
+    elseif ($name -match '^ItemStats') { $purpose = "Item demand statistics over 16 weeks (avg, stddev, totals) used for safety stock and RP logic." }
+    elseif ($name -match '^SalesByItemWeek') { $purpose = "Sales quantities by item/week for trend and forecast baselines." }
+    elseif ($name -match '^mc(item|iwhs|flog|fwip|wlog|wwip|schd|schdh)') { $purpose = "Manufacturing control tables (WIP, logs, schedules) supporting WO readiness and capacity context." }
+    elseif ($name -match '^WO$') { $purpose = "Work orders (released/needed quantities and dates) feeding supply availability calculations." }
+    elseif ($name -match '^BomExplode$') { $purpose = "BOM explosion mapping top items to components with required dates; used for component supply planning." }
+    elseif ($name -match '^OpenPO$') { $purpose = "Open purchase orders roll-up for expected receipts and supply pipeline tracking." }
+    elseif ($name -match '^US_Holidays$') { $purpose = "Holiday calendar to adjust lead-time and schedule-based calculations." }
+    elseif ($name -match '^tblMakeBuy$') { $purpose = "Reference mapping of items to Make/Buy classifications used in segmentation." }
+    elseif ($name -match '^SPSCItems$') { $purpose = "Special item set or program tagging used for prioritization/filters." }
+    elseif ($name -match '^Config$') { $purpose = "Model configuration table for feature toggles or parameters." }
+    elseif ($name -match '^CriticalA$') { $purpose = "Business input list of critical items and baseline settings to drive targeted review." }
+    else {
+        if ($isFactish) { $purpose = "Operational fact table supporting KPIs and calculations across dates and items." }
+        elseif ($isDimish) { $purpose = "Dimension table providing descriptive attributes for slicing and grouping measures." }
+        else { $purpose = "Operational table in ERP/domain used in planning and reporting." }
+    }
+
+    # Add brief context on connections and measures
+    $connNote = $null
+    if ($conns.Count -gt 0) {
+        $sample = ($conns | Select-Object -First 3) -join ', '
+        $more = if ($conns.Count -gt 3) { ", +$($conns.Count-3) more" } else { '' }
+        $connNote = " Connected to: $sample$more."
+    }
+    $measNote = if ($t.MeasuresCount -gt 0) { " Contains $($t.MeasuresCount) measure(s) used in KPIs/availability logic." } else { '' }
+
+    return ($purpose + $connNote + $measNote)
+}
+
 # Save JSON
 $jsonOut = [ordered]@{
     GeneratedAt = (Get-Date).ToString('s')
@@ -164,6 +265,7 @@ foreach ($t in $tables) {
         $md += "- Source Details: $([string]::Join(', ', $pairs))"
     }
     $md += "- Columns: $($t.ColumnsCount) | Measures: $($t.MeasuresCount)"
+    $md += "- Purpose: $(Get-PurposeNote -t $t)"
     $md += ""
     if ($t.Columns.Count -gt 0) {
         $md += "### Columns"
