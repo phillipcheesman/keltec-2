@@ -14,7 +14,7 @@ table Config
 		mode: import
 		source = ```
 				
-				DATATABLE( "HorizonDays", INTEGER, { { 14 } } )
+				DATATABLE( "HorizonDays", INTEGER, { { 16 } } )
 				
 				```
 

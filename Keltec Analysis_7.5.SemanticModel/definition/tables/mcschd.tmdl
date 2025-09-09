@@ -154,7 +154,7 @@ table mcschd
 	column MakePriority = RELATED(InventorySummary[MakePriority_v3])
 		formatString: #,0
 		lineageTag: ce6b5461-3c90-44ae-882d-1b448291a161
-		summarizeBy: none
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 

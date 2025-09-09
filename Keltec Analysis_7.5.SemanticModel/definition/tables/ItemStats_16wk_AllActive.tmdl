@@ -91,6 +91,11 @@ table ItemStats_16wk_AllActive
 
 		annotation SummarizationSetBy = Automatic
 
+	column cprodline
+		lineageTag: 8aa978e6-52e6-4b86-9947-e6d50c38d631
+		isNameInferred
+		sourceColumn: ActiveItems[cprodline]
+
 	partition ItemStats_16wk_AllActive = calculated
 		mode: import
 		source = ```

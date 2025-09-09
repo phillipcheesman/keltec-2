@@ -41,6 +41,14 @@ table ActiveItems
 
 		annotation SummarizationSetBy = Automatic
 
+	column cprodline
+		lineageTag: 3d6d0479-b1d3-46a6-b65a-c8c9db9d2cac
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: icitem[cprodline]
+
+		annotation SummarizationSetBy = Automatic
+
 	partition ActiveItems = calculated
 		mode: import
 		source =
@@ -54,6 +62,7 @@ table ActiveItems
 				    icitem[cdescript],
 				    icitem[ctype],
 				    icitem[cbuyer],
+				    icitem[cprodline],
 				    tblMakeBuy[M vs B]
 				    )
 
