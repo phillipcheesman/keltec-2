@@ -1339,7 +1339,7 @@ table InventorySummary
 			    TRUE(),
 			    InventorySummary[HW?] = 0, "HW Shortage",
 			    InventorySummary[WksAvail.t] > 6 || InventorySummary[SO.t] = 0, "Low Priority",
-			    InventorySummary[WksSched] > 10, "Sched Qty High",
+			    InventorySummary[WksSched] > 10, "High Run Qty",
 			    InventorySummary[Avail.t] < 0 , "MTO",
 			    "MTS"
 			)

@@ -437,6 +437,7 @@ relationship b69abf96-dd42-443d-dcb8-5481080f73bc
 	toColumn: InventorySummary.citemno
 
 relationship f0538ae7-6e5a-ab7b-55a0-3e2b07ddd495
+	crossFilteringBehavior: bothDirections
 	fromColumn: mcschd.citemno
 	toColumn: InventorySummary.citemno
 
